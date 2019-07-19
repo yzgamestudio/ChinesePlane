@@ -1,0 +1,14 @@
+{
+  level1:[{word:'富',conponent:{'宀','一','口','田'}},
+          {word:'坚',conponent:{'丨','丨','又','土'}},
+		  {word:'义',conponent:{'丿','乀','丶'}},
+		  {word:'博',conponent:{'十','甫','寸'}}],
+  level2:[{word:'中',conponent:{'丨','口'}},
+          {word:'轰',conponent:{'车','又','又'}},
+		  {word:'强',conponent:{'弓','虽'}},
+		  {word:'嘉',conponent:{'十','豆','加'}}],
+  level3:[{word:'武',conponent:{'弋','止'}}，
+          {word:'置',conponent:{'罒','直'}}，
+		  {word:'随',conponent:{'阝','辶','有'}}，
+		  {word:'靖',conponent:{'立','丨','三','月'}}]
+}
