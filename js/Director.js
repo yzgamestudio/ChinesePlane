@@ -20,6 +20,9 @@ export class Director {
   run(){
     const backgroundSprie = this.dataStore.get('background');
     backgroundSprie.draw();
+
+    const player = this.dataStore.get('player');
+    player.draw();
     
     //  如何实现动画无限渲染
     let timer = requestAnimationFrame(() => this.run());

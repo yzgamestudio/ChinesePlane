@@ -22,7 +22,6 @@ export class Sprite {
     this.srcH = srcH;
     this.x = x;
     this.y = y;
-    console.log('y' + this.y);
     this.width = width;
     this.height = height;
   }
