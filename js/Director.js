@@ -7,7 +7,7 @@ export class Director {
 
   constructor() {
     this.dataStore = DataStore.getInstance();
-    this.speed = 2;
+    this.speed = 2; // 每一阵
   }
 
   static getInstance() {

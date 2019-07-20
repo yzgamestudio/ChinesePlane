@@ -3,6 +3,7 @@ import { Director } from '/js/Director.js'
 import { DataStore } from '/js/base/DataStore.js'
 import {BackGround} from '/js/runtime/BackGround.js'
 import {Player} from "./js/player/Player.js"
+import {Enemy} from "./js/npc/Enemy";
 
 
 // 开始类
@@ -15,7 +16,9 @@ export class Main {
     loader.onLoaded(map => this.onResourceFirstLoaded(map));
   }
 
+  // 所有资源加载完毕后才能渲染
   onResourceFirstLoaded(map) {
+    // 将画笔和画布放在dataStore方便精灵使用
     this.dataStore.ctx = this.context;
     this.dataStore.res = map;
     this.dataStore.canvas = this.canvas;
@@ -23,8 +26,10 @@ export class Main {
   }
 
   init() {
+    // 初始化精灵，同时放入dataStore，方便销毁销毁
     this.dataStore.put('background', new BackGround);
     this.dataStore.put('player', new Player);
+    this.dataStore.put('enempy', new  Enemy);
     Director.getInstance().run();
   }
 

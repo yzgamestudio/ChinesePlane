@@ -19,7 +19,7 @@ export  class  Player extends  Sprite{
             var x= touch.clientX;
             var y = touch.clientY;
             if(that.checkIsFingerOnAir(x, y)){
-                that.touch = true;
+                that.touch = true; // 标记手指按下的飞机
             }else {
                 that.touch = false;
             }
@@ -30,12 +30,12 @@ export  class  Player extends  Sprite{
             var x= touch.clientX;
             var y = touch.clientY;
             if (that.touch) {
-                that.moveAirOnPostion(x,y);
+                that.moveAirOnPostion(x,y); // 移动到指定位置
             }
         })
 
         wx.onTouchEnd(function (e) {
-            that.touch = false;
+            that.touch = false; // 离开时标记为touch = false
         })
 
     }
