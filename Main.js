@@ -29,7 +29,7 @@ export class Main {
     // 初始化精灵，同时放入dataStore，方便销毁销毁
     this.dataStore.put('background', new BackGround);
     this.dataStore.put('player', new Player);
-    this.dataStore.put('enempy', new  Enemy);
+    this.dataStore.put('enemy', new  Enemy);
     Director.getInstance().run();
   }
 

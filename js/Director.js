@@ -23,6 +23,9 @@ export class Director {
 
     const player = this.dataStore.get('player');
     player.draw();
+
+    const ememy = this.dataStore.get('enemy');
+    ememy.draw();
     
     //  如何实现动画无限渲染
     let timer = requestAnimationFrame(() => this.run());
