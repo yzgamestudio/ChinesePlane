@@ -1,5 +1,5 @@
 import { DataStore } from './base/DataStore.js'
-import {BackGround} from "./runtime/BackGround.js";
+import { Sprite } from "./base/Sprite.js";
 
 
 // 开始类
@@ -11,13 +11,13 @@ export class Director {
   }
 
   static getInstance() {
-    if(!Director.instance) {
+    if (!Director.instance) {
       Director.instance = new Director();
     }
     return Director.instance;
   }
 
-  run(){
+  run() {
     const backgroundSprie = this.dataStore.get('background');
     backgroundSprie.draw();
 
@@ -26,9 +26,19 @@ export class Director {
 
     const ememy = this.dataStore.get('enemy');
     ememy.draw();
-    
+
+    this.judgePlayerCollideEnemy();
+
     //  如何实现动画无限渲染
     let timer = requestAnimationFrame(() => this.run());
+  }
+
+  judgePlayerCollideEnemy() {
+    const player = this.dataStore.get('player');
+    const ememy = this.dataStore.get('enemy');
+    if (player.isCollide(ememy)) {
+     
+    }
   }
 
 }

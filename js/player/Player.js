@@ -10,6 +10,8 @@ export  class  Player extends  Sprite{
         super(img,
               0, 0, img.width, img.height,
               x, y, img.width, img.height);
+              
+        this.enableCollide = true;
 
         //  如何让精灵随手指移动
         this.touch = false;

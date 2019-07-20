@@ -10,6 +10,7 @@ export class Enemy extends Sprite {
         super(image,
             0, 0, image.width, image.height,
             x, y ,image.width, image.height);
+        this.enableCollide = true;
     }
 
     draw() {
