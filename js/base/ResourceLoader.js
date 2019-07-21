@@ -1,6 +1,6 @@
 // 资源文件加载器 确认canvas图片资源加载后才进行渲染
 
-import {Resources} from './Resources.js'
+import { Resources } from './Resources.js'
 
 export class ResourceLoader {
 

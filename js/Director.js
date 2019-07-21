@@ -20,6 +20,17 @@ export class Director {
 
   run() {
 
+    this.drawSprites();
+
+    if(this.judgePlayerCollideEnemy()) {
+      return; // 不再渲染下一帧
+    }
+
+    requestAnimationFrame(() => this.run());
+
+  }
+
+  drawSprites(){
     const backgroundSprie = this.dataStore.get('background');
     backgroundSprie.draw(3);
 
@@ -27,23 +38,12 @@ export class Director {
     player.draw();
 
     const ememies = this.dataStore.get('enemy');
-  
+
     for (let i = 0; i < ememies.length; i++) {
       let enemy = ememies[i];
       enemy.draw();
     }
 
-
-    let isGameOver = false;
-    if(this.judgePlayerCollideEnemy()) {
-      isGameOver = true;
-    }
-
-    //  如何实现动画无限渲染
-    if (!isGameOver){
-      let timer = requestAnimationFrame(() => this.run());
-
-    }
   }
 
   judgePlayerCollideEnemy() {
