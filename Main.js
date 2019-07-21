@@ -3,7 +3,9 @@ import { Director } from '/js/Director.js'
 import { DataStore } from '/js/base/DataStore.js'
 import {BackGround} from '/js/runtime/BackGround.js'
 import {Player} from "./js/player/Player.js"
-import {Enemy} from "./js/npc/Enemy";
+import {Enemy} from "./js/npc/Enemy.js"
+import {GameOver} from "./js/runtime/GameOver";
+
 
 const EMEMYCOUNT = 20;
 
@@ -43,6 +45,8 @@ export class Main {
       enemies[i] = enemy;
     }
     this.dataStore.put('enemy', enemies);
+
+    this.dataStore.put('gameOver', new  GameOver);
   }
 
 }

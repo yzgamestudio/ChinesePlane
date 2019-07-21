@@ -1,7 +1,4 @@
 import { DataStore } from './base/DataStore.js';
-import { Sprite } from "./base/Sprite.js";
-// import {Enemy}
-
 
 // 开始类
 export class Director {
@@ -23,6 +20,7 @@ export class Director {
     this.drawSprites();
 
     if(this.judgePlayerCollideEnemy()) {
+      this.drawGameOver();
       return; // 不再渲染下一帧
     }
 
@@ -56,6 +54,11 @@ export class Director {
       }
     }
     return  false;
+  }
+
+  drawGameOver() {
+    const gameOver = this.dataStore.get('gameOver');
+    gameOver.draw();
   }
 
   restart(){
