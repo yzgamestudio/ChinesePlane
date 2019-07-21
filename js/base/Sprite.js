@@ -73,10 +73,13 @@ export class Sprite {
 
     // 求两个矩形是否相连或相交，两个矩形的最小外包矩形宽小于两个矩形宽的和，
     // 且两个矩形最小外包矩形的的高小于两个矩形高的和
+    const offsetX = 10; // 由于图片自带留白，实际的外包矩形比可见的大
+    const offsetY = 13; // 由于图片自带留白，实际的外包矩形比可见的大
+
     let mbrWidth = mbrRight - mbrX;
     let mbrHeight = mbrBottom - mbrY;
-    if(this.width + otherSprite.width >= mbrWidth &&
-       this.height + otherSprite.height >= mbrHeight) {
+    if (this.width + otherSprite.width >= mbrWidth + offsetX &&
+      this.height + otherSprite.height >= mbrHeight + offsetY) {
       return true;
     } else {
       return false;

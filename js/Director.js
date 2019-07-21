@@ -18,9 +18,6 @@ export class Director {
   }
 
   run() {
-    if (this.dataStore.isGameOver) {
-      return;
-    }
 
     const backgroundSprie = this.dataStore.get('background');
     backgroundSprie.draw();
@@ -31,18 +28,25 @@ export class Director {
     const ememy = this.dataStore.get('enemy');
     ememy.draw();
 
-    this.judgePlayerCollideEnemy();
+    let isGameOver = false;
+    if(this.judgePlayerCollideEnemy()) {
+      isGameOver = true;
+    }
 
     //  如何实现动画无限渲染
-    let timer = requestAnimationFrame(() => this.run());
+    if (!isGameOver){
+      let timer = requestAnimationFrame(() => this.run());
+
+    }
   }
 
   judgePlayerCollideEnemy() {
     const player = this.dataStore.get('player');
     const ememy = this.dataStore.get('enemy');
     if (player.isCollide(ememy)) {
-      this.dataStore.isGameOver = true;
+      return true;
     }
+    return false;
   }
 
   restart(){
