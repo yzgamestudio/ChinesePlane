@@ -5,6 +5,7 @@ import {BackGround} from '/js/runtime/BackGround.js'
 import {Player} from "./js/player/Player.js"
 import {Enemy} from "./js/npc/Enemy";
 
+const EMEMYCOUNT = 10;
 
 // 开始类
 export class Main {
@@ -29,7 +30,15 @@ export class Main {
     // 初始化精灵，同时放入dataStore，方便销毁销毁
     this.dataStore.put('background', new BackGround);
     this.dataStore.put('player', new Player);
-    this.dataStore.put('enemy', new  Enemy);
+
+
+    let enemies = [];
+
+    for (let i = 0; i < EMEMYCOUNT; i++){
+      let enemy =  new Enemy();
+      enemies[i] = enemy;
+    }
+    this.dataStore.put('enemy', enemies);
     Director.getInstance().run();
   }
 

@@ -9,4 +9,8 @@ export class BackGround extends Sprite{
       0, 0, image.width, image.height,
       0, 0,DataStore.getInstance().canvas.width, DataStore.getInstance().canvas.height);
   }
+
+  draw(){
+    super.draw();
+  }
 }

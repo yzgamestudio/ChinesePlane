@@ -1,5 +1,6 @@
-import { DataStore } from './base/DataStore.js'
+import { DataStore } from './base/DataStore.js';
 import { Sprite } from "./base/Sprite.js";
+// import {Enemy}
 
 
 // 开始类
@@ -20,13 +21,18 @@ export class Director {
   run() {
 
     const backgroundSprie = this.dataStore.get('background');
-    backgroundSprie.draw();
+    backgroundSprie.draw(3);
 
     const player = this.dataStore.get('player');
     player.draw();
 
-    const ememy = this.dataStore.get('enemy');
-    ememy.draw();
+    const ememies = this.dataStore.get('enemy');
+  
+    for (let i = 0; i < ememies.length; i++) {
+      let enemy = ememies[i];
+      enemy.draw();
+    }
+
 
     let isGameOver = false;
     if(this.judgePlayerCollideEnemy()) {
@@ -42,11 +48,14 @@ export class Director {
 
   judgePlayerCollideEnemy() {
     const player = this.dataStore.get('player');
-    const ememy = this.dataStore.get('enemy');
-    if (player.isCollide(ememy)) {
-      return true;
+    const ememies = this.dataStore.get('enemy');
+    for (let i = 0; i < ememies.length; i++) {
+      let enemy = ememies[i];
+      if(player.isCollide(enemy)) {
+        return true;
+      }
     }
-    return false;
+    return  false;
   }
 
   restart(){
