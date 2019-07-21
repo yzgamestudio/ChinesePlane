@@ -10,8 +10,8 @@ export class GameOver    {
 
     }
 
-
     draw(){
+      //  如何封装一个组件
       this.drawBg();
       this.drawRestartButton();
      
