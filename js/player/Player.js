@@ -48,6 +48,7 @@ export  class  Player extends  Sprite{
               this.x, this.y, this.width, this.height);
     }
 
+    // 判读手指是否接触了飞机区域，offset是偏移，当靠近飞机 也认为是接触了飞机，因为图片总是有留白的
     checkIsFingerOnAir(x, y) {
         const canvas = DataStore.getInstance().canvas;
         const  offset = 10;
