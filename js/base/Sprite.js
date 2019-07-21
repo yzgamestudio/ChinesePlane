@@ -56,6 +56,7 @@ export class Sprite {
     )
   }
 
+  // 如何实现碰撞检测
   // 求两个矩形是否相连或相交，两个矩形的最小外包矩形宽小于两个矩形宽的和
   isCollide(otherSprite) {
     let result = false;
@@ -80,9 +81,6 @@ export class Sprite {
     } else {
       return false;
     }
- 
-
-
   }
 
 

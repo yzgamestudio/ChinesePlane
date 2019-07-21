@@ -6,7 +6,7 @@ export  class  Player extends  Sprite{
         const img = Sprite.getImage('player');
         const canvas = DataStore.getInstance().canvas;
         let  x = canvas.width * 0.5 - img.width * 0.5;
-        let y = canvas.height - 30 - img.height;
+        let y = canvas.height - 60 - img.height;
         super(img,
               0, 0, img.width, img.height,
               x, y, img.width, img.height);

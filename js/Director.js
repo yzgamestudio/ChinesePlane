@@ -18,6 +18,10 @@ export class Director {
   }
 
   run() {
+    if (this.dataStore.isGameOver) {
+      return;
+    }
+
     const backgroundSprie = this.dataStore.get('background');
     backgroundSprie.draw();
 
@@ -37,8 +41,16 @@ export class Director {
     const player = this.dataStore.get('player');
     const ememy = this.dataStore.get('enemy');
     if (player.isCollide(ememy)) {
-     
+      this.dataStore.isGameOver = true;
     }
   }
 
+  restart(){
+
+  }
+
+  gameOver(){
+
+  }
+  
 }
