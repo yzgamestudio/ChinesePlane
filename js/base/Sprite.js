@@ -75,7 +75,7 @@ export class Sprite {
     // 且两个矩形最小外包矩形的的高小于两个矩形高的和
     let mbrWidth = mbrRight - mbrX;
     let mbrHeight = mbrBottom - mbrY;
-    if(this.width + otherSprite.width <= mbrWidth ||
+    if(this.width + otherSprite.width >= mbrWidth &&
        this.height + otherSprite.height >= mbrHeight) {
       return true;
     } else {
