@@ -11,17 +11,7 @@ export class GameOver    {
 
 
     draw(){
-        // this.ctx.drawImage(
-        //     img,
-        //     srcX,
-        //     srcY,
-        //     srcW,
-        //     srcH,
-        //     x,
-        //     y,
-        //     width,
-        //     height
-        // )
+        
     }
 
 }

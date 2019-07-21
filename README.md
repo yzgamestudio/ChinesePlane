@@ -3,6 +3,8 @@
 
 
 -------base 
+    |-------Util 工具类
+        |-------------RandomUtil 随机数生成工具
     |-------DataStore.js 数据缓存管理：包括图片，canvas,精灵都可以从这里获取
     |-------ResourceLoader.js 资源加载类:负责加载所有的资源
     |-------Resource.js 资源：资源的路径
