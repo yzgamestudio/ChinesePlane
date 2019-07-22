@@ -15,7 +15,7 @@ export  class  Player extends  Sprite{
 
         //  如何让精灵随手指移动
         this.touch = false;
-        let that = this //  is not function bug fix
+        let that = this;//  is not function bug fix
         wx.onTouchStart(function (e) {
             let touch =e.changedTouches[0];
             var x= touch.clientX;

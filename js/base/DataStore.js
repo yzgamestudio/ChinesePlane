@@ -22,8 +22,8 @@ export class DataStore {
   }
 
   destory(){
-    for(let value of this.map.values) {
-      value = nil;
+    for(let value of this.map.values()) {
+      value = null;
     }
   }
 

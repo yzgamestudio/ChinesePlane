@@ -24,7 +24,9 @@ export class Director {
       return; // 不再渲染下一帧
     }
 
-    requestAnimationFrame(() => this.run());
+    let timer = requestAnimationFrame(() => this.run());
+    this.timer = timer;
+
 
   }
 
@@ -59,14 +61,13 @@ export class Director {
   drawGameOver() {
     const gameOver = this.dataStore.get('gameOver');
     gameOver.draw();
+    gameOver.userInterface = true;
+   
   }
 
   restart(){
-
+    cancelAnimationFrame(this.timer);
+    this.dataStore.destory();
   }
 
-  gameOver(){
-
-  }
-  
 }

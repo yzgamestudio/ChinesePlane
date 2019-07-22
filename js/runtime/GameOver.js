@@ -7,6 +7,14 @@ export class GameOver    {
         this.dataStore = DataStore.getInstance();
         this.ctx = this.dataStore.ctx;
         this.canvas = this.dataStore.canvas;
+        this.restartArea = {
+          left: this.canvas.width * 0.5 - 40,
+          top: this.canvas.height * 0.8,
+          width:80,
+          height:20
+        };
+        this.setupTouchEvent();
+        this.userInterface = false;
 
     }
 
@@ -30,5 +38,32 @@ export class GameOver    {
       this.ctx.fillText("点击重试", this.canvas.width * 0.5 - 40,  this.canvas.height * 0.8);
     }
 
+    setupTouchEvent() {
+      this.canvas = this.dataStore.canvas;
+      let area = {
+        left: this.canvas.width * 0.5 - 80,
+         top: this.canvas.height * 0.8 - 80,
+         width:100,
+         heigit:80
+      };
+      let that = this;
+      wx.onTouchStart(function (e) {
+        if (that.userInterface == false){
+          return;
+        }
+        let touch = e.changedTouches[0];
+        var x = touch.clientX;
+        var y = touch.clientY;
+        if (that.callback){
+          that.callback();
+        }
+      });
+    }
+
+    onClicked(callback){
+      this.callback = callback;
+      console.log('callback有值，callback被调用' + callback);
+    } 
+    
 
 }

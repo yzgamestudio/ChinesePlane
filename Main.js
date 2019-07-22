@@ -4,7 +4,7 @@ import { DataStore } from '/js/base/DataStore.js'
 import {BackGround} from '/js/runtime/BackGround.js'
 import {Player} from "./js/player/Player.js"
 import {Enemy} from "./js/npc/Enemy.js"
-import {GameOver} from "./js/runtime/GameOver";
+import {GameOver} from "./js/runtime/GameOver.js"
 
 
 const EMEMYCOUNT = 20;
@@ -45,8 +45,14 @@ export class Main {
       enemies[i] = enemy;
     }
     this.dataStore.put('enemy', enemies);
-
     this.dataStore.put('gameOver', new  GameOver);
+    const gameOver = this.dataStore.get('gameOver');
+    gameOver.onClicked(() => {
+      gameOver.userInterface = false;
+      Director.getInstance().restart();
+      this.initSprites();
+      Director.getInstance().run();
+    });
   }
 
 }
