@@ -15,6 +15,9 @@ export class Director {
     return Director.instance;
   }
 
+  /**
+   * 游戏开始运行的循环
+   */
   run() {
 
     this.drawSprites();
@@ -29,6 +32,7 @@ export class Director {
 
 
   }
+
 
   drawSprites(){
     const backgroundSprie = this.dataStore.get('background');

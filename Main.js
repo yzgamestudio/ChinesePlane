@@ -25,6 +25,7 @@ export class Main {
     this.initDataStore(map);
     this.initSprites();
     Director.getInstance().run();
+    Director.getInstance().canvas = this.canvas;
 
   }
 

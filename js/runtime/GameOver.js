@@ -41,7 +41,7 @@ export class GameOver    {
     setupTouchEvent() {
       this.canvas = this.dataStore.canvas;
       let area = {
-        left: this.canvas.width * 0.5 - 80,
+         left: this.canvas.width * 0.5 - 80,
          top: this.canvas.height * 0.8 - 80,
          width:100,
          heigit:80
