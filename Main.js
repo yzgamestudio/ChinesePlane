@@ -48,6 +48,16 @@ export class Main {
     this.dataStore.put('gameOver', new  GameOver);
     const gameOver = this.dataStore.get('gameOver');
     gameOver.onClicked(() => {
+      //  点击重新开始需要做什么？
+      // 1. 取消定时器
+      // 2. 清空画布
+      // 3. 回收精灵
+      // 4. 重新初始化精灵
+      // 5. 用新精灵再次渲染和再次开启定时器
+
+      // 点击重新开始不需要做什么？
+      // 1.不需要情况永久内存永久数据：如ctx context, res(图是可以复用的，不要清空)
+
       gameOver.userInterface = false;
       Director.getInstance().restart();
       this.initSprites();

@@ -67,6 +67,7 @@ export class Director {
 
   restart(){
     cancelAnimationFrame(this.timer);
+    this.dataStore.ctx.clearRect(0,0, this.canvas.width, this.canvas.height);
     this.dataStore.destory();
   }
 
