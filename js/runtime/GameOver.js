@@ -15,7 +15,6 @@ export class GameOver    {
         };
         this.setupTouchEvent();
         this.userInterface = false;
-
     }
 
     draw(){
