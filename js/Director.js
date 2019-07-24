@@ -35,6 +35,7 @@ export class Director {
     }
 
     let timer = requestAnimationFrame(() => this.run());
+    debugger;
     this.timer = timer;
 
 
