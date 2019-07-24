@@ -1,5 +1,5 @@
 import { DataStore } from './base/DataStore.js';
-
+import  {Bullet}  from "./player/Bullet.js";
 // 开始类
 export class Director {
 
@@ -23,7 +23,11 @@ export class Director {
       this.drawGameOver();
       return; // 不再渲染下一帧
     }
-
+    this.dataStore.frame+=1;
+    if (this.dataStore.frame%20===0){
+      let bullet=new Bullet();
+      this.dataStore.put('bullet' + this.dataStore.frame.toString, bullet);
+    }
     let timer = requestAnimationFrame(() => this.run());
     this.timer = timer;
 

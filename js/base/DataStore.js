@@ -10,6 +10,7 @@ export class DataStore {
 
   constructor () {
     this.map = new Map();
+    this.frame = 0;
   }
 
   put(key, value) {

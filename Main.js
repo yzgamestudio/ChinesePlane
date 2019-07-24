@@ -12,9 +12,13 @@ const EMEMYCOUNT = 20;
 // 开始类
 export class Main {
   constructor(){
+    //创建画布对象，全局一个，创建后存入datastore
     this.canvas = wx.createCanvas();
+    //获取画笔对象，全局一个，创建后存入datastore
     this.context = this.canvas.getContext('2d');
+    //创建对象管理器
     this.dataStore = DataStore.getInstance();
+    //创建资源文件加载器
     const loader = ResourceLoader.create();
     loader.onLoaded(map => this.onResourceFirstLoaded(map));
   }
@@ -47,6 +51,7 @@ export class Main {
     this.dataStore.put('enemy', enemies);
     this.dataStore.put('gameOver', new  GameOver);
     const gameOver = this.dataStore.get('gameOver');
+    //监听到点击事件执行，重新开始游戏
     gameOver.onClicked(() => {
       gameOver.userInterface = false;
       Director.getInstance().restart();
