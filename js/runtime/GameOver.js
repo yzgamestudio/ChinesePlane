@@ -15,7 +15,6 @@ export class GameOver    {
         };
         this.setupTouchEvent();
         this.userInterface = false;
-
     }
 
     draw(){
@@ -41,12 +40,12 @@ export class GameOver    {
     setupTouchEvent() {
       this.canvas = this.dataStore.canvas;
       let area = {
-        left: this.canvas.width * 0.5 - 80,
+         left: this.canvas.width * 0.5 - 80,
          top: this.canvas.height * 0.8 - 80,
          width:100,
          heigit:80
       };
-      let that = this;
+      let that = this; // 18. 回调函数中找不到callback的解决方案？
       wx.onTouchStart(function (e) {
         if (that.userInterface == false){
           return;
@@ -54,12 +53,13 @@ export class GameOver    {
         let touch = e.changedTouches[0];
         var x = touch.clientX;
         var y = touch.clientY;
-        if (that.callback){
-          that.callback();
+        if (that.callback){ // 17.回调函数应该怎么写？
+            that.callback();
         }
       });
     }
 
+    // 17.回调函数应该怎么写？
     onClicked(callback){
       this.callback = callback;
       console.log('callback有值，callback被调用' + callback);

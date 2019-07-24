@@ -1,10 +1,13 @@
 import { DataStore } from './base/DataStore.js';
-import  {Bullet}  from "./player/Bullet.js";
+import {Enemy} from "./npc/Enemy";
+import {Bullet} from "./player/Bullet";
+
 // 开始类
 export class Director {
 
   constructor() {
     this.dataStore = DataStore.getInstance();
+    this.dataStore.frame = 0; // 帧数计数器，可以用来计算时间
     this.speed = 2; // 每一阵
   }
 
@@ -15,24 +18,29 @@ export class Director {
     return Director.instance;
   }
 
+  /**
+   * 游戏开始运行的循环
+   */
   run() {
 
     this.drawSprites();
-
+    
+    this.dataStore.frame++;
+    if (this.dataStore.frame%20===0){
+      let bullet=new Bullet();
+    }
     if(this.judgePlayerCollideEnemy()) {
       this.drawGameOver();
       return; // 不再渲染下一帧
     }
-    this.dataStore.frame+=1;
-    if (this.dataStore.frame%20===0){
-      let bullet=new Bullet();
-      this.dataStore.put('bullet' + this.dataStore.frame.toString, bullet);
-    }
+
     let timer = requestAnimationFrame(() => this.run());
+    debugger;
     this.timer = timer;
 
 
   }
+
 
   drawSprites(){
     const backgroundSprie = this.dataStore.get('background');
@@ -42,6 +50,17 @@ export class Director {
     player.draw();
 
     const ememies = this.dataStore.get('enemy');
+
+    ememies.forEach((enemy, index, array) => {
+      if(enemy.y >= this.dataStore.canvas.height) {
+        array.splice(index, 1);
+      }
+    });
+
+    while (ememies.length < 20) {
+      ememies.push(new Enemy());
+    } 
+    
 
     for (let i = 0; i < ememies.length; i++) {
       let enemy = ememies[i];
@@ -66,7 +85,6 @@ export class Director {
     const gameOver = this.dataStore.get('gameOver');
     gameOver.draw();
     gameOver.userInterface = true;
-   
   }
 
   restart(){
