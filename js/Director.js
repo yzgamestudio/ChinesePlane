@@ -1,6 +1,7 @@
 import { DataStore } from './base/DataStore.js';
 import {Enemy} from "./npc/Enemy";
-//import {Bullet} from "./player/Bullet.js";
+import {Bullet} from "./player/Bullet";
+
 // 开始类
 export class Director {
 
@@ -26,7 +27,7 @@ export class Director {
     
     this.dataStore.frame++;
     if (this.dataStore.frame%20===0){
-      //let bullet=new Bullet();
+      let bullet=new Bullet();
     }
     if(this.judgePlayerCollideEnemy()) {
       this.drawGameOver();

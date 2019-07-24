@@ -1,6 +1,10 @@
-import  Sprite  from "../base/Sprite";
-import  DataStore  from "../base/DataStore";
-export default class Bullet extends Sprite{
+// import  Sprite  from "../base/Sprite";
+// import  DataStore  from "../base/DataStore";
+import  {Sprite} from "../base/Sprite";
+import {DataStore} from "../base/DataStore";
+
+
+export class Bullet extends Sprite{
   constructor(){
     const img = Sprite.getImage('bullet');
     const player = DataStore.getInstance().get('player');
