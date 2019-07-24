@@ -5,6 +5,7 @@ import {BackGround} from '/js/runtime/BackGround.js'
 import {Player} from "./js/player/Player.js"
 import {Enemy} from "./js/npc/Enemy.js"
 import {GameOver} from "./js/runtime/GameOver.js"
+import { Bullet } from "./js/player/Bullet.js"
 
 
 const EMEMYCOUNT = 20;
@@ -43,6 +44,9 @@ export class Main {
     // 初始化精灵，同时放入dataStore，方便销毁销毁
     this.dataStore.put('background', new BackGround);
     this.dataStore.put('player', new Player);
+    let bullets=[];
+    bullets.push(new Bullet);
+    this.dataStore.put('bullet', bullets);
 
     let enemies = [];
     for (let i = 0; i < EMEMYCOUNT; i++){

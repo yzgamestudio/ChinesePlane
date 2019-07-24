@@ -1,6 +1,12 @@
-import { DataStore } from './base/DataStore.js';
-import {Enemy} from "./npc/Enemy";
-import {Bullet} from "./player/Bullet";
+import {
+  DataStore
+} from './base/DataStore.js';
+import {
+  Enemy
+} from "./npc/Enemy";
+import {
+  Bullet
+} from "./player/Bullet";
 
 // 开始类
 export class Director {
@@ -22,27 +28,22 @@ export class Director {
    * 游戏开始运行的循环
    */
   run() {
-
+    this.judgeBulletCollideEnemy();
     this.drawSprites();
-    
     this.dataStore.frame++;
-    if (this.dataStore.frame%20===0){
-      let bullet=new Bullet();
-    }
-    if(this.judgePlayerCollideEnemy()) {
+    if (this.judgePlayerCollideEnemy()) {
       this.drawGameOver();
       return; // 不再渲染下一帧
     }
 
     let timer = requestAnimationFrame(() => this.run());
-    debugger;
     this.timer = timer;
 
 
   }
 
 
-  drawSprites(){
+  drawSprites() {
     const backgroundSprie = this.dataStore.get('background');
     backgroundSprie.draw(3);
 
@@ -52,21 +53,43 @@ export class Director {
     const ememies = this.dataStore.get('enemy');
 
     ememies.forEach((enemy, index, array) => {
-      if(enemy.y >= this.dataStore.canvas.height) {
+      if (enemy.y >= this.dataStore.canvas.height||enemy.isPlaying===false) {
         array.splice(index, 1);
       }
     });
 
     while (ememies.length < 20) {
       ememies.push(new Enemy());
-    } 
-    
+    }
+
 
     for (let i = 0; i < ememies.length; i++) {
       let enemy = ememies[i];
       enemy.draw();
     }
-
+    const bullets = this.dataStore.get('bullet');
+    bullets.push(new Bullet)
+    bullets.forEach((bullet, index, array) => {
+      if (bullet.y < 0||bullet.isvisible===false) {
+        array.splice(index, 1);
+      }
+      bullet.draw();
+    })
+  }
+  judgeBulletCollideEnemy() {
+    let enemies = this.dataStore.get('enemy');
+    let bullets = this.dataStore.get('bullet');
+    bullets.forEach((bullet) => {
+      for (let i = 0, il = enemies.length; i < il; i++) {
+        let enemy = enemies[i];
+        let isCollide = enemy.isCollide(bullet)
+        if (enemy.isPlaying && isCollide ) {
+          bullet.visible = false;
+          enemy.isPlaying = false;
+          break;
+        }
+      }
+    })
   }
 
   judgePlayerCollideEnemy() {
@@ -74,11 +97,11 @@ export class Director {
     const ememies = this.dataStore.get('enemy');
     for (let i = 0; i < ememies.length; i++) {
       let enemy = ememies[i];
-      if(player.isCollide(enemy)) {
+      if (player.isCollide(enemy)) {
         return true;
       }
     }
-    return  false;
+    return false;
   }
 
   drawGameOver() {
@@ -87,7 +110,7 @@ export class Director {
     gameOver.userInterface = true;
   }
 
-  restart(){
+  restart() {
     cancelAnimationFrame(this.timer);
     this.dataStore.destory();
   }

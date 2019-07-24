@@ -7,16 +7,21 @@ import {DataStore} from "../base/DataStore";
 export class Bullet extends Sprite{
   constructor(){
     const img = Sprite.getImage('bullet');
-    const player = DataStore.getInstance().get('player');
+    var spritex = DataStore.getInstance().get('player').x;
+    var spritey = DataStore.getInstance().get('player').y;
+    var spriteWidth = DataStore.getInstance().get('player').width;
+    var spriteHeight = DataStore.getInstance().get('player').height;
     const canvas = DataStore.getInstance().canvas;
-    let x = player.x - player.width * 0.5;
-    let y = player.y+10;
+    var  x = spritex + spriteWidth /2-8;
+    var  y = spritey+10;
     super(img,
       0, 0, img.width, img.height,
       x, y, 16, 30)
+    this.isvisible=true;
+    this.enableCollide = true;
   }
   draw(){
-    this.y=this.y-5;
+    this.y=this.y-30;
     super.draw();
   }
 }

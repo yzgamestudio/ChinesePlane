@@ -19,6 +19,7 @@ export class Enemy extends Sprite {
 
     this.enableCollide = true;
     this.speed = RandomUtil.random(MINSPEED, MAXSPEED);  // 随机生成一个速度speed
+    this.isPlaying=true;
   }
 
   draw() {
