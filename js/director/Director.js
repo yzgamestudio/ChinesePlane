@@ -1,5 +1,6 @@
 import {LevelSelect} from "../runtime/LevelSelect";
 import {FisrtSubDirector} from "./FisrtSubDirector";
+import {SecondSubDirector} from "./SecondSubDirector";
 
 // 开始类
 export class Director {
@@ -9,13 +10,7 @@ export class Director {
   }
 
   setup(){
-    this.subDirectors = [];
-    // this.drawLevelSelect();
-
-    // mock 先mock
-    let firstLevelSubDirector = new FisrtSubDirector();
-    firstLevelSubDirector.run();
-    this.subDirectors.push(firstLevelSubDirector);
+    this.drawLevelSelect();
   }
 
   drawLevelSelect(){
@@ -28,16 +23,23 @@ export class Director {
 
   setupLevelSubDirector(level){
     // 此处可以用工厂模式进行优化，暂时不考虑这个问题
-    if (level === 1){
-      let firstLevelSubDirector = new FisrtSubDirector();
-      firstLevelSubDirector.onPressLevelSelectMenu(()=>
-      {
-        this.levelSelect.draw();
-        this.subDirectors = [];
-      });
-      firstLevelSubDirector.setupSprits().run();
-      this.subDirectors.push(firstLevelSubDirector);
+
+    let levelDirector;
+    if (level === 1) {
+       levelDirector = new FisrtSubDirector();
     }
+    if (level === 2) {
+      levelDirector = new SecondSubDirector();
+    }
+
+    let that = this;
+    levelDirector.onPressLevelSelectMenu(()=> {
+      that.currentLevelDirector = null;
+    });
+
+    levelDirector.setupSprits().run();
+
+    this.currentLevelDirector = levelDirector;
   }
 
 }
