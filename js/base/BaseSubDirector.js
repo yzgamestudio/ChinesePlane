@@ -31,6 +31,7 @@ export class BaseSubDirector {
     drawGameOver() {
         const gameOver = this.dataStore.get('gameOver');
         gameOver.draw();
+        gameOver.onClicked(()=>this.callback());
         gameOver.userInterface = true;
     }
 
@@ -43,9 +44,10 @@ export class BaseSubDirector {
 
 
     onPressLevelSelectMenu(callback){
+        cancelAnimationFrame(this.timer);
+        this.dataStore.destory();
         this.callback = callback;
     }
-
 
     isGameOver() {
         return false;

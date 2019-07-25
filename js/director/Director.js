@@ -1,6 +1,7 @@
 import {LevelSelect} from "../runtime/LevelSelect";
 import {FisrtSubDirector} from "./FisrtSubDirector";
 import {SecondSubDirector} from "./SecondSubDirector";
+import {BaseSubDirector} from "../base/BaseSubDirector";
 
 // 开始类
 export class Director {
@@ -32,10 +33,10 @@ export class Director {
       levelDirector = new SecondSubDirector();
     }
 
-    let that = this;
-    levelDirector.onPressLevelSelectMenu(()=> {
-      that.currentLevelDirector = null;
-    });
+    let callback = ()=>{
+      this.drawLevelSelect();
+    };
+    levelDirector.onPressLevelSelectMenu(callback);
 
     levelDirector.setupSprits().run();
 

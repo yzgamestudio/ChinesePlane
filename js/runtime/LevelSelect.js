@@ -80,7 +80,7 @@ export class LevelSelect {
 
     drawRect(value) {
         const ctx = DataStore.getInstance().ctx;
-        ctx.fillStyle = "blue";  // 设置或返回用于填充绘画的颜色、渐变或模式
+        ctx.fillStyle = "#ffffff";  // 设置或返回用于填充绘画的颜色、渐变或模式
         const width = value.width;
         const height = value.height;
         ctx.fillRect(value.left, value.top, width, height);  // x轴 y轴 宽 和 高 ,绘制“被填充”的矩形

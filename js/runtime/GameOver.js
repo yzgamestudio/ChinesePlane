@@ -60,6 +60,7 @@ export class GameOver    {
         let touch = e.changedTouches[0];
         var x = touch.clientX;
         var y = touch.clientY;
+        debugger;
         if (that.callback){ // 17.回调函数应该怎么写？
             that.callback();
         }
