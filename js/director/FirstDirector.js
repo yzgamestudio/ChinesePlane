@@ -1,6 +1,7 @@
 import {BaseSubDirector} from "../base/BaseSubDirector";
 import {BackGround} from "../runtime/BackGround";
 import {Player} from "../player/Player";
+import { Bullet } from "../player/Bullet";
 import {Enemy} from "../npc/Enemy";
 
 
@@ -17,7 +18,9 @@ export  class FirstDirector  extends BaseSubDirector {
         // 初始化精灵，同时放入dataStore，方便销毁销毁
         this.dataStore.put('background', new BackGround);
         this.dataStore.put('player', new Player);
-
+        let bullets=[];
+        bullets.push(new Bullet)
+        this.dataStore.put('bullet', bullets);
         let enemies = [];
         for (let i = 0; i < EMEMYCOUNT; i++){
             let enemy =  new Enemy();
@@ -26,22 +29,8 @@ export  class FirstDirector  extends BaseSubDirector {
         this.dataStore.put('enemy', enemies);
     }
 
-    isGameOver() {
-        let result =  this.judgePlayerCollideEnemy();
-        return result;
-    }
 
-    judgePlayerCollideEnemy() {
-        const player = this.dataStore.get('player');
-        const ememies = this.dataStore.get('enemy');
-        for (let i = 0; i < ememies.length; i++) {
-            let enemy = ememies[i];
-            if(player.isCollide(enemy)) {
-                return true;
-            }
-        }
-        return  false;
-    }
+
 
     drawSprites(){
         // debugger;
@@ -54,7 +43,7 @@ export  class FirstDirector  extends BaseSubDirector {
         const ememies = this.dataStore.get('enemy');
 
         ememies.forEach((enemy, index, array) => {
-            if(enemy.y >= this.dataStore.canvas.height) {
+          if (enemy.y >= this.dataStore.canvas.height || enemy.isPlaying === false) {
                 array.splice(index, 1);
             }
         });
@@ -67,6 +56,14 @@ export  class FirstDirector  extends BaseSubDirector {
             let enemy = ememies[i];
             enemy.draw();
         }
+      const bullets = this.dataStore.get('bullet');
+      bullets.push(new Bullet)
+      bullets.forEach((bullet, index, array) => {
+        if (bullet.y < 0 || bullet.isVisible === false) {
+          array.splice(index, 1);
+        }
+        bullet.draw();
+      })
     }
     
 }

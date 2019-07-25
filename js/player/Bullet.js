@@ -17,7 +17,7 @@ export class Bullet extends Sprite{
     super(img,
       0, 0, img.width, img.height,
       x, y, 16, 30)
-    this.isvisible=true;
+    this.isVisible=true;
     this.enableCollide = true;
   }
   draw(){

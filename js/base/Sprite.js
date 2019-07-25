@@ -116,5 +116,16 @@ export class Sprite {
       return false;
     }
   }
+  isCollideWith(sp) {
+    let spX = sp.x + sp.width / 2
+    let spY = sp.y + sp.height / 2
 
+    if (this.enableCollide == false || sp.enableCollide == false)
+      return false
+
+    return !!(spX >= this.x
+      && spX <= this.x + this.width
+      && spY >= this.y
+      && spY <= this.y + this.height)
+  }
 }

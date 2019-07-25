@@ -27,22 +27,6 @@ export  class SecondDirector  extends BaseSubDirector {
         return this;
     }
 
-    isGameOver() {
-        let result =  this.judgePlayerCollideEnemy();
-        return result;
-    }
-
-    judgePlayerCollideEnemy() {
-        const player = this.dataStore.get('player');
-        const ememies = this.dataStore.get('enemy');
-        for (let i = 0; i < ememies.length; i++) {
-            let enemy = ememies[i];
-            if(player.isCollide(enemy)) {
-                return true;
-            }
-        }
-        return  false;
-    }
 
     drawSprites(){
         const backgroundSprie = this.dataStore.get('background');
