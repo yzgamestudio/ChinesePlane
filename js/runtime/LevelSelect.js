@@ -12,6 +12,7 @@ const INITY = YMARGIN + 30;
 export class LevelSelect {
     constructor(){
         this.levelItems = this.setupLevelItemsArea();
+        this.userInterface = true;
     }
 
     onPressLevel(callback){
@@ -100,6 +101,9 @@ export class LevelSelect {
                     level = index + 1;
                 }
             });
+            if (that.userInterface == false) {
+                return;
+            }
             if (that.callback){
                 that.callback(level);
             }

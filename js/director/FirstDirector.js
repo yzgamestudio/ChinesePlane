@@ -4,16 +4,16 @@ import {Player} from "../player/Player";
 import {Enemy} from "../npc/Enemy";
 
 
-const EMEMYCOUNT = 10;
+const EMEMYCOUNT = 20;
 
-export  class SecondSubDirector  extends BaseSubDirector {
+export  class FirstDirector  extends BaseSubDirector {
     constructor() {
         super();
     }
 
     setupSprits() {
+        // debugger;
         super.setupSprits();
-
         // 初始化精灵，同时放入dataStore，方便销毁销毁
         this.dataStore.put('background', new BackGround);
         this.dataStore.put('player', new Player);
@@ -24,7 +24,6 @@ export  class SecondSubDirector  extends BaseSubDirector {
             enemies[i] = enemy;
         }
         this.dataStore.put('enemy', enemies);
-        return this;
     }
 
     isGameOver() {
@@ -45,6 +44,7 @@ export  class SecondSubDirector  extends BaseSubDirector {
     }
 
     drawSprites(){
+        // debugger;
         const backgroundSprie = this.dataStore.get('background');
         backgroundSprie.draw(3);
 
@@ -59,7 +59,7 @@ export  class SecondSubDirector  extends BaseSubDirector {
             }
         });
 
-        while (ememies.length < 10) {
+        while (ememies.length < 20) {
             ememies.push(new Enemy());
         }
 
@@ -68,6 +68,6 @@ export  class SecondSubDirector  extends BaseSubDirector {
             enemy.draw();
         }
     }
-
+    
 }
 

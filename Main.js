@@ -5,7 +5,7 @@ import {BackGround} from '/js/runtime/BackGround.js'
 import {Player} from "./js/player/Player.js"
 import {Enemy} from "./js/npc/Enemy.js"
 import {GameOver} from "./js/runtime/GameOver.js"
-import {FisrtSubDirector} from "./js/director/FisrtSubDirector";
+import {FirstDirector} from "./js/director/FirstDirector";
 
 
 const EMEMYCOUNT = 20;

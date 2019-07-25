@@ -39,9 +39,9 @@ export class GameOver    {
 
     drawLevelSelectMenu(){
         // 如何绘制文本
-        this.ctx.font = "20px Georgia";
-        this.ctx.fillStyle = "#ffffff";
-        this.ctx.fillText("进入选关", this.canvas.width * 0.5 - 40,  this.canvas.height * 0.85);
+        // this.ctx.font = "20px Georgia";
+        // this.ctx.fillStyle = "#ffffff";
+        // this.ctx.fillText("进入选关", this.canvas.width * 0.5 - 40,  this.canvas.height * 0.85);
     }
 
     setupTouchEvent() {
@@ -60,7 +60,6 @@ export class GameOver    {
         let touch = e.changedTouches[0];
         var x = touch.clientX;
         var y = touch.clientY;
-        debugger;
         if (that.callback){ // 17.回调函数应该怎么写？
             that.callback();
         }

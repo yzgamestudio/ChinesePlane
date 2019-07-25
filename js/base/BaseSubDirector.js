@@ -6,7 +6,6 @@ export class BaseSubDirector {
     constructor() {
         this.dataStore = DataStore.getInstance();
         this.dataStore.frame = 0; // 帧数计数器，可以用来计算时间
-        this.setupSprits();
 
     }
 
@@ -31,15 +30,17 @@ export class BaseSubDirector {
     drawGameOver() {
         const gameOver = this.dataStore.get('gameOver');
         gameOver.draw();
-        gameOver.onClicked(()=>this.callback());
+        gameOver.onClicked(()=>this.restart());
         gameOver.userInterface = true;
     }
 
     restart(){
         cancelAnimationFrame(this.timer);
+        const gameOver = this.dataStore.get('gameOver');
+        gameOver.userInterface = false;
         this.dataStore.destory();
         this.setupSprits();
-        this.draw();
+        this.run();
     }
 
 
@@ -48,6 +49,8 @@ export class BaseSubDirector {
         this.dataStore.destory();
         this.callback = callback;
     }
+
+
 
     isGameOver() {
         return false;

@@ -4,9 +4,9 @@ import {Player} from "../player/Player";
 import {Enemy} from "../npc/Enemy";
 
 
-const EMEMYCOUNT = 20;
+const EMEMYCOUNT = 10;
 
-export  class FisrtSubDirector  extends BaseSubDirector {
+export  class SecondDirector  extends BaseSubDirector {
     constructor() {
         super();
     }
@@ -59,7 +59,7 @@ export  class FisrtSubDirector  extends BaseSubDirector {
             }
         });
 
-        while (ememies.length < 20) {
+        while (ememies.length < 10) {
             ememies.push(new Enemy());
         }
 
@@ -68,6 +68,6 @@ export  class FisrtSubDirector  extends BaseSubDirector {
             enemy.draw();
         }
     }
-    
+
 }
 
