@@ -21,7 +21,7 @@ export class Bullet extends Sprite{
     this.enableCollide = true;
   }
   draw(){
-    this.y=this.y-30;
+    this.y=this.y-20;
     super.draw();
   }
 }
