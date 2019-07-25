@@ -4,8 +4,9 @@ import {
 import {
   DataStore
 } from "./DataStore";
-
-
+import {Bullet} from "../player/Bullet.js"
+import { BackGround} from "../runtime/BackGround.js"
+import { Player} from "../player/Player.js"
 export class BaseSubDirector {
   constructor() {
     this.dataStore = DataStore.getInstance();
@@ -15,6 +16,11 @@ export class BaseSubDirector {
 
   setupSprits() { /// 子类继承时必须先调用super  setupSprits
     this.dataStore.put('gameOver', new GameOver);
+    this.dataStore.put('background', new BackGround);
+    this.dataStore.put('player', new Player);
+    let bullets = [];
+    bullets.push(new Bullet)
+    this.dataStore.put('bullet', bullets);
   }
 
   run() {

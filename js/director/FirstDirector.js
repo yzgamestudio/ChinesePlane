@@ -16,11 +16,7 @@ export  class FirstDirector  extends BaseSubDirector {
         // debugger;
         super.setupSprits();
         // 初始化精灵，同时放入dataStore，方便销毁销毁
-        this.dataStore.put('background', new BackGround);
-        this.dataStore.put('player', new Player);
-        let bullets=[];
-        bullets.push(new Bullet)
-        this.dataStore.put('bullet', bullets);
+
         let enemies = [];
         for (let i = 0; i < EMEMYCOUNT; i++){
             let enemy =  new Enemy();
