@@ -94,8 +94,8 @@ export class LevelSelect {
 
         wx.onTouchStart(function (e) {
             let touch = e.changedTouches[0];
-            var touchX = touch.clientX*3;
-            var touchY = touch.clientY*3;
+          var touchX = touch.clientX * that.dpr;
+          var touchY = touch.clientY * that.dpr;
             let level = 0;
             levelItems.forEach(function (value, index, array) {
                 if (touchX >= value.left && touchX <= value.left + value.width &&
