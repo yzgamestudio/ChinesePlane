@@ -1,7 +1,7 @@
 import {BaseSubDirector} from "../base/BaseSubDirector";
 import {BackGround} from "../runtime/BackGround";
 import {Player} from "../player/Player";
-
+import {Enemy} from "../npc/Enemy";
 
 const EMEMYCOUNT = 10;
 
