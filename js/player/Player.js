@@ -7,19 +7,20 @@ export  class  Player extends  Sprite{
         const canvas = DataStore.getInstance().canvas;
         let  x = canvas.width * 0.5 - img.width * 0.5;
         let y = canvas.height - 60 - img.height;
+
         super(img,
               0, 0, img.width, img.height,
-              x, y, img.width, img.height);
+          x, y, img.width, img.height );
               
         this.enableCollide = true;
-
+        this.dpr = this.dataStore.systeminfo.pixelRatio;
         //  如何让精灵随手指移动
         this.touch = false;
         let that = this;//  is not function bug fix
         wx.onTouchStart(function (e) {
             let touch =e.changedTouches[0];
-            var x= touch.clientX;
-            var y = touch.clientY;
+            var x= touch.clientX*that.dpr;
+            var y = touch.clientY*that.dpr;
             if(that.checkIsFingerOnAir(x, y)){
                 that.touch = true; // 标记手指按下的飞机
             }else {
@@ -29,8 +30,8 @@ export  class  Player extends  Sprite{
 
         wx.onTouchMove(function (e) {
             let touch = e.changedTouches[0];
-            var x= touch.clientX;
-            var y = touch.clientY;
+            var x= touch.clientX*that.dpr;
+            var y = touch.clientY*that.dpr;
             if (that.touch) {
                 that.moveAirOnPostion(x,y); // 移动到指定位置
             }

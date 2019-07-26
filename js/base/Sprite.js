@@ -27,6 +27,7 @@ export class Sprite {
     height = 0) {
     this.dataStore = DataStore.getInstance();
     this.ctx = this.dataStore.ctx;
+    this.dpr = this.dataStore.systeminfo.pixelRatio;
     this.img = img;
     this.srcX = srcX;
     this.srcY = srcY;
@@ -34,8 +35,8 @@ export class Sprite {
     this.srcH = srcH;
     this.x = x;
     this.y = y;
-    this.width = width;
-    this.height = height;
+    this.width = width*this.dpr;
+    this.height = height * this.dpr;
     
     this.enableCollide = false;
     this.isVisble = true;

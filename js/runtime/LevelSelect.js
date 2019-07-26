@@ -11,6 +11,8 @@ const INITY = YMARGIN + 30;
 
 export class LevelSelect {
     constructor(){
+
+        this.dpr = DataStore.getInstance().systeminfo.pixelRatio;
         this.levelItems = this.setupLevelItemsArea();
         this.userInterface = true;
     }
@@ -45,8 +47,8 @@ export class LevelSelect {
             height:0
         };
 
-        let xStep = (LEVELWIDTH + XMARGIN);
-        let yStep = (LEVELHEIGHT + XMARGIN);
+      let xStep = (LEVELWIDTH + XMARGIN)*this.dpr ;
+      let yStep = (LEVELHEIGHT + XMARGIN) * this.dpr;
 
         for (let i = 0; i < LEVELCOUNT; i++){
             let item = {
@@ -57,17 +59,17 @@ export class LevelSelect {
             };
 
             if (i == 0) {
-                item.left = INITX;
-                item.top = INITY;
-                item.width = LEVELWIDTH;
-                item.height = LEVELHEIGHT;
+              item.left = INITX * this.dpr;
+              item.top = INITY * this.dpr;
+              item.width = LEVELWIDTH * this.dpr;
+              item.height = LEVELHEIGHT * this.dpr;
             } else {
                 item.left = lastItem.left + xStep;
-                item.width = LEVELWIDTH;
-                item.height = LEVELHEIGHT;
+              item.width = LEVELWIDTH * this.dpr;
+              item.height = LEVELHEIGHT * this.dpr;
                 item.top = lastItem.top;
                 if (item.left + xStep > canvas.width) {
-                    item.left = INITY;
+                  item.left = INITY * this.dpr;
                     item.top = lastItem.top +  yStep;
                 }
             }
@@ -92,8 +94,8 @@ export class LevelSelect {
 
         wx.onTouchStart(function (e) {
             let touch = e.changedTouches[0];
-            var touchX = touch.clientX;
-            var touchY = touch.clientY;
+            var touchX = touch.clientX*3;
+            var touchY = touch.clientY*3;
             let level = 0;
             levelItems.forEach(function (value, index, array) {
                 if (touchX >= value.left && touchX <= value.left + value.width &&

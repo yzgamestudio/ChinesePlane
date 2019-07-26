@@ -7,6 +7,7 @@ export class GameOver    {
         this.dataStore = DataStore.getInstance();
         this.ctx = this.dataStore.ctx;
         this.canvas = this.dataStore.canvas;
+        this.dpr = this.dataStore.systeminfo.pixelRatio;
         this.restartArea = {
           left: this.canvas.width * 0.5 - 40,
           top: this.canvas.height * 0.8,
@@ -32,9 +33,9 @@ export class GameOver    {
 
     drawRestartButton() {
       // 如何绘制文本
-      this.ctx.font = "20px Georgia";
+      this.ctx.font = "60px Georgia";
       this.ctx.fillStyle = "#ffffff";
-      this.ctx.fillText("点击重试", this.canvas.width * 0.5 - 40,  this.canvas.height * 0.8);
+      this.ctx.fillText("点击重试", this.canvas.width * 0.5 - 120,  this.canvas.height * 0.8);
     }
 
     drawLevelSelectMenu(){
@@ -47,10 +48,10 @@ export class GameOver    {
     setupTouchEvent() {
       this.canvas = this.dataStore.canvas;
       let area = {
-         left: this.canvas.width * 0.5 - 80,
+         left: this.canvas.width * 0.5 - 120,
          top: this.canvas.height * 0.8 - 80,
-         width:100,
-         heigit:80
+         width:240,
+         heigit:60
       };
       let that = this; // 18. 回调函数中找不到callback的解决方案？
       wx.onTouchStart(function (e) {
@@ -58,8 +59,8 @@ export class GameOver    {
           return;
         }
         let touch = e.changedTouches[0];
-        var x = touch.clientX;
-        var y = touch.clientY;
+        var x = touch.clientX*that.dpr;
+        var y = touch.clientY * that.dpr;
         if (that.callback){ // 17.回调函数应该怎么写？
             that.callback();
         }
