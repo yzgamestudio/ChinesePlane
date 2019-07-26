@@ -5,3 +5,9 @@ export const Resources = [
   ['bullet', 'res/bullet.png'],
   // ['levelSelectBackground','res/background.png']
 ];
+
+export const AudioResources = {
+  biu: 'res/biu.mp3',
+  bgm: 'res/bgm.mp3'
+};
+  

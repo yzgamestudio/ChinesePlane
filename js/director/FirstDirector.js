@@ -9,7 +9,8 @@ const EMEMYCOUNT = 20;
 
 export  class FirstDirector  extends BaseSubDirector {
     constructor() {
-        super();
+       super();
+
     }
 
     setupSprits() {
@@ -23,13 +24,11 @@ export  class FirstDirector  extends BaseSubDirector {
             enemies[i] = enemy;
         }
         this.dataStore.put('enemy', enemies);
+
     }
 
-
-
-
     drawSprites(){
-        // debugger;
+
         const backgroundSprie = this.dataStore.get('background');
         backgroundSprie.draw(3);
 
@@ -53,7 +52,10 @@ export  class FirstDirector  extends BaseSubDirector {
             enemy.draw();
         }
       const bullets = this.dataStore.get('bullet');
-      bullets.push(new Bullet)
+      if(this.dataStore.frame % 20 == 0){
+        bullets.push(new Bullet)
+        // Music.getInstance().shoot();
+      }
       bullets.forEach((bullet, index, array) => {
         if (bullet.y < 0 || bullet.isVisible === false) {
           array.splice(index, 1);

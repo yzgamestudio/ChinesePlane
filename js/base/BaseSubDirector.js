@@ -7,10 +7,14 @@ import {
 import {Bullet} from "../player/Bullet.js"
 import { BackGround} from "../runtime/BackGround.js"
 import { Player} from "../player/Player.js"
+import { Music } from "../runtime/Music";
+
+
 export class BaseSubDirector {
   constructor() {
     this.dataStore = DataStore.getInstance();
     this.dataStore.frame = 0; // 帧数计数器，可以用来计算时间
+    Music.getInstance().playBGM();
 
   }
 
@@ -29,10 +33,12 @@ export class BaseSubDirector {
     this.judgeBulletCollideEnemy();
     if (this.isGameOver()) {
       this.drawGameOver();
+      // Music.getInstance().pauseBGM();
       return;
     }
     requestAnimationFrame(() => this.run());
   }
+
   judgeBulletCollideEnemy() {
     let enemies = this.dataStore.get('enemy');
     let bullets = this.dataStore.get('bullet');
@@ -48,8 +54,10 @@ export class BaseSubDirector {
       }
     })
   }
+
   isGameOver() {
     let result = this.judgePlayerCollideEnemy();
+
     return result;
   }
 
