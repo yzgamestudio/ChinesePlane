@@ -28,6 +28,7 @@ export class DataStore {
     for(let value of this.map.values()) {
       value = null;
     }
+    wx.triggerGC();
   }
 
 }
