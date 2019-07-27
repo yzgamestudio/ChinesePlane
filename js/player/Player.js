@@ -5,7 +5,7 @@ export  class  Player extends  Sprite{
     constructor(){
         const img = Sprite.getImage('player');
         const canvas = DataStore.getInstance().canvas;
-        let  x = canvas.width * 0.5 - img.width * 0.5;
+      let x = canvas.width * 0.5 - img.width * 0.5 * GameGlobal.dpr;
         let y = canvas.height - 60 - img.height;
 
         super(img,

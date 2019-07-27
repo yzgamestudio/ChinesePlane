@@ -12,7 +12,7 @@ export class Bullet extends Sprite{
     var spriteWidth = DataStore.getInstance().get('player').width;
     var spriteHeight = DataStore.getInstance().get('player').height;
     const canvas = DataStore.getInstance().canvas;
-    var x = spritex + spriteWidth / 2 - 8 * DataStore.getInstance().systeminfo.pixelRatio;
+    var x = spritex + spriteWidth / 2 - 8 * GameGlobal.dpr;
     var  y = spritey+10;
     super(img,
       0, 0, img.width, img.height,
@@ -21,7 +21,7 @@ export class Bullet extends Sprite{
     this.enableCollide = true;
   }
   draw(){
-    this.y = this.y - 20 * DataStore.getInstance().systeminfo.pixelRatio;
+    this.y = this.y - 20 * GameGlobal.dpr;
     super.draw();
   }
 }

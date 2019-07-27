@@ -13,11 +13,12 @@ const EMEMYCOUNT = 20;
 // 开始类
 export class Main {
   constructor(){
+    GameGlobal.dpr = wx.getSystemInfoSync().pixelRatio;
     this.res = wx.getSystemInfoSync();
     //创建资源文件加载器
     this.canvas = wx.createCanvas();
-    this.canvas.height = this.canvas.height*this.res.pixelRatio;
-    this.canvas.width=this.canvas.width*this.res.pixelRatio;
+    this.canvas.height = this.canvas.height * GameGlobal.dpr;
+    this.canvas.width = this.canvas.width * GameGlobal.dpr;
     const loader = ResourceLoader.create();
     loader.onLoaded(map => this.onResourceFirstLoaded(map));
   }
