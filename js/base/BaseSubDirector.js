@@ -28,6 +28,7 @@ export class BaseSubDirector {
   }
 
   run() {
+    this.dataStore.ctx.fillRect(0,0,this.dataStore.canvas.width, this.dataStore.canvas.height);
     this.drawSprites();
     this.dataStore.frame++;
     this.judgeBulletCollideEnemy();
