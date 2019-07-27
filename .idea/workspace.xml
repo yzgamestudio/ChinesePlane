@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4df47ea2-1b75-4a8c-802a-df413b12947d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/js/base/BaseSubDirector.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/base/BaseSubDirector.js" afterDir="false" />
-    </list>
+    <list default="true" id="4df47ea2-1b75-4a8c-802a-df413b12947d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -39,11 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/base/BaseSubDirector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="30" column="95" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="95" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="54">
+              <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -318,12 +313,12 @@
       <workItem from="1564018651874" duration="1251000" />
       <workItem from="1564100244702" duration="12000" />
       <workItem from="1564192564513" duration="27000" />
-      <workItem from="1564192611477" duration="283000" />
+      <workItem from="1564192611477" duration="541000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46218000" />
+    <option name="totallyTimeSpent" value="46476000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="293" y="53" width="2478" height="1443" extended-state="0" />
@@ -575,11 +570,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/base/BaseSubDirector.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="30" column="95" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="95" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="54">
+          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
         </state>
       </provider>
     </entry>

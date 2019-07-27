@@ -33,9 +33,9 @@ export class GameOver    {
 
     drawRestartButton() {
       // 如何绘制文本
-      this.ctx.font = "60px Georgia";
+      this.ctx.font = "30px Georgia";
       this.ctx.fillStyle = "#ffffff";
-      this.ctx.fillText("点击重试", this.canvas.width * 0.5 - 120,  this.canvas.height * 0.8);
+      this.ctx.fillText("点击重试", this.canvas.width * 0.5 - 40 * this.dpr,  this.canvas.height * 0.8);
     }
 
     drawLevelSelectMenu(){
@@ -48,7 +48,7 @@ export class GameOver    {
     setupTouchEvent() {
       this.canvas = this.dataStore.canvas;
       let area = {
-         left: this.canvas.width * 0.5 - 120,
+        left: this.canvas.width * 0.5 - this.dpr,
          top: this.canvas.height * 0.8 - 80,
          width:240,
          heigit:60

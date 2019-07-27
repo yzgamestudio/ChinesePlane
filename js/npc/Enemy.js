@@ -23,7 +23,7 @@ export class Enemy extends Sprite {
   }
 
   draw() {
-    this.y = this.y + this.speed;
+    this.y = this.y + this.speed * DataStore.getInstance().systeminfo.pixelRatio;
     super.draw();
   }
 
