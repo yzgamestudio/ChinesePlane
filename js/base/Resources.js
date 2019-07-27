@@ -3,7 +3,7 @@ export const Resources = [
   ['player', 'res/player.png'],
   ['enemy', 'res/enemy.png'],
   ['bullet', 'res/bullet.png'],
-  // ['levelSelectBackground','res/background.png']
+  ['attackPlane', 'res/attackPlane.png']
 ];
 
 export const AudioResources = {

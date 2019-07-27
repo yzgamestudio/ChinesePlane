@@ -33,6 +33,8 @@ export class BaseSubDirector {
     this.dataStore.frame++;
     this.judgeBulletCollideEnemy();
     if (this.isGameOver()) {
+
+      this.dataStore.frame = 0;
       this.drawGameOver();
       // Music.getInstance().pauseBGM();
       return;
