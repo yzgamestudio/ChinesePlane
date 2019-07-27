@@ -24,7 +24,8 @@ export class Sprite {
     x = 0,
     y = 0,
     width = 0,
-    height = 0) {
+    height = 0,
+    useImage = true) {
     this.dataStore = DataStore.getInstance();
     this.ctx = this.dataStore.ctx;
     this.dpr = this.dataStore.systeminfo.pixelRatio;
@@ -35,9 +36,13 @@ export class Sprite {
     this.srcH = srcH;
     this.x = x;
     this.y = y;
-    this.width = width*this.dpr;
-    this.height = height * this.dpr;
-    
+    if(useImage) {
+      this.width = width / (3 / this.dpr);
+      this.height = height / (3 / this.dpr);
+    } else {
+      this.width = width;
+      this.height = height;
+    }   
     this.enableCollide = false;
     this.isVisble = true;
   }
@@ -102,14 +107,17 @@ export class Sprite {
     let mbrY = Math.min(this.y, otherSprite.y);
     let mbrRight = Math.max(this.x + this.width, otherSprite.x + otherSprite.width);
     let mbrBottom = Math.max(this.y + this.height, otherSprite.y + otherSprite.height);
-
     // 求两个矩形是否相连或相交，两个矩形的最小外包矩形宽小于两个矩形宽的和，
     // 且两个矩形最小外包矩形的的高小于两个矩形高的和
-    const offsetX = 30 * this.dpr; // 由于图片自带留白，实际的外包矩形比可见的大
-    const offsetY = 13 ; // 由于图片自带留白，实际的外包矩形比可见的大
+    const offsetX = 0; // 由于图片自带留白，实际的外包矩形比可见的大
+    const offsetY = 0 ; // 由于图片自带留白，实际的外包矩形比可见的大
 
     let mbrWidth = mbrRight - mbrX;
     let mbrHeight = mbrBottom - mbrY;
+    if (typeof mbrWidth === 'undefined' || typeof mbrHeight === 'undefined' ) {
+      return false;
+    }
+    // debugger;
     if (this.width + otherSprite.width >= mbrWidth + offsetX &&
       this.height + otherSprite.height >= mbrHeight + offsetY) {
       return true;

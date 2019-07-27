@@ -70,16 +70,19 @@ export class BaseSubDirector {
     for (let i = 0; i < ememies.length; i++) {
       let enemy = ememies[i];
       if (player.isCollide(enemy)) {
+        debugger;
         return true;
       }
     }
     return false;
   }
+
   drawSprites() {
 
   }
 
   drawGameOver() {
+    // debugger;
     const gameOver = this.dataStore.get('gameOver');
     gameOver.draw();
     gameOver.onClicked(() => this.restart());

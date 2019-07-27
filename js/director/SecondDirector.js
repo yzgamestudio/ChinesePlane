@@ -28,8 +28,8 @@ export class SecondDirector extends BaseSubDirector {
 
     let attacks = [];
     for (let i = 0; i < EMEMYCOUNT; i++) {
-      let enemy = new AttackPlane();
-      attacks[i] = enemy;
+      let attack = new AttackPlane();
+      attacks[i] = attack;
     }
     this.dataStore.put('attackPlane', attacks);
 
@@ -39,14 +39,16 @@ export class SecondDirector extends BaseSubDirector {
 
   drawSprites() {
     let seconds = this.dataStore.frame / 60;
-    if (seconds < 4) {
+    if (seconds % 60  < 4) {
       this.drawFirstStage();
-    } else if (seconds < 10) {
+    } else if (seconds % 60 < 10) {
       this.drawSecondStage();
-    } else if (seconds < 20){
+    } else if (seconds  % 60 < 20){
       this.drawThirdStage();
-    }else {
-      this.drawBossStage();
+    }else if(seconds % 60 < 40){
+      this.drawSecondStage();
+    } else if(seconds % 60 < 60) {
+      this.drawFirstStage();
     }
   }
 
@@ -103,8 +105,8 @@ export class SecondDirector extends BaseSubDirector {
     }
 
     for (let i = 0; i < attacks.length; i++) {
-      let enemy = attacks[i];
-      enemy.draw();
+      let attack = attacks[i];
+      attack.draw();
     }
 
 
@@ -171,12 +173,6 @@ export class SecondDirector extends BaseSubDirector {
 
   drawBossStage() {
 
-  }
-
-
-  isGameOver() {
-  
-    return false;
   }
 
 }

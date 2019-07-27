@@ -2,8 +2,8 @@ import { Sprite } from '../base/Sprite.js'
 import { DataStore } from '../base/DataStore.js'
 import { RandomUtil } from "../base/Util/RandomUtil";
 
-const MINSPEED = 2;
-const MAXSPEED = 5;
+const MINSPEED = 5;
+const MAXSPEED = 10;
 
 export class Enemy extends Sprite {
   constructor() {

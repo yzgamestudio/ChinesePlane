@@ -7,7 +7,7 @@ export class BackGround extends Sprite{
     console.log('background width');
     super(image,
       0, 0, image.width, image.height,
-      0, 0, DataStore.getInstance().canvas.width, DataStore.getInstance().canvas.height);
+      0, 0, DataStore.getInstance().canvas.width, DataStore.getInstance().canvas.height, false);
   }
 
   draw(){

@@ -16,7 +16,7 @@ export class Bullet extends Sprite{
     var  y = spritey+10;
     super(img,
       0, 0, img.width, img.height,
-      x, y, 16, 30)
+      x, y, img.width, img.height);
     this.isVisible=true;
     this.enableCollide = true;
   }
