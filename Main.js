@@ -6,6 +6,7 @@ import {Player} from "./js/player/Player.js"
 import {Enemy} from "./js/npc/Enemy.js"
 import {GameOver} from "./js/runtime/GameOver.js"
 import {FirstDirector} from "./js/director/FirstDirector";
+import  {Music} from "./js/runtime/Music";
 
 
 const EMEMYCOUNT = 20;
@@ -21,6 +22,10 @@ export class Main {
     this.canvas.width = this.canvas.width * GameGlobal.dpr;
     const loader = ResourceLoader.create();
     loader.onLoaded((map,ziku) => this.onResourceFirstLoaded(map, ziku));
+
+    wx.onShow((object)=>{
+      Music.getInstance().playBGM();
+    })
   }
 
   // 所有资源加载完毕后才能渲染

@@ -7,14 +7,12 @@ import {
 import { Bullet } from "../player/Bullet.js"
 import { BackGround } from "../runtime/BackGround.js"
 import { Player } from "../player/Player.js"
-import { Music } from "../runtime/Music";
 
 
 export class BaseSubDirector {
   constructor() {
     this.dataStore = DataStore.getInstance();
     this.dataStore.frame = 0; // 帧数计数器，可以用来计算时间
-    Music.getInstance().playBGM();
     this.currentLevel = 0;
 
   }
