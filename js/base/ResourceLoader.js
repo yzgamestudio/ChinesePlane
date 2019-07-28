@@ -1,7 +1,7 @@
 // 资源文件加载器 确认canvas图片资源加载后才进行渲染
 
 import {
-  Resources
+  Resources, ChineseResources
 } from './Resources.js'
 
 export class ResourceLoader {
@@ -37,7 +37,7 @@ export class ResourceLoader {
   readZiKu() {
     let fileManager = wx.getFileSystemManager();
     let params = {
-      filePath: 'res/ziku.json',
+      filePath: ChineseResources.ziku,
       encoding: 'utf8',
       complete: (res) => {
         this.ziku = res.data;;
