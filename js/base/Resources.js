@@ -4,7 +4,8 @@ export const Resources = [
   ['enemy', 'res/enemy.png'],
   ['bullet', 'res/bullet.png'],
   ['attackPlane', 'res/attackPlane.png'],
-  ['stayPlane', 'res/stayPlane.png']
+  ['stayPlane', 'res/stayPlane.png'],
+  ['boss', 'res/boss.png']
 
 ];
 
