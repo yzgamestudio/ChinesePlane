@@ -1,6 +1,8 @@
 // 资源文件加载器 确认canvas图片资源加载后才进行渲染
 
-import { Resources } from './Resources.js'
+import {
+  Resources
+} from './Resources.js'
 
 export class ResourceLoader {
 
@@ -11,16 +13,17 @@ export class ResourceLoader {
       image.src = value;
       this.map.set(key, image);
     }
+    this.readZiKu();
 
   }
 
   onLoaded(callback) {
     let loadedCount = 0;
-    for(let value of this.map.values()){
-      value.onload = ()=> {
+    for (let value of this.map.values()) {
+      value.onload = () => {
         loadedCount++;
-        if(loadedCount >= this.map.size){
-          callback(this.map);
+        if (loadedCount >= this.map.size) {
+          callback(this.map, this.ziku);
         }
       }
     }
@@ -31,4 +34,18 @@ export class ResourceLoader {
     return new ResourceLoader();
   }
 
+  readZiKu() {
+    let fileManager = wx.getFileSystemManager();
+    let params = {
+      filePath: 'res/ziku.json',
+      encoding: 'utf8',
+      complete: (res) => {
+        this.ziku = res.data;;
+      },
+     
+    }
+    fileManager.readFile(
+      params
+    );
+  }
 }

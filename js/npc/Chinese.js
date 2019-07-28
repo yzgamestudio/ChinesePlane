@@ -5,11 +5,11 @@ import { RandomUtil } from "../base/Util/RandomUtil";
 const MINSPEED = 2;
 const MAXSPEED = 5;
 
-export class AttackPlane extends Sprite {
+export class Chinese extends Sprite {
   constructor() {
     const image = Sprite.getImage('attackPlane'); // 获取图片
     const canvas = DataStore.getInstance().canvas;
-    const y = - image.height; // 所有敌机都是在刚离屏的位置Y
+    const y = 0; // 所有敌机都是在刚离屏的位置Y
 
     // 如何实现随机多个敌机？
     let randomX = RandomUtil.random(0, canvas.width - image.width * DataStore.getInstance().systeminfo.pixelRatio);  // 随机生成一个位置区域X
@@ -27,6 +27,20 @@ export class AttackPlane extends Sprite {
   draw() {
     this.y = this.y + this.yspeed * DataStore.getInstance().systeminfo.pixelRatio;
     this.x = this.x + this.xspeed * DataStore.getInstance().systeminfo.pixelRatio;
+    const canvas = DataStore.getInstance().canvas;
+
+    if (this.y >= canvas.height) {
+      this.y = canvas.height;
+    }
+    if(this.y <= 0) {
+      this.y = 0;
+    }
+    if (this.x <= canvas.width) {
+      this.x = canvas.width;
+    }
+    if(this.x <=0){
+      this.x = 0;
+    }
     super.draw();
   }
 

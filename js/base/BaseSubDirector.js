@@ -4,9 +4,9 @@ import {
 import {
   DataStore
 } from "./DataStore";
-import {Bullet} from "../player/Bullet.js"
-import { BackGround} from "../runtime/BackGround.js"
-import { Player} from "../player/Player.js"
+import { Bullet } from "../player/Bullet.js"
+import { BackGround } from "../runtime/BackGround.js"
+import { Player } from "../player/Player.js"
 import { Music } from "../runtime/Music";
 
 
@@ -15,6 +15,7 @@ export class BaseSubDirector {
     this.dataStore = DataStore.getInstance();
     this.dataStore.frame = 0; // 帧数计数器，可以用来计算时间
     Music.getInstance().playBGM();
+    this.currentLevel = 0;
 
   }
 
@@ -28,7 +29,7 @@ export class BaseSubDirector {
   }
 
   run() {
-    this.dataStore.ctx.fillRect(0,0,this.dataStore.canvas.width, this.dataStore.canvas.height);
+    this.dataStore.ctx.fillRect(0, 0, this.dataStore.canvas.width, this.dataStore.canvas.height);
     this.drawSprites();
     this.dataStore.frame++;
     this.judgeBulletCollideEnemy();
@@ -39,6 +40,8 @@ export class BaseSubDirector {
       // Music.getInstance().pauseBGM();
       return;
     }
+    this.drawZiku();
+
     requestAnimationFrame(() => this.run());
   }
 
@@ -70,7 +73,7 @@ export class BaseSubDirector {
     for (let i = 0; i < ememies.length; i++) {
       let enemy = ememies[i];
       if (player.isCollide(enemy)) {
-        debugger;
+        // debugger;
         return true;
       }
     }
@@ -103,6 +106,18 @@ export class BaseSubDirector {
     cancelAnimationFrame(this.timer);
     this.dataStore.destory();
     this.callback = callback;
+  }
+
+  drawZiku(){
+    this.dataStore.ctx.font = "90px Georgia";
+    this.dataStore.ctx.fillStyle = "#ffffff";
+    let ziku = this.dataStore.ziku;
+    let object = JSON.parse(ziku);
+    let level = object[parseInt(this.level)][0].word
+
+    console.log(level);
+    this.dataStore.ctx.fillText(level, 30 * GameGlobal.dpr,
+      this.dataStore.canvas.height - 50 * GameGlobal.dpr);
   }
 
 

@@ -4,8 +4,13 @@ import { Player } from "../player/Player";
 import { Enemy } from "../npc/Enemy";
 import { Bullet } from "../player/Bullet";
 import { AttackPlane } from "../npc/AttackPlane";
+import {StayPlane} from "../npc/StayPlane.js";
 
 const EMEMYCOUNT = 10;
+const STAYPLANECOUNT = 5;
+
+let isLeft = true;
+const  step = 100;
 
 export class SecondDirector extends BaseSubDirector {
   constructor() {
@@ -33,27 +38,69 @@ export class SecondDirector extends BaseSubDirector {
     }
     this.dataStore.put('attackPlane', attacks);
 
+    let stayPlanes = [];
+    // let step = 40;
+    for (let i = 0; i < STAYPLANECOUNT; i++) {
+      let stayPlane = new StayPlane(step * i);
+      stayPlanes[i] = stayPlane;
+    }
+    this.dataStore.put('stayPlane', stayPlanes);
+
     return this;
   }
 
 
   drawSprites() {
     let seconds = this.dataStore.frame / 60;
-    if (seconds % 60  < 4) {
+    debugger;
+    if (seconds % 30 < 4) {
       this.drawFirstStage();
-    } else if (seconds % 60 < 10) {
+    } else if (seconds % 30 < 5) {
       this.drawSecondStage();
-    } else if (seconds  % 60 < 20){
+    } else if (seconds % 30 < 10) {
       this.drawThirdStage();
-    }else if(seconds % 60 < 40){
+    } else if (seconds % 30 < 15) {
       this.drawSecondStage();
-    } else if(seconds % 60 < 60) {
+    } else if (seconds % 30 < 20) {
       this.drawFirstStage();
+    } else if (seconds % 30 < 30) {
+      this.drawBossStage();
     }
+
+    const ememies = this.dataStore.get('enemy');
+    let that = this;
+    ememies.forEach(function (spirte, index, array) {
+      if (spirte.y >= that.dataStore.canvas.height) {
+        array.splice(index, 1);
+      }
+    });
+
+    const attackPlanes = this.dataStore.get('attackPlane');
+    attackPlanes.forEach(function (spirte, index, array) {
+      if (spirte.y >= that.dataStore.canvas.height) {
+        array.splice(index, 1);
+      }
+    });
+
+
+    const bullets = this.dataStore.get('bullet');
+    bullets.forEach(function(bullet, index, array) {
+      if (bullet.y < 0 || bullet.isVisible === false) {
+        array.splice(index, 1);
+      }
+    })
+    //
+    const stayPlanes = this.dataStore.get('stayPlane');
+    stayPlanes.forEach(function(spirte, index, array) {
+      if (spirte.y >= that.dataStore.canvas.height) {
+        array.splice(index, 1);
+      }
+    })
   }
 
 
   drawFirstStage() {
+    debugger;
     const backgroundSprie = this.dataStore.get('background');
     backgroundSprie.draw(3);
 
@@ -61,11 +108,6 @@ export class SecondDirector extends BaseSubDirector {
     player.draw();
 
     const ememies = this.dataStore.get('enemy');
-    ememies.forEach((enemy, index, array) => {
-      if (enemy.y >= this.dataStore.canvas.height) {
-        array.splice(index, 1);
-      }
-    });
 
     while (ememies.length < 10) {
       ememies.push(new Enemy());
@@ -80,12 +122,7 @@ export class SecondDirector extends BaseSubDirector {
     if (this.dataStore.frame % 20 == 0) {
       bullets.push(new Bullet)
     }
-    bullets.forEach((bullet, index, array) => {
-      if (bullet.y < 0 || bullet.isVisible === false) {
-        array.splice(index, 1);
-      }
-      bullet.draw();
-    })
+
   }
 
   drawThirdStage() {
@@ -93,12 +130,8 @@ export class SecondDirector extends BaseSubDirector {
     backgroundSprie.draw(3);
     const player = this.dataStore.get('player');
     player.draw();
+
     const attacks = this.dataStore.get('attackPlane');
-    attacks.forEach((enemy, index, array) => {
-      if (enemy.y >= this.dataStore.canvas.height) {
-        array.splice(index, 1);
-      }
-    });
 
     while (attacks.length < 10) {
       attacks.push(new AttackPlane());
@@ -111,12 +144,6 @@ export class SecondDirector extends BaseSubDirector {
 
 
     const ememies = this.dataStore.get('enemy');
-    ememies.forEach((enemy, index, array) => {
-      if (enemy.y >= this.dataStore.canvas.height) {
-        array.splice(index, 1);
-      }
-    });
-
     while (ememies.length < 10) {
       ememies.push(new Enemy());
     }
@@ -131,12 +158,6 @@ export class SecondDirector extends BaseSubDirector {
     if (this.dataStore.frame % 20 == 0) {
       bullets.push(new Bullet)
     }
-    bullets.forEach((bullet, index, array) => {
-      if (bullet.y < 0 || bullet.isVisible === false) {
-        array.splice(index, 1);
-      }
-      bullet.draw();
-    })
   }
 
   drawSecondStage() {
@@ -145,12 +166,6 @@ export class SecondDirector extends BaseSubDirector {
     const player = this.dataStore.get('player');
     player.draw();
     const ememies = this.dataStore.get('attackPlane');
-    ememies.forEach((enemy, index, array) => {
-      if (enemy.y >= this.dataStore.canvas.height) {
-        array.splice(index, 1);
-      }
-    });
-
     while (ememies.length < 10) {
       ememies.push(new AttackPlane());
     }
@@ -163,16 +178,45 @@ export class SecondDirector extends BaseSubDirector {
     if (this.dataStore.frame % 20 == 0) {
       bullets.push(new Bullet)
     }
-    bullets.forEach((bullet, index, array) => {
-      if (bullet.y < 0 || bullet.isVisible === false) {
-        array.splice(index, 1);
-      }
-      bullet.draw();
-    })
+
   }
 
   drawBossStage() {
+    const backgroundSprie = this.dataStore.get('background');
+    backgroundSprie.draw(3);
+    const player = this.dataStore.get('player');
+    player.draw();
+    const stayPlanes = this.dataStore.get('stayPlane');
 
+    for (let i = 0; i < stayPlanes.length; i++) {
+      let stayPlane = stayPlanes[i];
+      stayPlane.draw();
+    }
+
+    while (stayPlanes.length <= 0) {
+      for (let i = 0; i < STAYPLANECOUNT; i++) {
+        let stayPlane;
+        if (isLeft){
+          stayPlane = new StayPlane(step * i);
+          isLeft = false;
+        } else {
+          stayPlane = new StayPlane(this.dataStore.canvas.width - 40 - step * i);
+          isLeft = true;
+
+        }
+        stayPlanes[i] = stayPlane;
+      }
+    }
+
+
+  }
+
+  judgeDestorySprites(){
+
+  }
+
+  isGameOver() {
+    return false;
   }
 
 }

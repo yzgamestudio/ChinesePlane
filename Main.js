@@ -20,16 +20,17 @@ export class Main {
     this.canvas.height = this.canvas.height * GameGlobal.dpr;
     this.canvas.width = this.canvas.width * GameGlobal.dpr;
     const loader = ResourceLoader.create();
-    loader.onLoaded(map => this.onResourceFirstLoaded(map));
+    loader.onLoaded((map,ziku) => this.onResourceFirstLoaded(map, ziku));
   }
 
   // 所有资源加载完毕后才能渲染
-  onResourceFirstLoaded(map) {
+  onResourceFirstLoaded(map,ziku) {
     // 将画笔和画布放在dataStore方便精灵使用
     DataStore.getInstance().systeminfo=this.res;
     DataStore.getInstance().res = map;
     DataStore.getInstance().canvas = this.canvas;
     DataStore.getInstance().ctx = this.canvas.getContext('2d');
+    DataStore.getInstance().ziku = ziku;
     this.director = new Director;
   }
 

@@ -41,6 +41,7 @@ export class Director {
     levelDirector.onPressLevelSelectMenu(()=>{
       this.drawLevelSelect();
     });
+    levelDirector.level = level;
     this.currentLevelDirector = levelDirector;
 
     levelDirector.setupSprits();

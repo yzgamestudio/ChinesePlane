@@ -3,7 +3,9 @@ export const Resources = [
   ['player', 'res/player.png'],
   ['enemy', 'res/enemy.png'],
   ['bullet', 'res/bullet.png'],
-  ['attackPlane', 'res/attackPlane.png']
+  ['attackPlane', 'res/attackPlane.png'],
+  ['stayPlane', 'res/stayPlane.png']
+
 ];
 
 export const AudioResources = {
@@ -11,3 +13,7 @@ export const AudioResources = {
   bgm: 'res/bgm.mp3'
 };
   
+export const ChineseResources = {
+  ziku:'res/ziku.json'
+};
+
