@@ -7,10 +7,14 @@ export class BackGround extends Sprite{
     console.log('background width');
     super(image,
       0, 0, image.width, image.height,
-      0, 0, DataStore.getInstance().canvas.width, DataStore.getInstance().canvas.height, false);
+      0, -DataStore.getInstance().canvas.height, DataStore.getInstance().canvas.width, DataStore.getInstance().canvas.height * 2, false);
   }
 
   draw(){
+    this.y += 5;
+    if (this.y > 0) {
+      this.y = - DataStore.getInstance().canvas.height;
+    }
     super.draw();
   }
 }

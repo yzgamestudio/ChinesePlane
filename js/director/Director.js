@@ -28,7 +28,7 @@ export class Director {
 
   setupLevelSubDirector(level){
     // 此处可以用工厂模式进行优化，暂时不考虑这个问题
-    // debugger;
+    // debugger;8
 
     let levelDirector;
     if (level === 1) {
