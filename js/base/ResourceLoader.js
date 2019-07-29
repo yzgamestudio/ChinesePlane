@@ -11,22 +11,19 @@ export class ResourceLoader {
     for (let [key, value] of this.map) {
       const image = wx.createImage();
       image.src = value;
-      this.map.set(key, image);
+      this.map.set(key, image); 
     }
+    this.loadedCount = 0;
     this.readZiKu();
-
+    for (let value of this.map.values()) {
+      value.onload = () => {
+        this.loadedCount++;
+        }
+    }
   }
 
   onLoaded(callback) {
-    let loadedCount = 0;
-    for (let value of this.map.values()) {
-      value.onload = () => {
-        loadedCount++;
-        if (loadedCount >= this.map.size) {
-          callback(this.map, this.ziku);
-        }
-      }
-    }
+    this.callback=callback;
   }
 
 
@@ -40,10 +37,15 @@ export class ResourceLoader {
       filePath: ChineseResources.ziku,
       encoding: 'utf8',
       complete: (res) => {
-        this.ziku = res.data;;
-      },
+        this.ziku = res.data;
+          if (this.loadedCount >= this.map.size) {
+            this.callback(this.map, this.ziku);
+          }
+          
+        }
+      }
      
-    }
+    
     fileManager.readFile(
       params
     );
