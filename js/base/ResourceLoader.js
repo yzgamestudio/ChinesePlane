@@ -7,28 +7,16 @@ import {
 export class ResourceLoader {
 
   constructor() {
-    this.map = new Map(Resources);
-    for (let [key, value] of this.map) {
-      const image = wx.createImage();
-      image.src = value;
-      this.map.set(key, image); 
-    }
-    this.loadedCount = 0;
+    this.readImage();
     this.readZiKu();
-    for (let value of this.map.values()) {
-      value.onload = () => {
-        this.loadedCount++;
-        }
-    }
   }
-
-  onLoaded(callback) {
-    this.callback=callback;
-  }
-
 
   static create() {
     return new ResourceLoader();
+  }
+
+  onLoaded(callback) {
+    this.callback = callback;
   }
 
   readZiKu() {
@@ -38,16 +26,36 @@ export class ResourceLoader {
       encoding: 'utf8',
       complete: (res) => {
         this.ziku = res.data;
-          if (this.loadedCount >= this.map.size) {
-            this.callback(this.map, this.ziku);
-          }
-          
-        }
+        this.judgeCallBack();
       }
-     
-    
+    }
     fileManager.readFile(
       params
     );
   }
+
+  readImage() {
+    this.map = new Map(Resources);
+    for (let [key, value] of this.map) {
+      const image = wx.createImage();
+      image.src = value;
+      this.map.set(key, image);
+    }
+    this.loadedImageCount = 0;
+
+    for (let value of this.map.values()) {
+      value.onload = () => {
+        this.loadedImageCount++;
+        this.judgeCallBack();
+      }
+    }
+  }
+
+  judgeCallBack(){
+    if(this.loadedImageCount >= this.map.size && this.ziku) {
+      this.callback(this.map, this.ziku);
+    }
+  }
+
+
 }
