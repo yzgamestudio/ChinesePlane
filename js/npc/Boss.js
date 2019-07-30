@@ -43,10 +43,23 @@ export class Boss extends Sprite {
     super.draw();
   }
 
-  shoot() {
-    let bossBullet = new BossBullet(this.x + this.width * 0.5-GameGlobal.fit(10), this.y + this.height - GameGlobal.fit(40));
-    let bossBullets = DataStore.getInstance().get('bossBullet');
-    bossBullets.push(bossBullet);
+  shoot(number = 3) {
+    if (number >= 1) {
+      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10), this.y + this.height - GameGlobal.fit(40));
+      let bossBullets = DataStore.getInstance().get('bossBullet');
+      bossBullets.push(bossBullet);
+    }
+    if (number >= 2) {
+      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) - GameGlobal.fit(20), this.y + this.height - GameGlobal.fit(40));
+      let bossBullets = DataStore.getInstance().get('bossBullet');
+      bossBullets.push(bossBullet);
+    }
+    if (number >= 3) {
+      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) + GameGlobal.fit(20), this.y + this.height - GameGlobal.fit(40));
+      let bossBullets = DataStore.getInstance().get('bossBullet');
+      bossBullets.push(bossBullet);
+    }
+
   }
 
 }
