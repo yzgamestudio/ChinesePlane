@@ -15,6 +15,7 @@ export class BaseSubDirector {
     this.dataStore.frame = 0; // 帧数计数器，可以用来计算时间
     this.currentLevel = 0;
     this.currentWord=0;
+    this.currentPart=0;//当前字的组成部分编号
   }
 
   setupSprits() { /// 子类继承时必须先调用super  setupSprits
@@ -25,7 +26,6 @@ export class BaseSubDirector {
     bullets.push(new Bullet)
     this.dataStore.put('bullet', bullets);
     let tools=[];
-    tools.push(new Tool);
     this.dataStore.put('tool', tools);
   }
 
@@ -34,6 +34,7 @@ export class BaseSubDirector {
     this.drawSprites();
     this.dataStore.frame++;
     this.judgeBulletCollideEnemy();
+    this.judgePlayerGetTool()
     if (this.isGameOver()) {
 
       this.dataStore.frame = 0;
@@ -54,14 +55,24 @@ export class BaseSubDirector {
         let enemy = enemies[i];
         let isCollide = bullet.isCollideWith(enemy)
         if (enemy.isPlaying && isCollide) {
-          bullet.visible = false;
+          bullet.isVisible = false;
           enemy.isPlaying = false;
           break;
         }
       }
     })
   }
-
+  judgePlayerGetTool(){
+    const player = this.dataStore.get('player');
+    const tools=this.dataStore.get('tool')
+    for (let i = 0; i < tools.length; i++) {
+      let tool = tools[i];
+      let isCollide=player.isCollideWith(tool)
+      if (isCollide&&tool.isVisible===true) {
+          tool.isVisible = false;
+      }
+    }
+  }
   isGameOver() {
     let result = this.judgePlayerCollideEnemy();
 
@@ -113,7 +124,7 @@ export class BaseSubDirector {
     this.dataStore.ctx.font = "90px Georgia";
     this.dataStore.ctx.fillStyle = "#ffffff";
     let ziku = this.dataStore.ziku;
-    let level = ziku[parseInt(this.level)][this.currentWord].word
+    let level = ziku[parseInt(this.level-1)][this.currentWord].word
 
     console.log(level);
     this.dataStore.ctx.fillText(level, 30 * GameGlobal.dpr,

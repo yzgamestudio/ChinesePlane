@@ -6,7 +6,7 @@ import {Enemy} from "../npc/Enemy";
 import { Tool } from "../player/Tool.js"
 
 const EMEMYCOUNT = 20;
-
+const TOOLCOUNT=5;
 export  class FirstDirector  extends BaseSubDirector {
     constructor() {
        super();
@@ -61,15 +61,31 @@ export  class FirstDirector  extends BaseSubDirector {
         }
         bullet.draw();
       })
+      this.drawTools();
+    }
+    drawTools(){
       const tools = this.dataStore.get('tool');
-      if (this.dataStore.frame % 180 == 0) {
-        tools.push(new Tool)
+      if (this.dataStore.frame % 180 == 0 && tools.length < TOOLCOUNT) {
+        const object=new Tool
+        const ziku = this.dataStore.ziku;
+        const wordpart = ziku[this.level - 1][this.currentWord].conponent;
+        object.wordPart = wordpart[this.currentPart]
+        this.currentPart+=1;
+        if (this.currentPart>=wordpart.length){
+          this.currentPart=0
+        }
+        tools.push(object)
+
       }
       tools.forEach((tool, index, array) => {
-        if ( tool.x < 0 || tool.x > this.dataStore.canvas.width || tool.y > this.dataStore.canvas.height) {
+        if (tool.x < 0 || tool.x > this.dataStore.canvas.width || tool.y > this.dataStore.canvas.height||tool.isVisible===false) {
           array.splice(index, 1);
         }
         tool.draw();
+        this.dataStore.ctx.font = "50px Georgia";
+        this.dataStore.ctx.fillStyle = "#ffffff";
+        this.dataStore.ctx.fillText(tool.wordPart, tool.x + 70 * GameGlobal.dpr / 2 - 50, tool.y + 70 * GameGlobal.dpr / 2)
+      
       })
     }
     

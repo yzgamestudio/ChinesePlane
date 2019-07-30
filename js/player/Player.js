@@ -5,13 +5,13 @@ export  class  Player extends  Sprite{
     constructor(){
         const img = Sprite.getImage('player');
         const canvas = DataStore.getInstance().canvas;
-      let x = canvas.width * 0.5 - img.width * 0.5 * GameGlobal.dpr;
-        let y = canvas.height - 60 - img.height;
+      let x = canvas.width * 0.5 - 60 * 0.5 * GameGlobal.dpr;
+      let y = canvas.height - 160 * GameGlobal.dpr;
 
         super(img,
               0, 0, img.width, img.height,
-          x, y, img.width, img.height );
-              
+          x, y, 60 * GameGlobal.dpr, 100 * GameGlobal.dpr );
+        this.enableCartch = true;//可以接道具     
         this.enableCollide = true;
         this.dpr = this.dataStore.systeminfo.pixelRatio;
         //  如何让精灵随手指移动
