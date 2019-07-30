@@ -68,7 +68,7 @@ export  class FirstDirector  extends BaseSubDirector {
       if (this.dataStore.frame % 180 == 0 && tools.length < TOOLCOUNT) {
         const object=new Tool
         const ziku = this.dataStore.ziku;
-        const wordpart = ziku[this.level - 1][this.currentWord].conponent;
+        const wordpart = ziku[this.level - 1][this.currentWordIndex].conponent;
         object.wordPart = wordpart[this.currentPart]
         this.currentPart+=1;
         if (this.currentPart>=wordpart.length){
