@@ -99,7 +99,7 @@ export class Sprite {
     if(!this || !otherSprite){
       return  false;
     }
-    
+
     let result = false;
 
     if(this.enableCollide == false || otherSprite.enableCollide == false) {

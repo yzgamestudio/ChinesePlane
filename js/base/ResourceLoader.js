@@ -1,8 +1,9 @@
 // 资源文件加载器 确认canvas图片资源加载后才进行渲染
 
 import {
-  Resources, ChineseResources
+  Resources, ChineseResources,HDImageResources,UDImageResources
 } from './Resources.js'
+
 
 export class ResourceLoader {
 
@@ -35,6 +36,9 @@ export class ResourceLoader {
   }
 
   readImage() {
+
+    let resource = GameGlobal.dpr >= 2.5 ? UDImageResources : HDImageResources;
+
     this.map = new Map(Resources);
     for (let [key, value] of this.map) {
       const image = wx.createImage();
