@@ -96,11 +96,16 @@ export class Sprite {
    * @returns {boolean} true为碰撞 false 没有产生碰撞
    */
   isCollide(otherSprite) {
+    if(!this || !otherSprite){
+      return  false;
+    }
+    
     let result = false;
 
     if(this.enableCollide == false || otherSprite.enableCollide == false) {
       return;
     }
+
 
     // 构造最小外包矩形:最小外包矩形MBR就是包围图元，且平行于X，Y轴的最小外接矩形
     let mbrX = Math.min(this.x, otherSprite.x);
@@ -127,8 +132,13 @@ export class Sprite {
   }
 
   isCollideWith(sp) {
+    if (!this || !sp) {
+      return false;
+    }
+
     let spX = sp.x + sp.width / 2
     let spY = sp.y + sp.height / 2
+
 
     if (this.enableCollide == false || sp.enableCollide == false)
       return false
