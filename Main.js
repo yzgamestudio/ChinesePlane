@@ -58,7 +58,7 @@ export class Main {
          * @returns {boolean} 是否离屏
          */
         GameGlobal.isOffScreen = function (x, y, yOffset = 0) {
-            if (x < 0 || x  > GameGlobal.width || y - yOffset < 0 || y  + yOffset> GameGlobal.height) {
+            if (x < 0 || x  > GameGlobal.canvas.width || y - yOffset < 0 || y  + yOffset> GameGlobal.canvas.height) {
                 return true;
             } else {
                 return false;
