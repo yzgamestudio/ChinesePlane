@@ -42,7 +42,8 @@ export class Main {
     DataStore.getInstance().res = map;
     DataStore.getInstance().canvas = this.canvas;
     DataStore.getInstance().ctx = this.canvas.getContext('2d');
-    DataStore.getInstance().ziku = ziku;
+    let object = JSON.parse(ziku);
+    DataStore.getInstance().ziku = object;
     this.director = new Director;
   }
 

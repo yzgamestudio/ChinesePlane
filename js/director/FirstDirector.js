@@ -3,7 +3,7 @@ import {BackGround} from "../runtime/BackGround";
 import {Player} from "../player/Player";
 import { Bullet } from "../player/Bullet";
 import {Enemy} from "../npc/Enemy";
-
+import { Tool } from "../player/Tool.js"
 
 const EMEMYCOUNT = 20;
 
@@ -24,7 +24,6 @@ export  class FirstDirector  extends BaseSubDirector {
             enemies[i] = enemy;
         }
         this.dataStore.put('enemy', enemies);
-
     }
 
     drawSprites(){
@@ -61,6 +60,16 @@ export  class FirstDirector  extends BaseSubDirector {
           array.splice(index, 1);
         }
         bullet.draw();
+      })
+      const tools = this.dataStore.get('tool');
+      if (this.dataStore.frame % 180 == 0) {
+        tools.push(new Tool)
+      }
+      tools.forEach((tool, index, array) => {
+        if ( tool.x < 0 || tool.x > this.dataStore.canvas.width || tool.y > this.dataStore.canvas.height) {
+          array.splice(index, 1);
+        }
+        tool.draw();
       })
     }
     

@@ -7,14 +7,14 @@ import {
 import { Bullet } from "../player/Bullet.js"
 import { BackGround } from "../runtime/BackGround.js"
 import { Player } from "../player/Player.js"
-
+import { Tool } from "../player/Tool.js"
 
 export class BaseSubDirector {
   constructor() {
     this.dataStore = DataStore.getInstance();
     this.dataStore.frame = 0; // 帧数计数器，可以用来计算时间
     this.currentLevel = 0;
-
+    this.currentWord=0;
   }
 
   setupSprits() { /// 子类继承时必须先调用super  setupSprits
@@ -24,6 +24,9 @@ export class BaseSubDirector {
     let bullets = [];
     bullets.push(new Bullet)
     this.dataStore.put('bullet', bullets);
+    let tools=[];
+    tools.push(new Tool);
+    this.dataStore.put('tool', tools);
   }
 
   run() {
@@ -110,8 +113,7 @@ export class BaseSubDirector {
     this.dataStore.ctx.font = "90px Georgia";
     this.dataStore.ctx.fillStyle = "#ffffff";
     let ziku = this.dataStore.ziku;
-    let object = JSON.parse(ziku);
-    let level = object[parseInt(this.level)][0].word
+    let level = ziku[parseInt(this.level)][this.currentWord].word
 
     console.log(level);
     this.dataStore.ctx.fillText(level, 30 * GameGlobal.dpr,

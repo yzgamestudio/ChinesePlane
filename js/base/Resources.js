@@ -5,8 +5,8 @@ export const Resources = [
   ['bullet', 'res/bullet.png'],
   ['attackPlane', 'res/attackPlane.png'],
   ['stayPlane', 'res/stayPlane.png'],
-  ['boss', 'res/boss.png']
-
+  ['boss', 'res/boss.png'],
+  ['bubble', 'res/bubble.png']
 ];
 
 export const AudioResources = {
