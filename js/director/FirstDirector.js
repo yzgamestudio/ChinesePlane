@@ -5,7 +5,7 @@ import { Bullet } from "../player/Bullet";
 import {Enemy} from "../npc/Enemy";
 import { Tool } from "../player/Tool.js"
 
-const EMEMYCOUNT = 20;
+const EMEMYCOUNT = 5;
 const TOOLCOUNT=5;
 export  class FirstDirector  extends BaseSubDirector {
     constructor() {
@@ -42,7 +42,7 @@ export  class FirstDirector  extends BaseSubDirector {
             }
         });
 
-        while (ememies.length < 20) {
+      while (ememies.length < EMEMYCOUNT) {
             ememies.push(new Enemy());
         }
         for (let i = 0; i < ememies.length; i++) {

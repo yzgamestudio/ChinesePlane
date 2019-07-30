@@ -6,7 +6,8 @@ export const Resources = [
   ['attackPlane', 'res/attackPlane.png'],
   ['stayPlane', 'res/stayPlane.png'],
   ['boss', 'res/boss.png'],
-  ['bubble', 'res/bubble.png']
+  ['bubble', 'res/bubble.png'],
+  ['bossBullet', 'res/bossBullet.png'],
 ];
 /// 仿造 高清 超清的概念 ， 2倍图叫HD，3倍图叫UD
 export const HDImageResources = [

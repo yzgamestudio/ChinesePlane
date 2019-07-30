@@ -65,24 +65,24 @@ export class SecondDirector extends BaseSubDirector {
     player.draw();
 
     // debugger;
-    if (seconds < 30) {
-      if (seconds % 30 < 4) {
-        this.drawFirstStage();
-      } else if (seconds % 30 < 5) {
-        this.drawSecondStage();
-      } else if (seconds % 30 < 10) {
-        this.drawThirdStage();
-      } else if (seconds % 30 < 15) {
-        this.drawSecondStage();
-      } else if (seconds % 30 < 20) {
-        this.drawFirstStage();
-      } else if (seconds % 30 < 30) {
-        this.drawFourStage();
-      }
-    } else {
-      debugger;
-      this.drawBoss();
-    }
+    // if (seconds < 30) {
+    //   if (seconds % 30 < 4) {
+    //     this.drawFirstStage();
+    //   } else if (seconds % 30 < 5) {
+    //     this.drawSecondStage();
+    //   } else if (seconds % 30 < 10) {
+    //     this.drawThirdStage();
+    //   } else if (seconds % 30 < 15) {
+    //     this.drawSecondStage();
+    //   } else if (seconds % 30 < 20) {
+    //     this.drawFirstStage();
+    //   } else if (seconds % 30 < 30) {
+    //     this.drawFourStage();
+    //   }
+    // } else {
+    //   debugger;
+    this.drawBoss();
+    // }
 
     this.recoverResources();
   }
@@ -185,8 +185,20 @@ export class SecondDirector extends BaseSubDirector {
   }
 
   drawBoss() {
+
+
     const boss = this.dataStore.get('boss');
     boss.draw();
+  
+
+    const bossBullets = this.dataStore.get('bossBullet');
+    if (this.dataStore.frame % 10 == 0) {
+      boss.shoot();
+    }
+    for (let i = 0; i < bossBullets.length; i++) {
+      let bossBullet = bossBullets[i];
+      bossBullet.draw();
+    }
   }
 
   recoverResources() {
@@ -215,6 +227,13 @@ export class SecondDirector extends BaseSubDirector {
     //
     const stayPlanes = this.dataStore.get('stayPlane');
     stayPlanes.forEach(function (spirte, index, array) {
+      if (spirte.y >= that.dataStore.canvas.height) {
+        array.splice(index, 1);
+      }
+    })
+
+    const bossBullets = this.dataStore.get('bossBullet');
+    bossBullets.forEach(function (spirte, index, array) {
       if (spirte.y >= that.dataStore.canvas.height) {
         array.splice(index, 1);
       }

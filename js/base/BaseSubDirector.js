@@ -13,7 +13,7 @@ export class BaseSubDirector {
     constructor() {
         this.dataStore = DataStore.getInstance();
         this.dataStore.reset();
-        this.currentLevel = 0;
+        this.level = 0; // 自己所在的关卡数
         this.currentWordIndex = 0;
         this.currentPart = 0;//当前字的组成部分编号
     }
@@ -27,6 +27,8 @@ export class BaseSubDirector {
         this.dataStore.put('bullet', bullets);
         let tools = [];
         this.dataStore.put('tool', tools);
+        let bossBullets = [];
+        this.dataStore.put('bossBullet', bossBullets);
     }
 
     run() {
@@ -123,9 +125,9 @@ export class BaseSubDirector {
         this.dataStore.ctx.font = "90px Georgia";
         this.dataStore.ctx.fillStyle = "#ffffff";
         let ziku = this.dataStore.ziku;
-        let level = ziku[parseInt(this.level - 1)][this.currentWordIndex].word
-        this.dataStore.ctx.fillText(level, 30 * GameGlobal.dpr,
-            this.dataStore.canvas.height - 50 * GameGlobal.dpr);
+        let word = ziku[parseInt(this.level - 1)][this.currentWordIndex].word
+        this.dataStore.ctx.fillText(word, 30 * GameGlobal.dpr,
+            GameGlobal.canvas.height - 50 * GameGlobal.dpr);
     }
 
 
