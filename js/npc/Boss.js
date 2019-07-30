@@ -60,6 +60,18 @@ export class Boss extends Sprite {
       bossBullets.push(bossBullet);
     }
 
+    if (number >= 4) {
+      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) - GameGlobal.fit(40), this.y + this.height - GameGlobal.fit(40));
+      let bossBullets = DataStore.getInstance().get('bossBullet');
+      bossBullets.push(bossBullet);
+    }
+    if (number >= 5) {
+      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) + GameGlobal.fit(40), this.y + this.height - GameGlobal.fit(40));
+      let bossBullets = DataStore.getInstance().get('bossBullet');
+      bossBullets.push(bossBullet);
+    }
+
+
   }
 
 }
