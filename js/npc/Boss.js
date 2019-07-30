@@ -25,7 +25,7 @@ export class Boss extends Sprite {
 
   draw() {
     
-    this.y = this.y + 10 * GameGlobal.dpr;
+    this.y = this.y + GameGlobal.fit(10);
     if(this.y > 80 * GameGlobal.dpr) {
       this.y = 80 * GameGlobal.dpr;
     }
