@@ -17,8 +17,8 @@ export class Tool extends Sprite {
      this.isVisible = true;
    }
    draw(){
-     this.x += RandomUtil.random(-5,5)
-     this.y += RandomUtil.random(-5,6)
+     this.x += GameGlobal.fit(RandomUtil.random(-5,5))
+     this.y += GameGlobal.fit(RandomUtil.random(-5,6))
      super.draw();
    }
 

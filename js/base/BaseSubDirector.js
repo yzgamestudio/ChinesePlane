@@ -12,7 +12,7 @@ import { Tool } from "../player/Tool.js"
 export class BaseSubDirector {
   constructor() {
     this.dataStore = DataStore.getInstance();
-    this.dataStore.frame = 0; // 帧数计数器，可以用来计算时间
+    this.dataStore.reset();
     this.currentLevel = 0;
     this.currentWord=0;
     this.currentPart=0;//当前字的组成部分编号
@@ -36,8 +36,7 @@ export class BaseSubDirector {
     this.judgeBulletCollideEnemy();
     this.judgePlayerGetTool()
     if (this.isGameOver()) {
-
-      this.dataStore.frame = 0;
+      this.dataStore.reset();
       this.drawGameOver();
       // Music.getInstance().pauseBGM();
       return;
@@ -62,6 +61,7 @@ export class BaseSubDirector {
       }
     })
   }
+
   judgePlayerGetTool(){
     const player = this.dataStore.get('player');
     const tools=this.dataStore.get('tool')
@@ -73,6 +73,7 @@ export class BaseSubDirector {
       }
     }
   }
+
   isGameOver() {
     let result = this.judgePlayerCollideEnemy();
 

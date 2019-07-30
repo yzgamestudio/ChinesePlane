@@ -45,7 +45,6 @@ export  class FirstDirector  extends BaseSubDirector {
         while (ememies.length < 20) {
             ememies.push(new Enemy());
         }
-
         for (let i = 0; i < ememies.length; i++) {
             let enemy = ememies[i];
             enemy.draw();
@@ -63,6 +62,7 @@ export  class FirstDirector  extends BaseSubDirector {
       })
       this.drawTools();
     }
+
     drawTools(){
       const tools = this.dataStore.get('tool');
       if (this.dataStore.frame % 180 == 0 && tools.length < TOOLCOUNT) {

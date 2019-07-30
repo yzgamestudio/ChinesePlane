@@ -90,7 +90,7 @@ export class SecondDirector extends BaseSubDirector {
 
   drawFirstStage() {
     const ememies = this.dataStore.get('enemy');
-    while (ememies.length < 10) {
+    while (ememies.length < 5) {
       ememies.push(new Enemy());
     }
     for (let i = 0; i < ememies.length; i++) {
