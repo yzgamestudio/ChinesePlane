@@ -50,8 +50,15 @@ export class Main {
             return GameGlobal.dpr * x;
         }
         GameGlobal.canvas = wx.createCanvas();
-        GameGlobal.isOffScreen = function (x, y) {
-            if (x < 0 || x > GameGlobal.width || y < 0 || y > GameGlobal.height) {
+        /**
+         *
+         * @param x 水平位置
+         * @param y 垂直位置
+         * @param yOffset 有时候飞机在刚离开一个屏幕的边缘初始化，所以给一个位移
+         * @returns {boolean} 是否离屏
+         */
+        GameGlobal.isOffScreen = function (x, y, yOffset = 0) {
+            if (x < 0 || x  > GameGlobal.width || y - yOffset < 0 || y  + yOffset> GameGlobal.height) {
                 return true;
             } else {
                 return false;
