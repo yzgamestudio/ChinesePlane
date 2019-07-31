@@ -35,13 +35,14 @@ export class BaseSubDirector {
     this.dataStore.frame++;
     this.judgeBulletCollideEnemy();
     this.judgePlayerGetTool()
-    if (this.isGameOver()) {
+   // if (this.isGameOver()) {
 
-      this.dataStore.frame = 0;
-      this.drawGameOver();
+     // this.dataStore.frame = 0;
+     // this.drawGameOver();
       // Music.getInstance().pauseBGM();
-      return;
-    }
+    //  return;
+  //  }
+    this.isChangeWord()
     this.drawZiku();
 
     requestAnimationFrame(() => this.run());
@@ -62,6 +63,7 @@ export class BaseSubDirector {
       }
     })
   }
+
   judgePlayerGetTool(){
     const player = this.dataStore.get('player');
     const tools=this.dataStore.get('tool')
@@ -70,9 +72,11 @@ export class BaseSubDirector {
       let isCollide=player.isCollideWith(tool)
       if (isCollide&&tool.isVisible===true) {
           tool.isVisible = false;
+        this.wordCheck.set(tool.wordPart,1)
       }
     }
   }
+  
   isGameOver() {
     let result = this.judgePlayerCollideEnemy();
 
@@ -84,12 +88,48 @@ export class BaseSubDirector {
     const ememies = this.dataStore.get('enemy');
     for (let i = 0; i < ememies.length; i++) {
       let enemy = ememies[i];
-      if (player.isCollide(enemy)) {
+      if (player.isCollideWith(enemy)) {
         // debugger;
         return true;
       }
     }
     return false;
+  }
+
+  judgeWordComplete(){
+    const ziku = this.dataStore.ziku;
+    const wordparts = ziku[this.level-1][this.currentWord].conponent;
+    let count=0;
+    wordparts.forEach((wordpart, index, array) => {
+      if(this.wordCheck.get(wordpart)){
+        count++;
+      };
+    })
+    if(count>=wordparts.length){
+       return true;
+    }else{
+      return false;
+    }
+  }
+
+  isChangeWord(){
+    if (this.judgeWordComplete()){
+      const ziku = this.dataStore.ziku;
+      const wordparts = ziku[this.level - 1][this.currentWord].conponent;
+      wordparts.forEach((wordpart, index, array) => {
+        this.wordCheck.delete(wordpart);
+      })
+      this.currentWord++;
+      this.reSetupWordMap();
+    }
+  }
+
+  reSetupWordMap() {
+    const ziku = this.dataStore.ziku;
+    const wordparts = ziku[this.level-1][this.currentWord].conponent;
+    wordparts.forEach((wordpart, index, array) => {
+      this.wordCheck.set(wordpart, 0);
+    })
   }
 
   drawSprites() {

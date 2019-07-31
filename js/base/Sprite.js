@@ -44,7 +44,7 @@ export class Sprite {
       this.height = height;
     }   
     this.enableCollide = false;
-    this.isVisble = true;
+    //this.isVisble = true;
   }
 
   static getImage(key) {
