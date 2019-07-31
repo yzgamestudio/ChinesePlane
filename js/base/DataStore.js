@@ -1,4 +1,4 @@
-// 变量缓存器
+// 缓存器 
 export class DataStore {
 
   static getInstance() {
