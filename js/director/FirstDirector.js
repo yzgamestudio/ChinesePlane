@@ -105,7 +105,7 @@ export class FirstDirector extends BaseSubDirector {
       tools.push(object)
 
     }
-<<<<<<< HEAD
+
     tools.forEach((tool, index, array) => {
       if (tool.x < 0 || tool.x > this.dataStore.canvas.width || tool.y > this.dataStore.canvas.height || tool.isVisible === false) {
         array.splice(index, 1);
@@ -122,7 +122,7 @@ export class FirstDirector extends BaseSubDirector {
 
 
 
-}
+
 
 
 }
