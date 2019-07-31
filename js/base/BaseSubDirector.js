@@ -35,7 +35,6 @@ export class BaseSubDirector {
         this.dataStore.ctx.fillRect(0, 0, this.dataStore.canvas.width, this.dataStore.canvas.height);
         this.drawSprites();
         this.dataStore.frame++;
-        this.judgeBulletCollideEnemy();
         this.judgePlayerGetTool()
         if (this.isGameOver()) {
             this.dataStore.reset();
@@ -47,21 +46,6 @@ export class BaseSubDirector {
         requestAnimationFrame(() => this.run());
     }
 
-    judgeBulletCollideEnemy() {
-        let enemies = this.dataStore.get('enemy');
-        let bullets = this.dataStore.get('bullet');
-        bullets.forEach((bullet) => {
-            for (let i = 0, il = enemies.length; i < il; i++) {
-                let enemy = enemies[i];
-                let isCollide = bullet.isCollideWith(enemy)
-                if (enemy.isPlaying && isCollide) {
-                    bullet.isVisible = false;
-                    enemy.isPlaying = false;
-                    break;
-                }
-            }
-        })
-    }
 
     judgePlayerGetTool() {
         const player = this.dataStore.get('player');

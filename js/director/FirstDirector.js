@@ -27,6 +27,7 @@ export  class FirstDirector  extends BaseSubDirector {
     }
 
     drawSprites(){
+        this.judgeBulletCollideEnemy();
 
         const backgroundSprie = this.dataStore.get('background');
         backgroundSprie.draw(3);
@@ -88,6 +89,23 @@ export  class FirstDirector  extends BaseSubDirector {
       
       })
     }
-    
+
+    judgeBulletCollideEnemy() {
+        let enemies = this.dataStore.get('enemy');
+        let bullets = this.dataStore.get('bullet');
+        bullets.forEach((bullet) => {
+            for (let i = 0, il = enemies.length; i < il; i++) {
+                let enemy = enemies[i];
+                let isCollide = bullet.isCollideWith(enemy)
+                if (enemy.isPlaying && isCollide) {
+                    bullet.isVisible = false;
+                    enemy.isPlaying = false;
+                    break;
+                }
+            }
+        })
+    }
+
+
 }
 
