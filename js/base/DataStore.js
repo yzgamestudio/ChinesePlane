@@ -31,4 +31,8 @@ export class DataStore {
     wx.triggerGC();
   }
 
+  reset() {
+    this.frame = 0;
+  }
+
 }

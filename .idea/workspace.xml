@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4df47ea2-1b75-4a8c-802a-df413b12947d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/js/scene/BossScene.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/scene/NormalEnemyScene.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/scene/Scene.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/scene/SceneQueue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/base/ResourceLoader.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/base/ResourceLoader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/base/Resources.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/base/Resources.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/base/Sprite.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/base/Sprite.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/npc/Boss.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/npc/Boss.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/学到了什么.doc" beforeDir="false" afterPath="$PROJECT_DIR$/学到了什么.doc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/base/BaseSubDirector.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/base/BaseSubDirector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/director/FirstDirector.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/director/FirstDirector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/director/SecondDirector.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/director/SecondDirector.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,65 +23,72 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main.js">
+        <entry file="file://$PROJECT_DIR$/js/director/FirstDirector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="22" />
+            <state relative-caret-position="15">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
-                <element signature="e#0#59#0" expanded="true" />
+                <element signature="e#0#56#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/director/SecondDirector.js">
+        <entry file="file://$PROJECT_DIR$/js/base/BaseSubDirector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-440">
-              <caret line="80" column="7" lean-forward="true" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+            <state relative-caret-position="1291">
+              <caret line="79" column="15" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/scene/SceneQueue.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/base/DataStore.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/scene/Scene.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/scene/BossScene.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
               <folding>
-                <element signature="e#0#58#0" expanded="true" />
+                <element signature="e#0#30#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/npc/Chinese.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-157">
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/base/Sprite.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2552">
-              <caret line="116" column="34" lean-forward="true" selection-start-line="116" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/base/Resources.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/npc/Boss.js">
+        <entry file="file://$PROJECT_DIR$/js/scene/NormalEnemyScene.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
-              <caret line="27" column="41" lean-forward="true" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
               <folding>
-                <element signature="e#0#42#0" expanded="true" />
+                <element signature="e#0#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,7 +98,7 @@
         <entry file="file://$PROJECT_DIR$/js/npc/AttackPlane.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
-              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+              <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
                 <element signature="n#!!block;n#constructor#0;n#AttackPlane#0" />
@@ -99,36 +108,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/npc/StayPlane.js">
+        <entry file="file://$PROJECT_DIR$/js/director/SecondDirector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+            <state relative-caret-position="597">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
-                <element signature="e#0#42#0" expanded="true" />
+                <element signature="e#0#58#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/npc/Enemy.js">
+        <entry file="file://$PROJECT_DIR$/js/npc/Boss.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            <state relative-caret-position="1572">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/base/ResourceLoader.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="39" column="78" selection-start-line="39" selection-start-column="78" selection-end-line="39" selection-end-column="78" />
-              <folding>
-                <element signature="e#33#95#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,18 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>drawLevelSelect</find>
-      <find>DataStore.getInstance().</find>
-      <find>DataStore.getInstance()</find>
-      <find>wx.o</find>
-      <find>re</find>
-      <find>DataStore.getInstance().canvas</find>
-      <find>value</find>
-      <find>rgb</find>
-      <find>onPre</find>
-      <find>onClicked</find>
-      <find>Cannot read property</find>
-      <find>debuu</find>
       <find>drawSp</find>
       <find>debu</find>
       <find>setupSprits</find>
@@ -165,8 +150,6 @@
       <find>dest</find>
       <find>drawBossStage</find>
       <find>forE</find>
-      <find>drawZiku</find>
-      <find>drawSprites</find>
       <find>destoryWithKey</find>
       <find>drawBoss</find>
       <find>debugger</find>
@@ -175,6 +158,20 @@
       <find>x &lt; 0</find>
       <find>Resources</find>
       <find>HDResources</find>
+      <find>this.dataStore.canvas</find>
+      <find>canvas</find>
+      <find>this.canvas</find>
+      <find>Gam</find>
+      <find>frame =</find>
+      <find>judgePlayerGetTool</find>
+      <find>currentPart</find>
+      <find>drawZiku</find>
+      <find>currentWord</find>
+      <find>currentLevel</find>
+      <find>level</find>
+      <find>splice</find>
+      <find>drawSprites</find>
+      <find>judgeBulletCollideEnemy</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -197,29 +194,33 @@
         <option value="$PROJECT_DIR$/js/director/FisrtSubDirector.js" />
         <option value="$PROJECT_DIR$/js/runtime/LevelSelect.js" />
         <option value="$PROJECT_DIR$/js/runtime/GameOver.js" />
-        <option value="$PROJECT_DIR$/js/director/FirstDirector.js" />
         <option value="$PROJECT_DIR$/js/runtime/Music.js" />
-        <option value="$PROJECT_DIR$/js/base/DataStore.js" />
         <option value="$PROJECT_DIR$/js/npc/AttackPlane.js" />
         <option value="$PROJECT_DIR$/js/npc/StayPlane.js" />
         <option value="$PROJECT_DIR$/res/ziku.json" />
-        <option value="$PROJECT_DIR$/js/director/SecondDirector.js" />
-        <option value="$PROJECT_DIR$/js/npc/BossBullet.js" />
-        <option value="$PROJECT_DIR$/js/director/Director.js" />
-        <option value="$PROJECT_DIR$/js/base/BaseSubDirector.js" />
         <option value="$PROJECT_DIR$/Main.js" />
         <option value="$PROJECT_DIR$/js/base/Sprite.js" />
         <option value="$PROJECT_DIR$/js/base/ResourceLoader.js" />
         <option value="$PROJECT_DIR$/js/base/Resources.js" />
+        <option value="$PROJECT_DIR$/js/npc/BossBullet.js" />
         <option value="$PROJECT_DIR$/js/npc/Boss.js" />
+        <option value="$PROJECT_DIR$/js/base/DataStore.js" />
+        <option value="$PROJECT_DIR$/js/director/Director.js" />
+        <option value="$PROJECT_DIR$/js/scene/SceneQueue.js" />
+        <option value="$PROJECT_DIR$/js/base/BaseSubDirector.js" />
+        <option value="$PROJECT_DIR$/js/director/FirstDirector.js" />
+        <option value="$PROJECT_DIR$/js/scene/BossScene.js" />
+        <option value="$PROJECT_DIR$/js/scene/Scene.js" />
+        <option value="$PROJECT_DIR$/js/director/SecondDirector.js" />
+        <option value="$PROJECT_DIR$/js/scene/NormalEnemyScene.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="72" />
-    <option name="y" value="227" />
-    <option name="width" value="1636" />
-    <option name="height" value="1055" />
+    <option name="x" value="102" />
+    <option name="y" value="23" />
+    <option name="width" value="1710" />
+    <option name="height" value="1030" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -275,6 +276,12 @@
             <path>
               <item name="ChinesePlane" type="b2602c69:ProjectViewProjectNode" />
               <item name="ChinesePlane" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="scene" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChinesePlane" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ChinesePlane" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -312,6 +319,11 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="SceneQueue.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="SceneQueue.js" working-dir="$PROJECT_DIR$/js/scene">
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -342,17 +354,18 @@
       <workItem from="1564192611477" duration="541000" />
       <workItem from="1564317556374" duration="2467000" />
       <workItem from="1564394467650" duration="52000" />
+      <workItem from="1564545844039" duration="3109000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58036000" />
+    <option name="totallyTimeSpent" value="63143000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="72" y="227" width="1636" height="1055" extended-state="0" />
+    <frame x="102" y="23" width="1710" height="1030" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23529412" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2249852" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -458,11 +471,8 @@
     <entry file="file://$PROJECT_DIR$/js/base/Util/Fit.js" />
     <entry file="file://$PROJECT_DIR$/js/player/Player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="388">
+          <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -476,7 +486,7 @@
     <entry file="file://$PROJECT_DIR$/js/runtime/BackGround.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -507,133 +517,27 @@
     <entry file="file://$PROJECT_DIR$/game.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/base/DataStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/player/Bullet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="418">
           <caret line="19" column="24" selection-end-line="27" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#90#129#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/npc/BossBullet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="78" lean-forward="true" selection-start-line="12" selection-start-column="78" selection-end-line="12" selection-end-column="78" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#90#129#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/runtime/GameOver.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="37" column="100" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="37" selection-end-column="100" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/player/Tool.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/base/BaseSubDirector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-382">
-          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/director/Director.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1036">
-          <caret line="49" column="3" lean-forward="true" selection-start-line="49" selection-start-column="3" selection-end-line="49" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/director/FirstDirector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/director/SecondDirector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-440">
-          <caret line="80" column="7" lean-forward="true" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/base/Sprite.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2552">
-          <caret line="116" column="34" lean-forward="true" selection-start-line="116" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="47" column="8" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/base/ResourceLoader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="39" column="78" selection-start-line="39" selection-start-column="78" selection-end-line="39" selection-end-column="78" />
-          <folding>
-            <element signature="e#33#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/base/Resources.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        <state relative-caret-position="154">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/npc/StayPlane.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        <state relative-caret-position="352">
+          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
@@ -650,9 +554,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/base/Resources.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/player/Tool.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/base/ResourceLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/base/Sprite.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2552">
+          <caret line="116" column="34" selection-start-line="116" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/director/Director.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/npc/BossBullet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/npc/Chinese.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-157">
+        <state>
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
@@ -662,7 +624,7 @@
     <entry file="file://$PROJECT_DIR$/js/npc/AttackPlane.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
-          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
             <element signature="n#!!block;n#constructor#0;n#AttackPlane#0" />
@@ -672,10 +634,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/npc/Boss.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="27" column="41" lean-forward="true" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+        <state relative-caret-position="1572">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/base/BaseSubDirector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1291">
+          <caret line="79" column="15" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/base/DataStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/director/FirstDirector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/scene/Scene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/scene/SceneQueue.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/director/SecondDirector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/scene/BossScene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/scene/NormalEnemyScene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
