@@ -17,7 +17,7 @@ import {
   Tool
 } from "../player/Tool.js"
 
-<<<<<<< HEAD
+
 const EMEMYCOUNT = 2;
 const TOOLCOUNT = 5;
 export class FirstDirector extends BaseSubDirector {
@@ -25,13 +25,7 @@ export class FirstDirector extends BaseSubDirector {
     super();
     this.setupWordMap()
   }
-=======
-const EMEMYCOUNT = 5;
-const TOOLCOUNT=5;
-export  class FirstDirector  extends BaseSubDirector {
-    constructor() {
-       super();
->>>>>>> 9ee64da4582cb40e0c9e6d6e2a6f6e08a0d953ac
+
 
   setupWordMap() {
     this.wordCheck = new Map();
@@ -55,12 +49,9 @@ export  class FirstDirector  extends BaseSubDirector {
     this.dataStore.put('enemy', enemies);
   }
 
-<<<<<<< HEAD
+
   drawSprites() {
-=======
-    drawSprites(){
-        this.judgeBulletCollideEnemy();
->>>>>>> 9ee64da4582cb40e0c9e6d6e2a6f6e08a0d953ac
+
 
     const backgroundSprie = this.dataStore.get('background');
     backgroundSprie.draw(3);
@@ -76,7 +67,7 @@ export  class FirstDirector  extends BaseSubDirector {
       }
     });
 
-<<<<<<< HEAD
+
     while (ememies.length < EMEMYCOUNT) {
       ememies.push(new Enemy());
     }
@@ -98,41 +89,7 @@ export  class FirstDirector  extends BaseSubDirector {
     })
     this.drawTools();
   }
-=======
-      while (ememies.length < EMEMYCOUNT) {
-            ememies.push(new Enemy());
-        }
-        for (let i = 0; i < ememies.length; i++) {
-            let enemy = ememies[i];
-            enemy.draw();
-        }
-      const bullets = this.dataStore.get('bullet');
-      if(this.dataStore.frame % 20 == 0){
-        bullets.push(new Bullet)
-        // Music.getInstance().shoot();
-      }
-      bullets.forEach((bullet, index, array) => {
-        if (bullet.y < 0 || bullet.isVisible === false) {
-          array.splice(index, 1);
-        }
-        bullet.draw();
-      })
-      this.drawTools();
-    }
 
-    drawTools(){
-      const tools = this.dataStore.get('tool');
-      if (this.dataStore.frame % 180 == 0 && tools.length < TOOLCOUNT) {
-        const object=new Tool
-        const ziku = this.dataStore.ziku;
-        const wordpart = ziku[this.level - 1][this.currentWordIndex].conponent;
-        object.wordPart = wordpart[this.currentPart]
-        this.currentPart+=1;
-        if (this.currentPart>=wordpart.length){
-          this.currentPart=0
-        }
-        tools.push(object)
->>>>>>> 9ee64da4582cb40e0c9e6d6e2a6f6e08a0d953ac
 
   drawTools() {
     const tools = this.dataStore.get('tool');
@@ -160,26 +117,12 @@ export  class FirstDirector  extends BaseSubDirector {
 
     })
   }
-=======
 
-    judgeBulletCollideEnemy() {
-        let enemies = this.dataStore.get('enemy');
-        let bullets = this.dataStore.get('bullet');
-        bullets.forEach((bullet) => {
-            for (let i = 0, il = enemies.length; i < il; i++) {
-                let enemy = enemies[i];
-                let isCollide = bullet.isCollideWith(enemy)
-                if (enemy.isPlaying && isCollide) {
-                    bullet.isVisible = false;
-                    enemy.isPlaying = false;
-                    break;
-                }
-            }
-        })
-    }
+
+
 
 
 }
->>>>>>> 9ee64da4582cb40e0c9e6d6e2a6f6e08a0d953ac
+
 
 }
