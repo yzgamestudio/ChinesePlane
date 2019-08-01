@@ -73,12 +73,20 @@ export class SecondDirector extends BaseSubDirector {
 
   recoverResources() {
 
-    const bossBullets = this.dataStore.get('bossBullet');
-    bossBullets.forEach(function (spirte, index, array) {
-      if (spirte.y >= that.dataStore.canvas.height) {
-        array.splice(index, 1);
-      }
-    })
+    // const bossBullets = this.dataStore.get('bossBullet');
+    // bossBullets.forEach(function (spirte, index, array) {
+    //   if (spirte.y >= that.dataStore.canvas.height) {
+    //     array.splice(index, 1);
+    //   }
+    // })
+  }
+
+  judgeBulletCollideEnemy(){
+
+  }
+
+  judgeWordComplete(){
+    
   }
 
 }
