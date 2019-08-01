@@ -10,7 +10,6 @@ export class NormalEnemyScene extends Scene {
   }
 
   canRemove() {
-    let seconds = this.frame / 60;
     let enemys = DataStore.getInstance().get('enemy');
     if (enemys.length > 0) {
       return false;
@@ -24,7 +23,7 @@ export class NormalEnemyScene extends Scene {
 
     let seconds = this.frame / 60;
     let enemys = DataStore.getInstance().get('enemy');
-    while (enemys.length < 5 && seconds < 5) {
+    while (enemys.length < 5 && seconds < 10) {
       let enemy = new Enemy();
       enemys.push(enemy);
     }

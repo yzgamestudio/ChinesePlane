@@ -32,6 +32,7 @@ export class Main {
     // 所有资源加载完毕后才能渲染
     onResourceFirstLoaded(map, ziku) {
         // 将画笔和画布放在dataStore方便精灵使用
+        debugger;
         DataStore.getInstance().systeminfo = this.res;
         DataStore.getInstance().res = map;
         DataStore.getInstance().canvas = this.canvas;

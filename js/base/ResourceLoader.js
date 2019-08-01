@@ -22,12 +22,14 @@ export class ResourceLoader {
 
   readZiKu() {
     let fileManager = wx.getFileSystemManager();
+    let that = this;
     let params = {
       filePath: ChineseResources.ziku,
       encoding: 'utf8',
-      complete: (res) => {
-        this.ziku = res.data;
-        this.judgeCallBack();
+      complete: function(res) {
+        that.ziku = res.data;
+        console.log(res);
+        that.judgeCallBack();
       }
     }
     fileManager.readFile(
@@ -37,9 +39,9 @@ export class ResourceLoader {
 
   readImage() {
 
-    let resource = GameGlobal.dpr >= 2.5 ? UDImageResources : HDImageResources;
+    let imageResources = GameGlobal.dpr >= 2.5 ? UDImageResources : HDImageResources;
 
-    this.map = new Map(Resources);
+    this.map = new Map(imageResources);
     for (let [key, value] of this.map) {
       const image = wx.createImage();
       image.src = value;
@@ -51,11 +53,14 @@ export class ResourceLoader {
       value.onload = () => {
         this.loadedImageCount++;
         this.judgeCallBack();
+
+
       }
     }
   }
 
-  judgeCallBack(){
+  judgeCallBack() {
+
     if(this.loadedImageCount >= this.map.size && this.ziku) {
       this.callback(this.map, this.ziku);
     }
