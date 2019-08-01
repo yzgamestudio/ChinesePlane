@@ -10,7 +10,7 @@ export class BossBullet extends Sprite {
         super(img,
             0, 0, img.width, img.height,
             x, y, img.width, img.height);
-        this.speed = GameGlobal.fit(5);
+        this.speed = GameGlobal.fit(10);
     }
 
     draw() {

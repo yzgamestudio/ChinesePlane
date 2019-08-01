@@ -2,6 +2,7 @@ import {Scene} from "./Scene";
 import {DataStore} from "../base/DataStore";
 import {Boss} from "../npc/Boss";
 
+
 export  class BossScene extends Scene {
      constructor(){
         super();
@@ -14,7 +15,38 @@ export  class BossScene extends Scene {
      }
 
      update() {
+         super.update();
          let boss = DataStore.getInstance().get('boss');
          boss.draw();
+         if (this.frame % 20 == 0) {
+             boss.shoot(5);
+         }
+         let bossBullets = DataStore.getInstance().get(boss.bullet());
+         if(Array.isArray(bossBullets)){
+             bossBullets.forEach(function(bossBullet, index,array) {
+                 bossBullet.draw();
+             });
+         }
+
+         this.recover();
+     }
+
+     recover(){
+         let boss = DataStore.getInstance().get('boss');
+         let isOffScreen =  GameGlobal.isOffScreen(boss.x, boss.y, boss.height);
+         if (isOffScreen){
+             DataStore.getInstance().destoryItem(boss);
+         }
+
+         let bossBullets = DataStore.getInstance().get(boss.bullet());
+         if(!Array.isArray(bossBullets)){
+             return;
+         }
+         bossBullets.forEach(function(bossBullet, index,array) {
+             let isOffScreen =  GameGlobal.isOffScreen(bossBullet.x, bossBullet.y, bossBullet.height);
+             if(isOffScreen) {
+                 array.splice(index, 1);
+             }
+         });
      }
 }

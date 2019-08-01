@@ -44,34 +44,43 @@ export class Boss extends Sprite {
   }
 
   shoot(number = 3) {
+    debugger;
+    let bossBullets =  DataStore.getInstance().get('bossBullet');
+    if(Array.isArray(bossBullets) === false) {
+      DataStore.getInstance().put('bossBullet', []);
+      bossBullets =  DataStore.getInstance().get('bossBullet'); // 再取一次
+    }
+
     if (number >= 1) {
       let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10), this.y + this.height - GameGlobal.fit(40));
-      let bossBullets = DataStore.getInstance().get('bossBullet');
       bossBullets.push(bossBullet);
     }
     if (number >= 2) {
       let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) - GameGlobal.fit(20), this.y + this.height - GameGlobal.fit(40));
-      let bossBullets = DataStore.getInstance().get('bossBullet');
       bossBullets.push(bossBullet);
     }
     if (number >= 3) {
       let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) + GameGlobal.fit(20), this.y + this.height - GameGlobal.fit(40));
-      let bossBullets = DataStore.getInstance().get('bossBullet');
       bossBullets.push(bossBullet);
     }
 
     if (number >= 4) {
       let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) - GameGlobal.fit(40), this.y + this.height - GameGlobal.fit(40));
-      let bossBullets = DataStore.getInstance().get('bossBullet');
       bossBullets.push(bossBullet);
     }
     if (number >= 5) {
       let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) + GameGlobal.fit(40), this.y + this.height - GameGlobal.fit(40));
-      let bossBullets = DataStore.getInstance().get('bossBullet');
       bossBullets.push(bossBullet);
     }
 
 
+
   }
+
+  bullet(){
+    return 'bossBullet';
+  }
+
+
 
 }

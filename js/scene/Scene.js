@@ -6,7 +6,7 @@
 export class Scene {
     constructor() {
         this.totalSeconds = 0;
-        this.spendSeconds = 0;
+        this.frame = 0;
     }
 
     canRemove() {
@@ -14,6 +14,8 @@ export class Scene {
     }
 
     update(){
-
+        this.frame++;
     }
+
+    
 }

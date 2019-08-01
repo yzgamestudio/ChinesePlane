@@ -30,6 +30,7 @@ export class SecondDirector extends BaseSubDirector {
 
     let bossScene = new BossScene();
     this.sceneQueue = new SceneQueue();
+
     this.sceneQueue.addScene(bossScene);
 
     return this;
@@ -44,25 +45,6 @@ export class SecondDirector extends BaseSubDirector {
 
     this.sceneQueue.updateScene();
 
-    this.recoverResources();
-  }
-
-
-  drawFirstStage() {
-    const ememies = this.dataStore.get('enemy');
-    while (ememies.length < 5) {
-      ememies.push(new Enemy());
-    }
-    for (let i = 0; i < ememies.length; i++) {
-      let enemy = ememies[i];
-      enemy.draw();
-    }
-
-    const bullets = this.dataStore.get('bullet');
-    if (this.dataStore.frame % 20 == 0) {
-      bullets.push(new Bullet)
-    }
-
   }
 
 
@@ -71,22 +53,12 @@ export class SecondDirector extends BaseSubDirector {
   }
 
 
-  recoverResources() {
-
-    // const bossBullets = this.dataStore.get('bossBullet');
-    // bossBullets.forEach(function (spirte, index, array) {
-    //   if (spirte.y >= that.dataStore.canvas.height) {
-    //     array.splice(index, 1);
-    //   }
-    // })
-  }
-
   judgeBulletCollideEnemy(){
 
   }
 
   judgeWordComplete(){
-    
+
   }
 
 }

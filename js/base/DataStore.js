@@ -31,6 +31,14 @@ export class DataStore {
     wx.triggerGC();
   }
 
+  destoryItem(item){
+    for(let value of this.map.values()) {
+     if(item == value) {
+       value = null;
+     }
+    }
+  }
+
   reset() {
     this.frame = 0;
   }
