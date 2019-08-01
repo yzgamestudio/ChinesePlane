@@ -1,4 +1,4 @@
-import {Scene} from "./Scene";
+import {Scene} from "../base/Scene";
 import {DataStore} from "../base/DataStore";
 import {Boss} from "../npc/Boss";
 
@@ -12,8 +12,6 @@ export  class BossScene extends Scene {
 
      canRemove() {
          let boss = DataStore.getInstance().get('boss');
-         let bossBullets = DataStore.getInstance().get(boss.bullet());
-
          // 没有boss就可以通关了
          if(boss === undefined) {
              return true;

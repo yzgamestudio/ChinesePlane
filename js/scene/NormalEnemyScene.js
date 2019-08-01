@@ -1,6 +1,6 @@
-import {Scene} from "./Scene";
 import {DataStore} from "../base/DataStore";
-import {Enemy} from "../npc/Enemy.js";
+import {Scene} from "../base/Scene";
+
 
 export  class NormalEnemyScene extends Scene {
     constructor(){

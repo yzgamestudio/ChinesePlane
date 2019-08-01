@@ -6,9 +6,8 @@ import { Bullet } from "../player/Bullet";
 import { AttackPlane } from "../npc/AttackPlane";
 import { StayPlane } from "../npc/StayPlane.js";
 
-import {SceneQueue} from "../scene/SceneQueue";
+import {SceneQueue} from "../base/SceneQueue";
 import {BossScene} from "../scene/BossScene";
-import {NormalEnemyScene} from "../scene/NormalEnemyScene";
 
 const EMEMYCOUNT = 10;
 const STAYPLANECOUNT = 5;
