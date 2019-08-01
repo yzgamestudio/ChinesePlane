@@ -11,7 +11,16 @@ export  class BossScene extends Scene {
      }
 
      canRemove() {
-        return false;
+         let boss = DataStore.getInstance().get('boss');
+         let bossBullets = DataStore.getInstance().get(boss.bullet());
+
+         // 没有boss就可以通关了
+         if(boss === undefined) {
+             return true;
+         }
+         else {
+             return false;
+         }
      }
 
      update() {
