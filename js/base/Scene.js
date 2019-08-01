@@ -15,5 +15,9 @@ export class Scene {
         this.frame++;
     }
 
+    recover(){
+
+    }
+
     
 }

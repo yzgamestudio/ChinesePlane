@@ -4,7 +4,6 @@ import { DataStore } from '../base/DataStore.js'
 export class BackGround extends Sprite{
   constructor() {
     const image = Sprite.getImage('background');
-    // console.log('background width');
     super(image,
       0, 0, image.width, image.height,
       0, -DataStore.getInstance().canvas.height, DataStore.getInstance().canvas.width, DataStore.getInstance().canvas.height * 2, false);

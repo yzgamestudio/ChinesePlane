@@ -166,7 +166,7 @@ export class BaseSubDirector {
     let ziku = this.dataStore.ziku;
     let level = ziku[parseInt(this.level-1)][this.currentWord].word
 
-    console.log(level);
+    // console.log(level);
     this.dataStore.ctx.fillText(level, 30 * GameGlobal.dpr,
       this.dataStore.canvas.height - 50 * GameGlobal.dpr);
   }

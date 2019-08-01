@@ -44,7 +44,6 @@ export class Boss extends Sprite {
   }
 
   shoot(number = 3) {
-    debugger;
     let bossBullets =  DataStore.getInstance().get('bossBullet');
     if(Array.isArray(bossBullets) === false) {
       DataStore.getInstance().put('bossBullet', []);
@@ -70,6 +69,16 @@ export class Boss extends Sprite {
     }
     if (number >= 5) {
       let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) + GameGlobal.fit(40), this.y + this.height - GameGlobal.fit(40));
+      bossBullets.push(bossBullet);
+    }
+
+    if (number >= 6) {
+      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) + GameGlobal.fit(60), this.y + this.height - GameGlobal.fit(40));
+      bossBullets.push(bossBullet);
+    }
+
+    if (number >= 7) {
+      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) - GameGlobal.fit(60), this.y + this.height - GameGlobal.fit(40));
       bossBullets.push(bossBullet);
     }
 
