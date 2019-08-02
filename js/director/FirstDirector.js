@@ -79,7 +79,6 @@ export class FirstDirector extends BaseSubDirector {
     const bullets = this.dataStore.get('bullet');
     if (this.dataStore.frame % 20 == 0) {
       bullets.push(new Bullet)
-      // Music.getInstance().shoot();
     }
     bullets.forEach((bullet, index, array) => {
       if (bullet.y < 0 || bullet.isVisible === false) {
@@ -117,12 +116,6 @@ export class FirstDirector extends BaseSubDirector {
 
     })
   }
-
-
-
-
-
-
 
 
 }

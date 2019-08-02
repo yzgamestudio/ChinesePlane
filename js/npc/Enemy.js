@@ -6,7 +6,7 @@ const MINSPEED = 1;
 const MAXSPEED = 5;
 
 export class Enemy extends Sprite {
-  constructor() {
+  constructor(ratio = 1) {
     const image = Sprite.getImage('enemy'); // 获取图片
     const canvas = DataStore.getInstance().canvas;
     const y = - image.height; // 所有敌机都是在刚离屏的位置Y
@@ -18,7 +18,7 @@ export class Enemy extends Sprite {
       randomX, y, image.width, image.height);
 
     this.enableCollide = true;
-    this.speed = RandomUtil.random(MINSPEED, MAXSPEED);  // 随机生成一个速度speed
+    this.speed = RandomUtil.random(MINSPEED, MAXSPEED) * ratio ;  // 随机生成一个速度speed
     this.isPlaying=true;
   }
 

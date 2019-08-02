@@ -7,7 +7,7 @@ export const HDImageResources = [
   ['bullet', 'res/bullet@2x.png'],
   ['attackPlane', 'res/airforce2@2x.png'],
   ['stayPlane', 'res/airforce3@2x.png'],
-  ['boss', 'res/boss1@2x.png'],
+  ['boss', 'res/boss2@2x.png'],
   ['bubble', 'res/bubble@2x.png']
 ];
 

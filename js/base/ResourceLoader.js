@@ -53,8 +53,6 @@ export class ResourceLoader {
       value.onload = () => {
         this.loadedImageCount++;
         this.judgeCallBack();
-
-
       }
     }
   }

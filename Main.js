@@ -39,6 +39,19 @@ export class Main {
         DataStore.getInstance().ctx = this.canvas.getContext('2d');
         let object = JSON.parse(ziku);
         DataStore.getInstance().ziku = object;
+
+        for(let key  in object) {
+            let item = object.key;
+            if(Array.isArray(item)){
+
+            }
+            else if(typeof item === "object") {
+
+            }
+            else {
+
+            }
+        }
         this.director = new Director;
     }
 

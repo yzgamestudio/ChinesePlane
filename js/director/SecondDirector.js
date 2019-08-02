@@ -47,7 +47,6 @@ export class SecondDirector extends BaseSubDirector {
 
   }
 
-
   isGameOver() {
     return false;
   }

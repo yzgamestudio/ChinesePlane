@@ -161,7 +161,7 @@ export class BaseSubDirector {
   }
 
   drawZiku(){
-    this.dataStore.ctx.font = "90px Georgia";
+    this.dataStore.ctx.font = "0px Georgia";
     this.dataStore.ctx.fillStyle = "#ffffff";
     let ziku = this.dataStore.ziku;
     let level = ziku[parseInt(this.level-1)][this.currentWord].word

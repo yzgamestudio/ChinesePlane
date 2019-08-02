@@ -25,7 +25,7 @@ export class BossScene extends Scene {
     super.update();
     let boss = DataStore.getInstance().get('boss');
     boss.draw();
-    if (this.frame % 20 == 0) {
+    if (this.frame % 20 === 0) {
       boss.shoot(10);
     }
     
