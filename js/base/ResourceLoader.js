@@ -28,7 +28,7 @@ export class ResourceLoader {
       encoding: 'utf8',
       complete: function(res) {
         that.ziku = res.data;
-        console.log(res);
+        // console.log(res);
         that.judgeCallBack();
       }
     }

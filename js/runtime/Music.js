@@ -22,7 +22,7 @@ export class Music {
 
     let bgmAudio = wx.createInnerAudioContext();
     bgmAudio.src = AudioResources.bgm;
-    console.log('bgm' + AudioResources.bgm);
+    // console.log('bgm' + AudioResources.bgm);
     bgmAudio.loop = true;
     this.bgmAudio = bgmAudio;
 

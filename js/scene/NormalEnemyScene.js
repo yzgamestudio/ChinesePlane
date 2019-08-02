@@ -39,7 +39,7 @@ export class NormalEnemyScene extends Scene {
     enemys.forEach(function (item, index, array) {
     
       if (item.y > DataStore.getInstance().canvas.height) {
-        console.log(item);
+        // console.log(item);
         array.splice(index, 1);
       }
     });
