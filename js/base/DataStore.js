@@ -33,7 +33,7 @@ export class DataStore {
 
   destoryItem(item){
     for(let value of this.map.values()) {
-     if(item == value) {
+     if(item === value) {
        value = null;
      }
     }

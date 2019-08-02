@@ -15,9 +15,18 @@ export class Scene {
         this.frame++;
     }
 
+    construct(){
+
+    }
+
+    draw(){
+
+    }
+
     recover(){
 
     }
+
 
     
 }

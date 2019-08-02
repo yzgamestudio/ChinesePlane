@@ -23,6 +23,7 @@ export class BossScene extends Scene {
 
   update() {
     super.update();
+
     let boss = DataStore.getInstance().get('boss');
     boss.draw();
     if (this.frame % 20 === 0) {

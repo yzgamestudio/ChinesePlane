@@ -6,7 +6,7 @@ export class LittleAttack extends Sprite {
       const image = Sprite.getImage('littleAttack'); // 获取图片
         const canvas = DataStore.getInstance().canvas;
         let res = DataStore.getInstance().res;
-        console.log(image);
+        // console.log(image);
         let y = - image.height; // 所有敌机都是在刚离屏的位置Y
         let x 
         if(isLeft) {
