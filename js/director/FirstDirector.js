@@ -10,6 +10,8 @@ import {
 import {
   Bullet
 } from "../player/Bullet";
+import {angleBullet
+} from "../player/angleBullet";
 import {
   Enemy
 } from "../npc/Enemy";
@@ -77,8 +79,8 @@ export class FirstDirector extends BaseSubDirector {
       enemy.draw();
     }
     const bullets = this.dataStore.get('bullet');
-    if (this.dataStore.frame % 20 == 0) {
-      bullets.push(new Bullet)
+    if (this.dataStore.frame % 10== 0) {
+      bullets.push(new angleBullet(90))
     }
     bullets.forEach((bullet, index, array) => {
       if (bullet.y < 0 || bullet.isVisible === false) {
