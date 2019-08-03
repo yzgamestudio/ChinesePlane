@@ -81,6 +81,8 @@ export class FirstDirector extends BaseSubDirector {
     const bullets = this.dataStore.get('bullet');
     if (this.dataStore.frame % 10== 0) {
       bullets.push(new angleBullet(90))
+      bullets.push(new angleBullet(120))
+      bullets.push(new angleBullet(60))
     }
     bullets.forEach((bullet, index, array) => {
       if (bullet.y < 0 || bullet.isVisible === false) {
