@@ -82,8 +82,6 @@ export class Boss extends Sprite {
       bossBullets.push(bossBullet);
     }
 
-
-
   }
 
   bullet(){

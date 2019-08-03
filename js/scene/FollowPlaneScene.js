@@ -6,36 +6,49 @@ import {FollowPlane} from "../npc/FollowPlane";
 export class FollowPlaneScene extends Scene {
     constructor() {
         super();
-        let followPlane = new FollowPlane();
-        DataStore.getInstance().put('followPlane', followPlane);
+        DataStore.getInstance().put('littleAttack2', []);
     }
 
     canRemove() {
-        let followPlane = DataStore.getInstance().get('followPlane');
-        if (followPlane === undefined) {
 
-            return true;
-        }
-        else {
-            return true;
-        }
+      if(this.seconds() > 5) {
+          return true;
+      }
+      else {
+        return  false;
+      }
+
     }
 
     update() {
         super.update();
+        // debugger;
+        let followPlanes = DataStore.getInstance().get('littleAttack2');
 
-        let followPlane = DataStore.getInstance().get('followPlane');
+        if(this.seconds() < 5){
+            if(this.frame % 30 === 0) {
+                // debugger;
+                followPlanes.push(new FollowPlane());
+            }
+        }
+
         let player = DataStore.getInstance().get('player');
-        followPlane.draw(player.x, player.y);
+        followPlanes.forEach(function (item) {
+            // debugger;
+            item.draw(player.x, player.y);
+        })
 
         this.recover();
     }
 
     recover() {
-        let followPlane = DataStore.getInstance().get('followPlane');
-        let isOffScreen = GameGlobal.isOffScreen(followPlane.x, followPlane.y, followPlane.height);
-        if (isOffScreen) {
-            DataStore.getInstance().destoryItem(followPlane);
-        }
+        let followPlanes = DataStore.getInstance().get('littleAttack2');
+        followPlanes.forEach(function (item,index,array) {
+            let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.height);
+            if (isOffScreen) {
+                DataStore.getInstance().destoryItem(item);
+            }
+        })
+
     }
 }

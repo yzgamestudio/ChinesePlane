@@ -27,6 +27,10 @@ export class Scene {
 
     }
 
+    seconds(){
+       return  this.frame / 60;
+    }
+
 
     
 }

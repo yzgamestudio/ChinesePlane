@@ -143,4 +143,8 @@ export class Sprite {
       && spY >= this.y
       && spY <= this.y + this.height)
   }
+
+
+
+
 }
