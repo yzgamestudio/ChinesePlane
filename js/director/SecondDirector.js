@@ -8,12 +8,8 @@ import {BossScene} from "../scene/BossScene";
 
 import {NormalEnemyScene} from "../scene/NormalEnemyScene";
 import {FollowPlaneScene} from "../scene/FollowPlaneScene";
-
-const EMEMYCOUNT = 10;
-const STAYPLANECOUNT = 5;
-
-let isLeft = true;
-const step = 100;
+import {SnackPlane} from "../npc/SnackPlane";
+import {SnackPlaneScene} from "../scene/SnackPlaneScene";
 
 export class SecondDirector extends BaseSubDirector {
   constructor() {
@@ -30,12 +26,15 @@ export class SecondDirector extends BaseSubDirector {
     this.sceneQueue = new SceneQueue();
     let attackScene = new LittleAttackScene();
     let enemyScene = new NormalEnemyScene();
-    let bossScene = new BossScene();
     let followPlaneScene = new FollowPlaneScene();
+    let snackPlaneScene = new SnackPlaneScene();
+    let bossScene = new BossScene();
 
     this.sceneQueue.addScene(followPlaneScene);
     this.sceneQueue.addScene(attackScene);
+    this.sceneQueue.addScene(snackPlaneScene);
     this.sceneQueue.addScene(enemyScene);
+
     this.sceneQueue.addScene(bossScene);
 
 
