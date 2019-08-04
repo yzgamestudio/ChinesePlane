@@ -26,7 +26,7 @@ export class FollowPlaneScene extends Scene {
         let followPlanes = DataStore.getInstance().get('littleAttack2');
 
         if(this.seconds() < 5){
-            if(this.frame % 30 === 0) {
+            if(this.frame % 60 === 0) {
                 // debugger;
                 followPlanes.push(new FollowPlane());
             }
@@ -43,7 +43,7 @@ export class FollowPlaneScene extends Scene {
 
     recover() {
         let followPlanes = DataStore.getInstance().get('littleAttack2');
-        followPlanes.forEach(function (item,index,array) {
+        followPlanes.forEach(function (item) {
             let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.height);
             if (isOffScreen) {
                 DataStore.getInstance().destoryItem(item);

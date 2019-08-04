@@ -12,8 +12,8 @@ export const HDImageResources = [
     ['followPlane', 'res/airforce3@2x.png'],
     ['boss', 'res/boss2@2x.png'],
     ['bubble', 'res/bubble@2x.png'],
-    ['littleAttack', 'res/littleAttack1@2x.png'],
-    ['littleAttack2', 'res/littleAttack1@2x.png'],
+    ['littleAttack1', 'res/littleAttack1@2x.png'],
+    ['littleAttack2', 'res/littleAttack2@2x.png'],
     ['airforce1', 'res/airforce1@2x.png'],
 ];
 
@@ -31,8 +31,8 @@ export const UDImageResources = [
     ['followPlane', 'res/airforce3@3x.png'],
     ['boss', 'res/boss1@3x.png'],
     ['bubble', 'res/bubble@3x.png'],
-    ['littleAttack', 'res/littleAttack1@3x.png'],
-    ['littleAttack2', 'res/littleAttack1@3x.png'],
+    ['littleAttack1', 'res/littleAttack1@3x.png'],
+    ['littleAttack2', 'res/littleAttack2@3x.png'],
     ['airforce1', 'res/airforce1@3x.png'],
 
 ];

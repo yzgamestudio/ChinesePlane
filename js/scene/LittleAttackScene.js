@@ -15,7 +15,7 @@ export class LittleAttackScene extends Scene {
     if (seconds < 10) {
       return false;
     }
-    let littleAttacks = DataStore.getInstance().get('littleAttack');
+    let littleAttacks = DataStore.getInstance().get('littleAttack1');
     if (Array.isArray(littleAttacks)) {
       if (littleAttacks.length <= 0) {
         return true;
@@ -33,7 +33,7 @@ export class LittleAttackScene extends Scene {
   }
 
   construct() {
-    let littleAttacks = DataStore.getInstance().get('littleAttack');
+    let littleAttacks = DataStore.getInstance().get('littleAttack1');
     let seconds = this.frame / 60;
     if (seconds > 10) {
       // do nothing
@@ -48,7 +48,7 @@ export class LittleAttackScene extends Scene {
   }
 
   draw() {
-    let littleAttacks = DataStore.getInstance().get('littleAttack');
+    let littleAttacks = DataStore.getInstance().get('littleAttack1');
     if (Array.isArray(littleAttacks)) {
       littleAttacks.forEach(function (item, index, array) {
         item.draw();
@@ -57,7 +57,7 @@ export class LittleAttackScene extends Scene {
   }
 
   recover() {
-    let littleAttacks = DataStore.getInstance().get('littleAttack');
+    let littleAttacks = DataStore.getInstance().get('littleAttack1');
     if (Array.isArray(littleAttacks)) {
       littleAttacks.forEach(function (item, index, array) {
         if (item.y > DataStore.getInstance().canvas.height) {

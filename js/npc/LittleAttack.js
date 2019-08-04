@@ -3,7 +3,7 @@ import { DataStore } from '../base/DataStore.js'
 
 export class LittleAttack extends Sprite {
     constructor(isLeft = true) {
-      const image = Sprite.getImage('littleAttack'); // 获取图片
+      const image = Sprite.getImage('littleAttack1'); // 获取图片
         const canvas = DataStore.getInstance().canvas;
         let res = DataStore.getInstance().res;
         // console.log(image);
