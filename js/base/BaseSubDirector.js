@@ -8,6 +8,7 @@ import { Bullet } from "../player/Bullet.js"
 import { BackGround } from "../runtime/BackGround.js"
 import { Player } from "../player/Player.js"
 import { Tool } from "../player/Tool.js"
+import {SpriteDetector} from "./Util/SpriteDetector";
 
 export class BaseSubDirector {
   constructor() {
@@ -47,6 +48,8 @@ export class BaseSubDirector {
     this.drawZiku();
 
     requestAnimationFrame(() => this.run());
+
+    // SpriteDetector.test();
   }
 
   judgeBulletCollideEnemy() {
