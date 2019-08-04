@@ -16,6 +16,7 @@ export class BaseSubDirector {
     this.currentLevel = 0;
     this.currentWord=0;
     this.currentPart=0;//当前字的组成部分编号
+    this.frame=0;
   }
 
   setupSprits() { /// 子类继承时必须先调用super  setupSprits

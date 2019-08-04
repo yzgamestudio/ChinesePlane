@@ -10,6 +10,15 @@ import {
 import {
   Bullet
 } from "../player/Bullet";
+import {
+  smartBullet
+} from "../player/smartBullet";
+import {
+  angleEnemyBullet
+} from "../npc/angleEnemyBullet";
+import {
+  smartEnemyBullet
+} from "../npc/smartEnemyBullet";
 import {angleBullet
 } from "../player/angleBullet";
 import {
@@ -69,23 +78,31 @@ export class FirstDirector extends BaseSubDirector {
       }
     });
 
-
+    const bullets = this.dataStore.get('bullet');
     while (ememies.length < EMEMYCOUNT) {
-      ememies.push(new Enemy());
+      let newOne=new Enemy();
+      ememies.push(newOne);
     }
-
+    this.frame++;
     for (let i = 0; i < ememies.length; i++) {
       let enemy = ememies[i];
       enemy.draw();
+      if(this.frame%20===0){
+        let newBullet = new smartEnemyBullet(enemy.x, enemy.y, enemy.height, enemy.width)
+        bullets.push(newBullet);
+        let newSmartBullet= new smartBullet(enemy.x,enemy.y)
+        bullets.push(newSmartBullet);
+      }
+
     }
-    const bullets = this.dataStore.get('bullet');
+    
     if (this.dataStore.frame % 30== 0) {
-      bullets.push(new angleBullet(0,20))
-      bullets.push(new angleBullet(95,20))
-      bullets.push(new angleBullet(85,20))
+//      bullets.push(new angleBullet(0,20))
+//      bullets.push(new angleBullet(95,20))
+//      bullets.push(new angleBullet(85,20))
     }
     bullets.forEach((bullet, index, array) => {
-      if (bullet.y < 0 || bullet.isVisible === false) {
+      if (bullet.y < -300 || bullet.isVisible === false) {
         array.splice(index, 1);
       }
       bullet.draw();
