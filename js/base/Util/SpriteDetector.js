@@ -20,5 +20,12 @@ export class SpriteDetector {
 
     static test(){
         console.log(this.numberOfSprites());
+        // 如果精灵没有释放，可以打开这个注释看看到底是什么精灵一直常驻在内存中
+        this.spriteNames();
+    }
+
+    static spriteNames(){
+        //可以输出在内存的精灵名字和对象，暂时不实现
+
     }
 }
