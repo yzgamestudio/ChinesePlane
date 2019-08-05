@@ -19,8 +19,8 @@ export class SmartBullet extends Sprite {
     this.frame = 0;
     this.frameLimite = time;
     this.speed=speed;
-  }
-
+  } 
+  //
   draw() {
     this.frame++;
     if (this.frame > this.frameLimite) {

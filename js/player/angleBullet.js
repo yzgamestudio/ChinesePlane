@@ -20,6 +20,7 @@ export class AngleBullet extends Sprite{
     this.frameLimite=time;
     this.speed=speed;
   }
+  //
   draw() {
     this.frame++;
     if(this.frame>this.frameLimite){

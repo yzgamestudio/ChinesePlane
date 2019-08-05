@@ -15,7 +15,7 @@ export class AngleEnemyBullet extends Sprite {
     this.frame = 0;
     this.frameLimite = time;
   }
-  
+  //
   draw() {
     this.frame++;
     if (this.frame > this.frameLimite) {
