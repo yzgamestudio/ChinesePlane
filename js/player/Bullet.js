@@ -5,8 +5,8 @@ import {DataStore} from "../base/DataStore";
 
 
 export class Bullet extends Sprite{
-  constructor(){
-    const img = Sprite.getImage('triLightBullet');
+  constructor(imgname='bullet2'){
+    const img = Sprite.getImage(imgname);
     var spritex = DataStore.getInstance().get('player').x;
     var spritey = DataStore.getInstance().get('player').y;
     var spriteWidth = DataStore.getInstance().get('player').width;

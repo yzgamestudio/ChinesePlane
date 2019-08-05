@@ -1,8 +1,8 @@
 import { Sprite } from "../base/Sprite";
 import { DataStore } from "../base/DataStore";
-export class angleEnemyBullet extends Sprite {
-  constructor(spritex, spritey, spriteHeight, spriteWidth, angle = 90, time = 0) {
-    const img = Sprite.getImage('triLightBullet');
+export class AngleEnemyBullet extends Sprite {
+  constructor(spritex, spritey, spriteHeight, spriteWidth, angle = 90, time = 0,imgname = 'triLightBullet') {
+    const img = Sprite.getImage(imgname);
     const canvas = DataStore.getInstance().canvas;
     var x = spritex + spriteWidth/2-img.width/2  ;
     var y = spritey +spriteHeight- 10;

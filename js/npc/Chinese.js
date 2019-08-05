@@ -6,8 +6,8 @@ const MINSPEED = 2;
 const MAXSPEED = 5;
 
 export class Chinese extends Sprite {
-  constructor() {
-    const image = Sprite.getImage('attackPlane'); // 获取图片
+  constructor(imgname = 'attackPlane') {
+    const image = Sprite.getImage(imgname); // 获取图片
     const canvas = DataStore.getInstance().canvas;
     const y = 0; // 所有敌机都是在刚离屏的位置Y
 

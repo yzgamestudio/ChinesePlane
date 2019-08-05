@@ -2,8 +2,8 @@ import {Sprite} from "../base/Sprite";
 import {DataStore} from "../base/DataStore";
 
 export  class  Player extends  Sprite{
-    constructor(){
-        const img = Sprite.getImage('player');
+    constructor(imgname='player'){
+        const img = Sprite.getImage(imgname);
         const canvas = DataStore.getInstance().canvas;
       let x = canvas.width * 0.5 - img.width* 0.5;
       let y = canvas.height - img.height;

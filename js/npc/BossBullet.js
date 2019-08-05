@@ -5,8 +5,8 @@ import {DataStore} from "../base/DataStore";
 
 
 export class BossBullet extends Sprite {
-    constructor(x, y) {
-      const img = Sprite.getImage('bullet');
+  constructor(x, y, imgname = 'bullet') {
+      const img = Sprite.getImage(imgname);
         super(img,
             0, 0, img.width, img.height,
             x, y, img.width, img.height);

@@ -4,8 +4,8 @@ import {RandomUtil} from "../base/Util/RandomUtil";
 import {MathUtil} from "../base/Util/MathUtil";
 
 export class FlowerPlane extends Sprite {
-    constructor(angle, mod) {
-        const image = Sprite.getImage('littleAttack1'); // 获取图片
+  constructor(angle, mod, imgname = 'littleAttack1') {
+        const image = Sprite.getImage(imgname); // 获取图片
         const y = 300; // 所有敌机都是在刚离屏的位置Y
         let x = DataStore.getInstance().canvas.width * 0.5 - image.width * 0.5;
         super(image,

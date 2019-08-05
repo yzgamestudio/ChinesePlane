@@ -28,7 +28,7 @@ export class SecondDirector extends BaseSubDirector {
         let enemyScene = new NormalEnemyScene();
         let followPlaneScene = new FollowPlaneScene();
         let snackPlaneScene = new SnackPlaneScene();
-        let bossScene = new BossScene();
+        let bossScene = new BossScene('boss2');
 
         this.sceneQueue.addScene(followPlaneScene);
         this.sceneQueue.addScene(flowerScene);

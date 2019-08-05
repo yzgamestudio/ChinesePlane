@@ -1,8 +1,8 @@
 import { Sprite } from "../base/Sprite";
 import { DataStore } from "../base/DataStore";
-export class smartBullet extends Sprite {
-  constructor(enemyx,enemyy, time = 0) {
-    const img = Sprite.getImage('triLightBullet');
+export class SmartBullet extends Sprite {
+  constructor(enemyx,enemyy, time = 0,imgname='bullet2',speed=10) {
+    const img = Sprite.getImage(imgname);
     var spritex = DataStore.getInstance().get('player').x;
     var spritey = DataStore.getInstance().get('player').y;
     var spriteWidth = DataStore.getInstance().get('player').width;
@@ -18,14 +18,15 @@ export class smartBullet extends Sprite {
     this.enableCollide = true;
     this.frame = 0;
     this.frameLimite = time;
+    this.speed=speed;
   }
 
   draw() {
     this.frame++;
     if (this.frame > this.frameLimite) {
 
-      this.y -= 10 * GameGlobal.dpr;
-      this.x -= 10 * GameGlobal.dpr / this.angle;
+      this.y -= this.speed * GameGlobal.dpr;
+      this.x -= this.speed * GameGlobal.dpr / this.angle;
 
     }
 

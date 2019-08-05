@@ -1,8 +1,8 @@
 import { Sprite } from "../base/Sprite";
 import { DataStore } from "../base/DataStore";
-export class angleBullet extends Sprite{
-  constructor(angle=90,time=0) {
-    const img = Sprite.getImage('triLightBullet');
+export class AngleBullet extends Sprite{
+  constructor(imgname = 'bullet2',angle=90,time=0,speed=10) {
+    const img = Sprite.getImage(imgname);
     var spritex = DataStore.getInstance().get('player').x;
     var spritey = DataStore.getInstance().get('player').y;
     var spriteWidth = DataStore.getInstance().get('player').width;
@@ -18,13 +18,14 @@ export class angleBullet extends Sprite{
     this.enableCollide = true;
     this.frame=0;
     this.frameLimite=time;
+    this.speed=speed;
   }
   draw() {
     this.frame++;
     if(this.frame>this.frameLimite){
 
-        this.y = this.y - 10 * GameGlobal.dpr ;
-        this.x += 10 * GameGlobal.dpr/this.angle;
+        this.y = this.y - this.speed* GameGlobal.dpr ;
+        this.x += this.speed * GameGlobal.dpr/this.angle;
       
 
     }

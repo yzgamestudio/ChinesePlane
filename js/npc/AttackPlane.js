@@ -6,7 +6,7 @@ const MINSPEED = 2;
 const MAXSPEED = 5;
 
 export class AttackPlane extends Sprite {
-  constructor() {
+  constructor(imgname = 'attackPlane') {
     const image = Sprite.getImage('attackPlane'); // 获取图片
     const canvas = DataStore.getInstance().canvas;
     const y = - image.height; // 所有敌机都是在刚离屏的位置Y

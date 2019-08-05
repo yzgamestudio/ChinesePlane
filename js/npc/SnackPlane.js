@@ -2,8 +2,8 @@ import {Sprite} from "../base/Sprite";
 import {DataStore} from '../base/DataStore.js'
 
 export class SnackPlane extends Sprite {
-    constructor() {
-        const image = Sprite.getImage('airforce1'); // 获取图片
+  constructor(imgname = 'airforce1') {
+        const image = Sprite.getImage(imgname); // 获取图片
 
         let y = -image.height; // 所有敌机都是在刚离屏的位置Y
         let x = DataStore.getInstance().canvas.width * 0.5 - image.width * 0.5;

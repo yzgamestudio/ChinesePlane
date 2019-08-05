@@ -6,8 +6,8 @@ const MINSPEED = 1;
 const MAXSPEED = 5;
 
 export class Enemy extends Sprite {
-  constructor(ratio = 1) {
-    const image = Sprite.getImage('enemy'); // 获取图片
+  constructor(ratio = 1, imgname = 'enemy') {
+    const image = Sprite.getImage(imgname); // 获取图片
     const canvas = DataStore.getInstance().canvas;
     const y = - image.height; // 所有敌机都是在刚离屏的位置Y
 

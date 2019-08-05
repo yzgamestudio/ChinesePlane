@@ -7,7 +7,7 @@ export class LittleAttackScene extends Scene {
   constructor() {
     super();
 
-    DataStore.getInstance().put('littleAttack', []);
+    DataStore.getInstance().put('littleAttack1', []);
   }
 
   canRemove() {

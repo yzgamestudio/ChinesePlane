@@ -11,131 +11,95 @@ import {
   Bullet
 } from "../player/Bullet";
 import {
-  smartBullet
-} from "../player/smartBullet";
+  SmartBullet
+} from "../player/SmartBullet";
 import {
-  angleEnemyBullet
-} from "../npc/angleEnemyBullet";
+  AngleEnemyBullet
+} from "../npc/AngleEnemyBullet";
 import {
-  smartEnemyBullet
-} from "../npc/smartEnemyBullet";
-import {angleBullet
-} from "../player/angleBullet";
+  SmartEnemyBullet
+} from "../npc/SmartEnemyBullet";
+import {AngleBullet
+} from "../player/AngleBullet";
 import {
   Enemy
 } from "../npc/Enemy";
 import {
   Tool
 } from "../player/Tool.js"
-
+import { LittleAttackScene } from "../scene/LittleAttackScene";
+import { SceneQueue } from "../base/SceneQueue";
+import { BossScene } from "../scene/BossScene";
+import { NormalEnemyScene } from "../scene/NormalEnemyScene";
+import { FollowPlaneScene } from "../scene/FollowPlaneScene";
+import { SnackPlaneScene } from "../scene/SnackPlaneScene";
+import { FlowerPlaneScene } from "../scene/FlowerPlaneScene";
 
 const EMEMYCOUNT = 2;
 const TOOLCOUNT = 5;
 export class FirstDirector extends BaseSubDirector {
   constructor() {
     super();
-    this.setupWordMap()
+
   }
 
 
-  setupWordMap() {
-    this.wordCheck = new Map();
-    const ziku = this.dataStore.ziku;
-    const wordparts = ziku[0][this.currentWord].conponent;
-    wordparts.forEach((wordpart, index, array) => {
-      this.wordCheck.set(wordpart, 0);
-    })
-  }
-  
   setupSprits() {
-    // debugger;
     super.setupSprits();
-    // 初始化精灵，同时放入dataStore，方便销毁销毁
 
-    let enemies = [];
-    for (let i = 0; i < EMEMYCOUNT; i++) {
-      let enemy = new Enemy();
-      enemies[i] = enemy;
-    }
-    this.dataStore.put('enemy', enemies);
+    // 初始化精灵，同时放入dataStore，方便销毁销毁
+    this.dataStore.put('background', new BackGround);
+    this.dataStore.put('player', new Player);
+    this.sceneQueue = new SceneQueue();
+    let attackScene = new LittleAttackScene();
+    let enemyScene = new NormalEnemyScene();
+    let bossScene = new BossScene('boss1');  
+    this.sceneQueue.addScene(attackScene);
+    this.sceneQueue.addScene(enemyScene);
+    this.sceneQueue.addScene(bossScene);
+    
+
+    return this;
   }
 
 
   drawSprites() {
-
-
     const backgroundSprie = this.dataStore.get('background');
     backgroundSprie.draw(3);
-
     const player = this.dataStore.get('player');
     player.draw();
-
-    const ememies = this.dataStore.get('enemy');
-
-    ememies.forEach((enemy, index, array) => {
-      if (enemy.y >= this.dataStore.canvas.height || enemy.isPlaying === false) {
-        array.splice(index, 1);
-      }
-    });
-
     const bullets = this.dataStore.get('bullet');
-    while (ememies.length < EMEMYCOUNT) {
-      let newOne=new Enemy();
-      ememies.push(newOne);
+    if (this.dataStore.frame%20===0){
+      let bullet = new AngleBullet;
+      bullets.push(bullet)
     }
-    this.frame++;
-    for (let i = 0; i < ememies.length; i++) {
-      let enemy = ememies[i];
-      enemy.draw();
-      if(this.frame%20===0){
-        let newBullet = new smartEnemyBullet(enemy.x, enemy.y, enemy.height, enemy.width)
-        bullets.push(newBullet);
-        let newSmartBullet= new smartBullet(enemy.x,enemy.y)
-        bullets.push(newSmartBullet);
-      }
-
-    }
-    
-    if (this.dataStore.frame % 30== 0) {
-//      bullets.push(new angleBullet(0,20))
-//      bullets.push(new angleBullet(95,20))
-//      bullets.push(new angleBullet(85,20))
-    }
+    bullets.forEach((bullet,index,array)=>{
+       bullet.draw();
+    })
+    this.sceneQueue.updateScene();
+    this.recover()
+  }
+  
+  recover(){
+    const bullets = this.dataStore.get('bullet');
     bullets.forEach((bullet, index, array) => {
-      if (bullet.y < -300 || bullet.isVisible === false) {
+      let isOffScreen = GameGlobal.isOffScreen(bullet.x, bullet.y, bullet.height);
+      if (isOffScreen) {
         array.splice(index, 1);
       }
-      bullet.draw();
     })
-    this.drawTools();
+  }
+  isGameOver() {
+    return false;
   }
 
 
-  drawTools() {
-    const tools = this.dataStore.get('tool');
-    if (this.dataStore.frame % 180 == 0 && tools.length < TOOLCOUNT) {
-      const object = new Tool
-      const ziku = this.dataStore.ziku;
-      const wordpart = ziku[this.level - 1][this.currentWord].conponent;
-      object.wordPart = wordpart[this.currentPart]
-      this.currentPart += 1;
-      if (this.currentPart >= wordpart.length) {
-        this.currentPart = 0
-      }
-      tools.push(object)
+  judgeBulletCollideEnemy() {
 
-    }
+  }
 
-    tools.forEach((tool, index, array) => {
-      if (tool.x < 0 || tool.x > this.dataStore.canvas.width || tool.y > this.dataStore.canvas.height || tool.isVisible === false) {
-        array.splice(index, 1);
-      }
-      tool.draw();
-      this.dataStore.ctx.font = "50px Georgia";
-      this.dataStore.ctx.fillStyle = "#ffffff";
-      this.dataStore.ctx.fillText(tool.wordPart, tool.x + 70 * GameGlobal.dpr / 2 - 50, tool.y + 70 * GameGlobal.dpr / 2)
+  judgeWordComplete() {
 
-    })
   }
 
 

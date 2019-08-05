@@ -4,9 +4,9 @@ import { Boss } from "../npc/Boss";
 
 
 export class BossScene extends Scene {
-  constructor() {
+  constructor(imgname = 'boss1') {
     super();
-    let boss = new Boss;
+    let boss = new Boss(imgname);
     DataStore.getInstance().put('boss', boss);
   }
 
