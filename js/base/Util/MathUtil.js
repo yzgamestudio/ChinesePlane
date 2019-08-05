@@ -32,13 +32,13 @@ export class MathUtil {
      * 已知目标向量的(x,y)
      * @param x 向量x方向投影值
      * @param y 向量y方向投影值
-     * @return angle x正方向与向量方向夹角，夹角范围是0~360,逆时针
+     * @return angle x正方向与向量方向夹角，夹角范围是0~360
      */
 	static computeAngleWithXAndY(x,y){
 		let rad = Math.atan2(y, x); // (-PI, PI);
 		let angle = this.angleFromRad(rad);  (-180,+180);
 		if(angle < 0){ 
-			angle += 360; //----> (0, 360)
+			angle += 360; //----> 【0, 360）
 		}
 		return angle; 
 	}
