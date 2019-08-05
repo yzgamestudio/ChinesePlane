@@ -25,9 +25,9 @@ export class Main {
         const loader = ResourceLoader.create();
         loader.onLoaded((map, ziku) => this.onResourceFirstLoaded(map, ziku));
 
-        wx.onShow((object) => {
+        // wx.onShow((object) => {
             Music.getInstance().playBGM();
-        })
+        // })
     }
 
     // 所有资源加载完毕后才能渲染
