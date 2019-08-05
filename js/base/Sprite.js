@@ -42,6 +42,7 @@ export class Sprite {
     //this.isVisble = true;
   }
 
+  
   static getImage(key) {
     return DataStore.getInstance().res.get(key);
   }

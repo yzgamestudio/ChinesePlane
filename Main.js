@@ -7,6 +7,7 @@ import {Enemy} from "./js/npc/Enemy.js"
 import {GameOver} from "./js/runtime/GameOver.js"
 import {FirstDirector} from "./js/director/FirstDirector";
 import {Music} from "./js/runtime/Music";
+import {MathUtil} from "./js/base/Util/MathUtil";
 
 
 const EMEMYCOUNT = 20;
@@ -14,6 +15,15 @@ const EMEMYCOUNT = 20;
 // 开始类
 export class Main {
     constructor() {
+
+        let angle = MathUtil.computeAngleWithXAndY(3,3);
+        let angle1 = MathUtil.computeAngleWithXAndY(-3,3);
+        let angle2 = MathUtil.computeAngleWithXAndY(-3,-3);
+        let angle3 = MathUtil.computeAngleWithXAndY(3,-3);
+		console.log(angle, angle1, angle2, angle3);
+        debugger;
+
+
 
         this.configGameGlobal();
         this.res = wx.getSystemInfoSync();
