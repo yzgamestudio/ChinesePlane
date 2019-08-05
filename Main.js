@@ -16,15 +16,6 @@ const EMEMYCOUNT = 20;
 export class Main {
     constructor() {
 
-        let angle = MathUtil.computeAngleWithXAndY(3,3);
-        let angle1 = MathUtil.computeAngleWithXAndY(-3,3);
-        let angle2 = MathUtil.computeAngleWithXAndY(-3,-3);
-        let angle3 = MathUtil.computeAngleWithXAndY(3,-3);
-		console.log(angle, angle1, angle2, angle3);
-        debugger;
-
-
-
         this.configGameGlobal();
         this.res = wx.getSystemInfoSync();
         //创建资源文件加载器
