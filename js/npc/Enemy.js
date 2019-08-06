@@ -1,6 +1,7 @@
 import { Sprite } from '../base/Sprite.js'
 import { DataStore } from '../base/DataStore.js'
 import { RandomUtil } from "../base/Util/RandomUtil";
+import {Animation} from "../base/Animation";
 
 const MINSPEED = 1;
 const MAXSPEED = 5;
@@ -17,9 +18,8 @@ export class Enemy extends Sprite {
       0, 0, image.width, image.height,
       randomX, y, image.width, image.height);
 
-    this.enableCollide = true;
     this.speed = RandomUtil.random(MINSPEED, MAXSPEED) * ratio ;  // 随机生成一个速度speed
-    this.isPlaying=true;
+
   }
 
   draw() {

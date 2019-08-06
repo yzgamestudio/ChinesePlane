@@ -11,7 +11,6 @@ export class AngleEnemyBullet extends Sprite {
       x, y, img.width, img.height);
     this.isVisible = true;
     this.angle = Math.tan(angle * Math.PI * 2 / 360);
-    this.enableCollide = true;
     this.frame = 0;
     this.frameLimite = time;
   }

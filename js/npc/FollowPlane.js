@@ -13,10 +13,8 @@ export class FollowPlane extends Sprite {
         super(image,
             0, 0, image.width, image.height,
             x, y, image.width, image.height);
-        this.enableCollide = true;
         this.speed = GameGlobal.fit(10);
         this.x = RandomUtil.random(0,DataStore.getInstance().canvas.width);
-        this.isPlaying = true;
     }
 
     draw(otherSpriteX, otherSpriteY) {

@@ -22,8 +22,7 @@ export class LittleAttack extends Sprite {
             x, y, image.width, image.height);
 
 
-        this.speed = GameGlobal.fit(5); 
-        this.isPlaying = true;
+        this.speed = GameGlobal.fit(5);
     }
 
     draw(frame) {

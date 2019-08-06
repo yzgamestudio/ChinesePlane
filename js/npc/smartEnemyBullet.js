@@ -13,7 +13,6 @@ export class SmartEnemyBullet extends Sprite {
     var playerx = DataStore.getInstance().get('player').x;
     var playery = DataStore.getInstance().get('player').y;
     this.angle = (playery-y)/(playerx-x)
-    this.enableCollide = true;
     this.frame = 0;
     this.frameLimite = time;
   }

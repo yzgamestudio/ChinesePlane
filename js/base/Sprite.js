@@ -38,8 +38,7 @@ export class Sprite {
     this.y = y;
     this.width = width;
     this.height = height;
-    this.enableCollide = false;
-    //this.isVisble = true;
+    this.isVisble = true;
   }
 
   
@@ -69,6 +68,9 @@ export class Sprite {
     y = this.y,
     width = this.width,
     height = this.height) {
+    if(!this.isVisble) {
+      return ;
+    }
 
     this.ctx.drawImage(
       img,
@@ -92,14 +94,10 @@ export class Sprite {
    * @returns {boolean} true为碰撞 false 没有产生碰撞
    */
   isCollide(otherSprite) {
-    if(!this || !otherSprite){
-      return  false;
-    }
 
-    let result = false;
-
-    if(this.enableCollide == false || otherSprite.enableCollide == false) {
-      return;
+    // 本身无这个能力 那么关闭不检测
+    if(!this.isVisble || !otherSprite.isVisble) {
+      return false;
     }
 
 
@@ -115,9 +113,6 @@ export class Sprite {
 
     let mbrWidth = mbrRight - mbrX;
     let mbrHeight = mbrBottom - mbrY;
-    if (typeof mbrWidth === 'undefined' || typeof mbrHeight === 'undefined' ) {
-      return false;
-    }
     // debugger;
     if (this.width + otherSprite.width >= mbrWidth + offsetX &&
       this.height + otherSprite.height >= mbrHeight + offsetY) {
@@ -128,24 +123,18 @@ export class Sprite {
   }
 
   isCollideWith(sp) {
-    if (!this || !sp) {
+    // 本身无这个能力 那么关闭不检测
+    if(!this.isVisble || !otherSprite.isVisble) {
       return false;
     }
 
     let spX = sp.x + sp.width / 2
     let spY = sp.y + sp.height / 2
 
-
-    if (this.enableCollide == false || sp.enableCollide == false)
-      return false
-
     return !!(spX >= this.x
       && spX <= this.x + this.width
       && spY >= this.y
       && spY <= this.y + this.height)
   }
-
-
-
 
 }

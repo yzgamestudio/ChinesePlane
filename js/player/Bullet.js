@@ -18,7 +18,6 @@ export class Bullet extends Sprite{
       0, 0, img.width, img.height,
       x, y, img.width, img.height);
     this.isVisible=true;
-    this.enableCollide = true;
   }
   draw(){
     this.y = this.y - 20 * GameGlobal.dpr;

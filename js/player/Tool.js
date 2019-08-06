@@ -13,7 +13,6 @@ export class Tool extends Sprite {
        0, 0, image.width, image.height,
        randomX, y,70* GameGlobal.dpr, 70* GameGlobal.dpr);
      this.enableGet = true;//道具可以被接
-     this.enableCollide = true;
      this.isVisible = true;
    }
    draw(){

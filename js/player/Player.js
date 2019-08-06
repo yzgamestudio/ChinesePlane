@@ -11,8 +11,7 @@ export  class  Player extends  Sprite{
         super(img,
               0, 0, img.width, img.height,
           x, y, img.width, img.height);
-        this.enableCartch = true;//可以接道具     
-        this.enableCollide = true;
+        this.enableCartch = true;//可以接道具
         this.dpr = GameGlobal.dpr;
         //  如何让精灵随手指移动
         this.touch = false;

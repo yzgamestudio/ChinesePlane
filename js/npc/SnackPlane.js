@@ -16,7 +16,6 @@ export class SnackPlane extends Sprite {
         this.xspeed = GameGlobal.fit(-5);
 		this.yspeed = GameGlobal.fit(5);
 
-        this.isPlaying = true;
     }
 
     draw() {

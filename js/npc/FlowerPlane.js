@@ -11,7 +11,7 @@ export class FlowerPlane extends Sprite {
         super(image,
             0, 0, image.width, image.height,
             x, y, image.width, image.height);
-        this.enableCollide = true;
+
        let [xSpeed, ySpeed] = MathUtil.computeXYWithAngleAndMod(angle, mod);
        this.xSpeed = xSpeed;
        this.ySpeed = ySpeed;

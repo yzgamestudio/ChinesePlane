@@ -17,11 +17,10 @@ export class Chinese extends Sprite {
       0, 0, image.width, image.height,
       randomX, y, image.width, image.height);
 
-    this.enableCollide = true;
+
     this.yspeed = RandomUtil.random(MINSPEED, MAXSPEED);  // 随机生成一个速度speed
     this.xspeed = RandomUtil.random(-MINSPEED, MAXSPEED);  // 随机生成一个速度speed
 
-    this.isPlaying = true;
   }
 
   draw() {
