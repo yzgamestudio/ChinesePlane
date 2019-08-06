@@ -74,7 +74,7 @@ export class Animation extends Sprite {
          y = this.y,
          width = this.width,
          height = this.height) {
-	    
+
 	    if(this.isVisble){
             super.draw();
         }

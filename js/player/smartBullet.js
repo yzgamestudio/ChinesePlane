@@ -13,7 +13,6 @@ export class SmartBullet extends Sprite {
     super(img,
       0, 0, img.width, img.height,
       x, y, img.width, img.height);
-    this.isVisible = true;
     this.angle = (spritey-enemyy)/(spritex-enemyx);
     this.frame = 0;
     this.frameLimite = time;
