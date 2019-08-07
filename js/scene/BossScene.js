@@ -4,10 +4,11 @@ import { Boss } from "../npc/Boss";
 
 
 export class BossScene extends Scene {
-  constructor(imgname = 'boss1') {
+  constructor(imgname = 'boss1',bulletNum=3) {
     super();
     let boss = new Boss(imgname);
     DataStore.getInstance().put('boss', boss);
+    this.bulletNum=bulletNum;
   }
 
   canRemove() {
@@ -27,7 +28,7 @@ export class BossScene extends Scene {
     let boss = DataStore.getInstance().get('boss');
     boss.draw();
     if (this.frame % 20 === 0) {
-      boss.shoot(10);
+      boss.shoot(this.bulletNum);
     }
     
     let bossBullets = DataStore.getInstance().get(boss.bullet());

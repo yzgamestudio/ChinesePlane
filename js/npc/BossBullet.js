@@ -5,12 +5,12 @@ import {DataStore} from "../base/DataStore";
 
 
 export class BossBullet extends Sprite {
-  constructor(x, y, imgname = 'bullet') {
+  constructor(x, y, imgname = 'bullet',speed=5) {
       const img = Sprite.getImage(imgname);
         super(img,
             0, 0, img.width, img.height,
             x, y, img.width, img.height);
-        this.speed = GameGlobal.fit(10);
+        this.speed = GameGlobal.fit(speed);
     }
 
     draw() {
