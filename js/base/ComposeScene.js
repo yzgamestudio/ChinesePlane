@@ -1,5 +1,7 @@
-export class ComposeScene  {
+import { Scene } from "../base/Scene";
+export class ComposeScene extends Scene {
   constructor(scenes=[]){
+    super();
      this.scenes=scenes;
   }
 
@@ -24,7 +26,8 @@ export class ComposeScene  {
   
   }
   
-  updateScene(){
+  update(){
+    super.update();
     this.scenes.forEach((scene, index, array) => {
       if (!scene.canRemove())
         scene.update()

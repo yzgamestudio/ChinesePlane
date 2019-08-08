@@ -29,15 +29,13 @@ import {
 } from "../player/Tool.js"
 import { LittleAttackScene } from "../scene/LittleAttackScene";
 import { SceneQueue } from "../base/SceneQueue";
+import { ComposeScene } from "../base/ComposeScene";
 import { BossScene } from "../scene/BossScene";
 import { NormalEnemyScene } from "../scene/NormalEnemyScene";
 import { FollowPlaneScene } from "../scene/FollowPlaneScene";
 import { SnackPlaneScene } from "../scene/SnackPlaneScene";
 import { FlowerPlaneScene } from "../scene/FlowerPlaneScene";
-import { Level1Scene1 } from "../scene/Level1/Level1Scene1";
-import { Level1Scene2 } from "../scene/Level1/Level1Scene2";
-import { Level1Scene3 } from "../scene/Level1/Level1Scene3";
-import { Level1Scene4 } from "../scene/Level1/Level1Scene4";
+
 const EMEMYCOUNT = 2;
 const TOOLCOUNT = 5;
 export class FirstDirector extends BaseSubDirector {
@@ -54,11 +52,20 @@ export class FirstDirector extends BaseSubDirector {
     this.dataStore.put('background', new BackGround);
     this.dataStore.put('player', new Player);
     this.sceneQueue = new SceneQueue();
-    this.sceneQueue.addScene(new Level1Scene1 );
-    this.sceneQueue.addScene(new Level1Scene2 );
-    this.sceneQueue.addScene(new Level1Scene3);
-    this.sceneQueue.addScene(new Level1Scene4);
-  
+    this.sceneQueue.addScene(new NormalEnemyScene)
+
+    let level1Scene2=new ComposeScene()
+    level1Scene2.addScene(new SnackPlaneScene)
+    level1Scene2.addScene(new FollowPlaneScene)
+    this.sceneQueue.addScene(level1Scene2)
+
+    let level1Scene3=new ComposeScene()
+    level1Scene3.addScene(new FlowerPlaneScene)
+    level1Scene3.addScene(new FollowPlaneScene)
+    this.sceneQueue.addScene(level1Scene3)
+
+    this.sceneQueue.addScene(new BossScene)
+
     
 
     return this;
