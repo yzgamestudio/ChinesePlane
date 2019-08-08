@@ -3,8 +3,10 @@
  */
 
 export class Scene {
-    constructor() {
+    constructor(delay=0) {
+
         this.frame = 0;
+        this.delay=delay
     }
 
     canRemove() {

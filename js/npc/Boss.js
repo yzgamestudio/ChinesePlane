@@ -7,7 +7,7 @@ const MINSPEED = -10;
 const MAXSPEED = 10;
 
 export class Boss extends Sprite {
-  constructor(imgname = 'boss') {
+  constructor(imgname = 'boss1') {
     const image = Sprite.getImage(imgname); // 获取图片
     const canvas = GameGlobal.canvas;
     const y = -image.height; // 所有敌机都是在刚离屏的位置Y

@@ -8,7 +8,10 @@ import {NormalEnemyScene} from "../scene/NormalEnemyScene";
 import {FollowPlaneScene} from "../scene/FollowPlaneScene";
 import {SnackPlaneScene} from "../scene/SnackPlaneScene";
 import {FlowerPlaneScene} from "../scene/FlowerPlaneScene";
-
+import { Level2Scene1 } from "../scene/Level2/Level2Scene1";
+import { Level2Scene2 } from "../scene/Level2/Level2Scene2";
+import { Level2Scene3 } from "../scene/Level2/Level2Scene3";
+import { Level2Scene4 } from "../scene/Level2/Level2Scene4";
 export class SecondDirector extends BaseSubDirector {
     constructor() {
         super();
@@ -23,19 +26,10 @@ export class SecondDirector extends BaseSubDirector {
 
         this.sceneQueue = new SceneQueue();
 
-        let attackScene = new LittleAttackScene();
-        let flowerScene = new FlowerPlaneScene();
-        let enemyScene = new NormalEnemyScene();
-        let followPlaneScene = new FollowPlaneScene();
-        let snackPlaneScene = new SnackPlaneScene();
-        let bossScene = new BossScene('boss2');
-
-        this.sceneQueue.addScene(followPlaneScene);
-        this.sceneQueue.addScene(flowerScene);
-        this.sceneQueue.addScene(attackScene);
-        this.sceneQueue.addScene(snackPlaneScene);
-        this.sceneQueue.addScene(enemyScene);
-        this.sceneQueue.addScene(bossScene);
+      this.sceneQueue.addScene(new Level2Scene1);
+      this.sceneQueue.addScene(new Level2Scene2);
+      this.sceneQueue.addScene(new Level2Scene3);
+      this.sceneQueue.addScene(new Level2Scene4);
 
 
         return this;
