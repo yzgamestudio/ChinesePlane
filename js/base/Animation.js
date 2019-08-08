@@ -15,7 +15,14 @@ export class Animation extends Sprite {
 		super(img,srcX,srcY, srcW, srcH, x, y , width , height);
 
         // 动画帧集合
-        this._imageList = [];
+		let imageList = [];
+		for(let i = 1; i <= 19; i++) {
+			let imgname = 'explosion' + i;
+			// debugger;
+			const image = Sprite.getImage(imgname); // 获取图片
+			imageList.push(image);
+		}
+		this._imageList = imageList;
 
         // 当前动画是否正在播放中
         this._isPlayAnimation = false;
@@ -31,6 +38,7 @@ export class Animation extends Sprite {
     playAnimation() {
         // 动画开始播放的时候不再渲染精灵主图片
         this.isVisble = false;
+		// debugger;
         if(this._isPlayAnimation === false) {
             // 判断为true才能执行，确保执行一次
             this._isPlayAnimation = true;
@@ -42,6 +50,7 @@ export class Animation extends Sprite {
     }
 
     _animationLoop(){
+		// debugger;
 	    this._animationIndex++;
 	    if(this._animationIndex >= this._imageList.length) {
 	        clearInterval(this._timer);
@@ -51,18 +60,22 @@ export class Animation extends Sprite {
     }
 
     _drawAnimation() {
-	    if(this._animationIndex >= 0 && this._animationIndex <= this._imageList.length - 1) {
+		// debugger;
+	    if(this._animationIndex >= 0 && this._animationIndex <= this._imageList.length - 5) {
 	        let image = this._imageList[this._animationIndex];
+			console.log('image' + this._imageList + ' ' + this._animationIndex);
+			console.log('画第' + this._animationIndex + '张爆炸图');
+			// debugger;
             this.ctx.drawImage(
                 image,
-                this.srcX,
-                this.srcY,
-                this.image.width,
-                this.image.height,
+                0,
+                0,
+				image.width,
+				image.height,
                 this.x,
                 this.y,
-                this.image.width,
-                this.image.height
+				image.width,
+				image.height
             );
         }
     }

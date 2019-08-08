@@ -6,7 +6,7 @@ import {Animation} from "../base/Animation";
 const MINSPEED = 1;
 const MAXSPEED = 5;
 
-export class Enemy extends Sprite {
+export class Enemy extends Animation {
   constructor(ratio = 1, imgname = 'enemy') {
     const image = Sprite.getImage(imgname); // 获取图片
     const canvas = DataStore.getInstance().canvas;

@@ -49,8 +49,6 @@ export class FirstDirector extends BaseSubDirector {
     super.setupSprits();
 
     // 初始化精灵，同时放入dataStore，方便销毁销毁
-    this.dataStore.put('background', new BackGround);
-    this.dataStore.put('player', new Player);
     this.sceneQueue = new SceneQueue();
     this.sceneQueue.addScene(new NormalEnemyScene)
 
@@ -66,7 +64,6 @@ export class FirstDirector extends BaseSubDirector {
 
     this.sceneQueue.addScene(new BossScene)
 
-    
 
     return this;
   }
@@ -77,6 +74,7 @@ export class FirstDirector extends BaseSubDirector {
     backgroundSprie.draw(3);
     const player = this.dataStore.get('player');
     player.draw();
+
     const bullets = this.dataStore.get('bullet');
     if (this.dataStore.frame%20===0){
       let bullet = new AngleBullet;
@@ -85,7 +83,9 @@ export class FirstDirector extends BaseSubDirector {
     bullets.forEach((bullet,index,array)=>{
        bullet.draw();
     })
+
     this.sceneQueue.updateScene();
+	this.judgeBulletCollideEnemy();
     this.recover()
   }
   
@@ -98,14 +98,28 @@ export class FirstDirector extends BaseSubDirector {
       }
     })
   }
-  isGameOver() {
-    return false;
-  }
 
 
-  judgeBulletCollideEnemy() {
 
-  }
+
+	judgeBulletCollideEnemy() {
+	
+		let enemies = this.dataStore.get('enemy');
+		let bullets = this.dataStore.get('bullet');
+		bullets.forEach((bullet) => {
+			for (let i = 0, il = enemies.length; i < il; i++) {
+				let enemy = enemies[i];
+				console.log('bullet ' + bullet.x, bullet.y, bullet.width, bullet.height);
+				console.log('enemy ' + enemy.x, enemy.y, enemy.width, enemy.height);
+				let isCollide = bullet.isCollide(enemy);
+				if (isCollide) {
+					debugger;
+					enemy.playAnimation();
+				}
+				break;
+			}
+		})
+	}
 
   judgeWordComplete() {
 

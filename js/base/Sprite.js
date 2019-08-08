@@ -124,7 +124,7 @@ export class Sprite {
 
   isCollideWith(sp) {
     // 本身无这个能力 那么关闭不检测
-    if(!this.isVisble || !otherSprite.isVisble) {
+	  if (!this.isVisble || !sp.isVisble) {
       return false;
     }
 

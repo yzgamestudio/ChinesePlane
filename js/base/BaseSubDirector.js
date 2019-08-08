@@ -35,15 +35,15 @@ export class BaseSubDirector {
         this.dataStore.ctx.fillRect(0, 0, this.dataStore.canvas.width, this.dataStore.canvas.height);
         this.drawSprites();
         this.dataStore.frame++;
-        this.judgeBulletCollideEnemy();
-        this.judgePlayerGetTool();
-        // if (this.isGameOver()) {
 
-        // this.dataStore.frame = 0;
-        // this.drawGameOver();
+        this.judgePlayerGetTool();
+        if (this.isGameOver()) {
+
+        this.dataStore.frame = 0;
+        this.drawGameOver();
         // Music.getInstance().pauseBGM();
-        //  return;
-        //  }
+         return;
+         }
         this.isChangeWord()
         this.drawZiku();
 
@@ -52,21 +52,6 @@ export class BaseSubDirector {
         // SpriteDetector.test();
     }
 
-    judgeBulletCollideEnemy() {
-        let enemies = this.dataStore.get('enemy');
-        let bullets = this.dataStore.get('bullet');
-        bullets.forEach((bullet) => {
-            for (let i = 0, il = enemies.length; i < il; i++) {
-                let enemy = enemies[i];
-                let isCollide = bullet.isCollideWith(enemy);
-                if (isCollide) {
-                    bullet.isVisble = false;
-                    enemy.playAnimation();
-                }
-                break;
-            }
-        })
-    }
 
     judgePlayerGetTool() {
         const player = this.dataStore.get('player');
@@ -84,18 +69,21 @@ export class BaseSubDirector {
     isGameOver() {
         let result = this.judgePlayerCollideEnemy();
 
-        return result;
+        return false;
     }
 
     judgePlayerCollideEnemy() {
-        const player = this.dataStore.get('player');
-        const ememies = this.dataStore.get('enemy');
-        for (let i = 0; i < ememies.length; i++) {
-            let enemy = ememies[i];
-            if (player.isCollideWith(enemy)) {
-                return true;
-            }
-        }
+        // const player = this.dataStore.get('player');
+        // const ememies = this.dataStore.get('enemy');
+		// if(!ememies || !player ) {
+		// 	return;
+		// }
+        // for (let i = 0; i < ememies.length; i++) {
+        //     let enemy = ememies[i];
+        //     if (player.isCollideWith(enemy)) {
+        //         return true;
+        //     }
+        // }
         return false;
     }
 

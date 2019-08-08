@@ -30,7 +30,7 @@ export class SnackPlane extends Sprite {
 
         this.y = this.y + this.yspeed;
 		// this.x = 100;
-		console.log('SnackPlane y' + this.y);
+		// console.log('SnackPlane y' + this.y);
         super.draw();
     }
 

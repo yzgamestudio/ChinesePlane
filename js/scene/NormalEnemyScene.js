@@ -23,8 +23,8 @@ export class NormalEnemyScene extends Scene {
 
     let seconds = this.frame / 60;
     let enemys = DataStore.getInstance().get('enemy');
-    while (enemys.length < 5 && seconds < 10) {
-      let enemy = new Enemy(5);
+    if (enemys.length < 10 && seconds < 10) {
+      let enemy = new Enemy(1);
       enemys.push(enemy);
     }
 
