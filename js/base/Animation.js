@@ -63,8 +63,8 @@ export class Animation extends Sprite {
 		// debugger;
 	    if(this._animationIndex >= 0 && this._animationIndex <= this._imageList.length - 5) {
 	        let image = this._imageList[this._animationIndex];
-			console.log('image' + this._imageList + ' ' + this._animationIndex);
-			console.log('画第' + this._animationIndex + '张爆炸图');
+			// console.log('image' + this._imageList + ' ' + this._animationIndex);
+			// console.log('画第' + this._animationIndex + '张爆炸图');
 			// debugger;
             this.ctx.drawImage(
                 image,

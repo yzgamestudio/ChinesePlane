@@ -100,30 +100,30 @@ export class FirstDirector extends BaseSubDirector {
 		})
 	}
 
+
+	isGameOver() {
+		return this.judgePlayerCollideEnemy();
+	}
+
 	judgeBulletCollideEnemy() {
 		let enemies = this.dataStore.get('enemy');
 		let bullets = this.dataStore.get('bullet');
 		bullets.forEach((bullet) => {
 			for (let i = 0, il = enemies.length; i < il; i++) {
 				let enemy = enemies[i];
-				console.log('bullet ' + bullet.x, bullet.y, bullet.width, bullet.height);
-				console.log('enemy ' + enemy.x, enemy.y, enemy.width, enemy.height);
-				let isCollide = bullet.isCollideWith(enemy);
+				// console.log('bullet ' + bullet.x, bullet.y, bullet.width, bullet.height);
+				// console.log('enemy ' + enemy.x, enemy.y, enemy.width, enemy.height);
+				let isCollide = bullet.isCollide(enemy);
 				if (isCollide) {
-					debugger;
+					console.log('检测子弹碰撞到敌机');
 					enemy.playAnimation();
 				}
 				break;
 			}
 		})
 	}
-
-	isGameOver() {
-		return this.judgePlayerCollideEnemy();
-	}
-
+	
 	judgePlayerCollideEnemy() {
-
 		const player = this.dataStore.get('player');
 		const ememies = this.dataStore.get('enemy');
 		if (!ememies || !player) {

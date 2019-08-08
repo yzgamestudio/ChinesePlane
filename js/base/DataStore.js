@@ -10,7 +10,7 @@ export class DataStore {
 
   constructor () {
     this.map = new Map();
-
+	this.score = 1;
     this.deadpool = new Map();
     this.frame=0;
   }
