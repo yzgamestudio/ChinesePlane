@@ -23,11 +23,8 @@ export class AngleBullet extends Sprite{
   draw() {
     this.frame++;
     if(this.frame>this.frameLimite){
-
         this.y = this.y - this.speed* GameGlobal.dpr ;
         this.x += this.speed * GameGlobal.dpr/this.angle;
-      
-
     }
    
     super.draw();
