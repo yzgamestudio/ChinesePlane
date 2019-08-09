@@ -25,9 +25,6 @@ export class Scene {
 
     }
 
-    recover(){
-
-    }
 
     seconds(){
        return  this.frame / 60;

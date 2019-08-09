@@ -11,7 +11,7 @@ export class Animation extends Sprite {
 		x = 0,
 		y = 0,
 		width = 0,
-		height = 0) {
+		height = 0,blood=1) {
 		super(img,srcX,srcY, srcW, srcH, x, y , width , height);
 
         // 动画帧集合
@@ -32,6 +32,8 @@ export class Animation extends Sprite {
 
         // 计时器
         this._timer = null;
+        //血量
+        this.blood=blood;
 
     }
 

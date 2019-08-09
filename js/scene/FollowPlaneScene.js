@@ -6,7 +6,6 @@ import {FollowPlane} from "../npc/FollowPlane";
 export class FollowPlaneScene extends Scene {
     constructor() {
         super();
-        DataStore.getInstance().put('littleAttack2', []);
     }
 
     canRemove() {
@@ -23,7 +22,7 @@ export class FollowPlaneScene extends Scene {
     update() {
         super.update();
         // debugger;
-        let followPlanes = DataStore.getInstance().get('littleAttack2');
+        let followPlanes = DataStore.getInstance().get('enemy');
 
         if(this.seconds() < 5){
             if(this.frame % 60 === 0) {
@@ -38,17 +37,7 @@ export class FollowPlaneScene extends Scene {
             item.draw(player.x, player.y);
         })
 
-        this.recover();
     }
 
-    recover() {
-        let followPlanes = DataStore.getInstance().get('littleAttack2');
-        followPlanes.forEach(function (item) {
-            let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.height);
-            if (isOffScreen) {
-                DataStore.getInstance().destoryItem(item);
-            }
-        })
 
-    }
 }

@@ -6,7 +6,6 @@ import { Enemy } from "../npc/Enemy";
 export class NormalEnemyScene extends Scene {
   constructor() {
     super();
-    DataStore.getInstance().put('enemy', []);
   }
 
   canRemove() {
@@ -36,17 +35,8 @@ export class NormalEnemyScene extends Scene {
     enemys.forEach(function (item, index, array) {
       item.draw();
     });
-    this.recover();
+
   }
 
-  recover() {
-    let enemys = DataStore.getInstance().get('enemy');
-    enemys.forEach(function (item, index, array) {
-    
-      if (item.y > DataStore.getInstance().canvas.height) {
-        // console.log(item);
-        array.splice(index, 1);
-      }
-    });
-  }
+
 }

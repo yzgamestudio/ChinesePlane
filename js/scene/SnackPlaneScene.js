@@ -5,7 +5,6 @@ import {SnackPlane} from "../npc/SnackPlane";
 export class SnackPlaneScene extends Scene {
     constructor() {
         super();
-        DataStore.getInstance().put('airforce1', []);
     }
 
     canRemove() {
@@ -21,7 +20,7 @@ export class SnackPlaneScene extends Scene {
     update() {
         super.update();
 
-        let snackPlanes = DataStore.getInstance().get('airforce1');
+        let snackPlanes = DataStore.getInstance().get('enemy');
 
         if (this.seconds() < 10) {
             if (this.frame % 30 === 0) {
@@ -33,16 +32,7 @@ export class SnackPlaneScene extends Scene {
             item.draw();
         });
 
-        this.recover();
+
     }
 
-    recover() {
-        let snackPlanes = DataStore.getInstance().get('airforce1');
-        snackPlanes.forEach(function (item, index, array) {
-            let isOffScreen = item.y > DataStore.getInstance().canvas.height;
-            if (isOffScreen) {
-                array.splice(index, 1);
-            }
-        })
-    }
 }

@@ -7,12 +7,12 @@ export class BossScene extends Scene {
   constructor(imgname = 'boss1',bulletNum=3) {
     super();
     let boss = new Boss(imgname);
-    DataStore.getInstance().put('boss', boss);
+    DataStore.getInstance().put('enemy', boss);
     this.bulletNum=bulletNum;
   }
 
   canRemove() {
-    let boss = DataStore.getInstance().get('boss');
+    let boss = DataStore.getInstance().get('enemy');
     // 没有boss就可以通关了
     if (boss === undefined) {
       return true;
@@ -25,7 +25,7 @@ export class BossScene extends Scene {
   update() {
     super.update();
 
-    let boss = DataStore.getInstance().get('boss');
+    let boss = DataStore.getInstance().get('enemy');
     boss.draw();
     if (this.frame % 20 === 0) {
       boss.shoot(this.bulletNum);
@@ -38,25 +38,7 @@ export class BossScene extends Scene {
       });
     }
 
-    this.recover();
   }
 
-  recover() {
-    let boss = DataStore.getInstance().get('boss');
-    let isOffScreen = GameGlobal.isOffScreen(boss.x, boss.y, boss.height);
-    if (isOffScreen) {
-      DataStore.getInstance().destoryItem(boss);
-    }
 
-    let bossBullets = DataStore.getInstance().get(boss.bullet());
-    if (!Array.isArray(bossBullets)) {
-      return;
-    }
-    bossBullets.forEach(function (bossBullet, index, array) {
-      let isOffScreen = GameGlobal.isOffScreen(bossBullet.x, bossBullet.y, bossBullet.height);
-      if (isOffScreen) {
-        array.splice(index, 1);
-      }
-    });
-  }
 }
