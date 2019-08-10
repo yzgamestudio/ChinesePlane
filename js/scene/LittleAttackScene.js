@@ -26,8 +26,6 @@ export class LittleAttackScene extends Scene {
   update() {
     super.update();
     this.construct();
-    this.draw();
-    this.recover();
   }
 
   construct() {
@@ -45,14 +43,6 @@ export class LittleAttackScene extends Scene {
     }
   }
 
-  draw() {
-    let littleAttacks = DataStore.getInstance().get('enemy');
-    if (Array.isArray(littleAttacks)) {
-      littleAttacks.forEach(function (item, index, array) {
-        item.draw();
-      });
-    }
-  }
 
 
 }

@@ -4,17 +4,17 @@ import { Boss } from "../npc/Boss";
 
 
 export class BossScene extends Scene {
-  constructor(imgname = 'boss1',bulletNum=3) {
+  constructor(imgName = 'boss1',bulletNum=3,bossNum=1) {
     super();
-    let boss = new Boss(imgname);
-    DataStore.getInstance().put('enemy', boss);
+    this.imgName=imgName;
     this.bulletNum=bulletNum;
+    this.bossNum=bossNum;
   }
 
   canRemove() {
     let boss = DataStore.getInstance().get('enemy');
     // 没有boss就可以通关了
-    if (boss === undefined) {
+    if (boss.length===0) {
       return true;
     }
     else {
@@ -24,20 +24,20 @@ export class BossScene extends Scene {
 
   update() {
     super.update();
+    if(this.bossNum>0){
+      this.bossNum--;
+      let boss = new Boss(this.imgName);
+      let enemies = DataStore.getInstance().get('enemy');
+      enemies.push(boss)
+    }
 
-    let boss = DataStore.getInstance().get('enemy');
-    boss.draw();
     if (this.frame % 20 === 0) {
-      boss.shoot(this.bulletNum);
+      let _enemies = DataStore.getInstance().get('enemy');
+      _enemies.forEach((item, index, array) => {
+        item.shoot(this.bulletNum);
+      })
     }
     
-    let bossBullets = DataStore.getInstance().get(boss.bullet());
-    if (Array.isArray(bossBullets)) {
-      bossBullets.forEach(function (bossBullet, index, array) {
-        bossBullet.draw();
-      });
-    }
-
   }
 
 

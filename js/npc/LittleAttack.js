@@ -1,7 +1,8 @@
 import {Sprite} from "../base/Sprite";
 import { DataStore } from '../base/DataStore.js'
+import { Animation } from "../base/Animation";
 
-export class LittleAttack extends Sprite {
+export class LittleAttack extends Animation {
   constructor(isLeft = true, imgname = 'littleAttack1') {
       const image = Sprite.getImage(imgname); // 获取图片
         const canvas = DataStore.getInstance().canvas;

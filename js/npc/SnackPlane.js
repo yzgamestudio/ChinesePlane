@@ -1,7 +1,8 @@
 import {Sprite} from "../base/Sprite";
 import {DataStore} from '../base/DataStore.js'
+import { Animation } from "../base/Animation";
 
-export class SnackPlane extends Sprite {
+export class SnackPlane extends Animation {
   constructor(imgname = 'airforce1') {
         const image = Sprite.getImage(imgname); // 获取图片
 

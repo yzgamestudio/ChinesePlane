@@ -1,11 +1,12 @@
 import { Sprite } from '../base/Sprite.js'
 import { DataStore } from '../base/DataStore.js'
 import { RandomUtil } from "../base/Util/RandomUtil";
+import { Animation } from "../base/Animation";
 
 const MINSPEED = 2;
 const MAXSPEED = 5;
 
-export class AttackPlane extends Sprite {
+export class AttackPlane extends Animation {
   constructor(imgname = 'attackPlane') {
     const image = Sprite.getImage('attackPlane'); // 获取图片
     const canvas = DataStore.getInstance().canvas;

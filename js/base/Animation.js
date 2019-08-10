@@ -39,7 +39,7 @@ export class Animation extends Sprite {
 
     playAnimation() {
         // 动画开始播放的时候不再渲染精灵主图片
-        this.isVisble = false;
+        this.isVisible = false;
 		// debugger;
         if(this._isPlayAnimation === false) {
             // 判断为true才能执行，确保执行一次
@@ -92,7 +92,7 @@ export class Animation extends Sprite {
          width = this.width,
          height = this.height) {
 
-	    if(this.isVisble){
+	    if(this.isVisible){
             super.draw();
         }
 	    if(this._isPlayAnimation){

@@ -1,8 +1,9 @@
 import {Sprite} from '../base/Sprite.js'
 import {DataStore} from '../base/DataStore.js'
 import {RandomUtil} from "../base/Util/RandomUtil";
+import { Animation } from "../base/Animation";
 
-export class FollowPlane extends Sprite {
+export class FollowPlane extends Animation {
   constructor(imgname = 'littleAttack2') {
         const image = Sprite.getImage(imgname); // 获取图片
         const y = -image.height; // 所有敌机都是在刚离屏的位置Y

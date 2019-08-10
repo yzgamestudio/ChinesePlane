@@ -2,8 +2,9 @@ import {Sprite} from '../base/Sprite.js'
 import {DataStore} from '../base/DataStore.js'
 import {RandomUtil} from "../base/Util/RandomUtil";
 import {MathUtil} from "../base/Util/MathUtil";
+import { Animation } from "../base/Animation";
 
-export class FlowerPlane extends Sprite {
+export class FlowerPlane extends Animation {
   constructor(angle, mod, imgname = 'littleAttack1') {
         const image = Sprite.getImage(imgname); // 获取图片
         const y = 300; // 所有敌机都是在刚离屏的位置Y

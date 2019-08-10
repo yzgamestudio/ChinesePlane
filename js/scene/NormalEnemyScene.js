@@ -32,10 +32,6 @@ export class NormalEnemyScene extends Scene {
       enemys.push(enemy);
     }
 
-    enemys.forEach(function (item, index, array) {
-      item.draw();
-    });
-
   }
 
 

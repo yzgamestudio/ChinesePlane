@@ -28,9 +28,7 @@ export class SnackPlaneScene extends Scene {
             }
         }
 		
-        snackPlanes.forEach(function (item) {
-            item.draw();
-        });
+
 
 
     }

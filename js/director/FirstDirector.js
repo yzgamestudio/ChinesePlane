@@ -57,12 +57,12 @@ export class FirstDirector extends BaseSubDirector {
 
     let level1Scene2=new ComposeScene()
     level1Scene2.addScene(new SnackPlaneScene)
-    level1Scene2.addScene(new FollowPlaneScene)
+    level1Scene2.addScene(new LittleAttackScene)    
     this.sceneQueue.addScene(level1Scene2)
 
     let level1Scene3=new ComposeScene()
     level1Scene3.addScene(new FlowerPlaneScene)
-    level1Scene3.addScene(new FollowPlaneScene)
+    level1Scene3.addScene(new SnackPlaneScene)
     this.sceneQueue.addScene(level1Scene3)
 
     this.sceneQueue.addScene(new BossScene)
@@ -74,20 +74,14 @@ export class FirstDirector extends BaseSubDirector {
 
 
   drawSprites() {
-    const backgroundSprie = this.dataStore.get('background');
-    backgroundSprie.draw(3);
-    const player = this.dataStore.get('player');
-    player.draw();
+    super.drawSprites();
     const bullets = this.dataStore.get('playerBullets');
     if (this.dataStore.frame%20===0){
       let bullet = new AngleBullet;
       bullets.push(bullet)
     }
-    bullets.forEach((bullet,index,array)=>{
-       bullet.draw();
-    })
+
     this.sceneQueue.updateScene();
-    this.recover()
   }
   
 

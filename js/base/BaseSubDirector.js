@@ -76,17 +76,20 @@ export class BaseSubDirector {
   _judgePlayerBulletCollideEnemy() {
     let _enemies = this.dataStore.get('enemy');
     let _playerBullets = this.dataStore.get('playerBullets');
-    _playerBullets.forEach((bullet) => {
-      for (let i = 0, il = enemies.length; i < il; i++) {
-        let enemy = enemies[i];
-        let isCollide = bullet.isCollideWith(enemy);
-        if (isCollide) {
-          bullet.isVisble = false;
-          enemy.blood--;
+    if(_enemies.length>0&&_playerBullets.length>0){
+      _playerBullets.forEach((bullet) => {
+        for (let i = 0, il = _enemies.length; i < il; i++) {
+          let enemy = _enemies[i];
+          let isCollide = bullet.isCollideWith(enemy);
+          if (isCollide) {
+            bullet.isVisible = false;
+            enemy.blood--;
+          }
+          //break;
         }
-        break;
-      }
-    })
+      })
+    }
+
   }
 
 
@@ -94,32 +97,38 @@ export class BaseSubDirector {
   _judgePlayerBulletCollideEnemyBullet() {
     let _enemyBullets = this.dataStore.get('enemyBullets');
     let _playerBullets = this.dataStore.get('playerBullets');
-    _playerbullets.forEach((_playerBullet) => {
-      for (let i = 0, il = _enemyBullets.length; i < il; i++) {
-        let _enemyBullet = _enemyBullets[i];
-        let isCollide = _playerBullet.isCollideWith(_enemyBullet);
-        if (isCollide) {
-          _playerBullet.isVisble = false;
-          _enemyBullet.isVisble = false;
+    if(_enemyBullets.length>0&&_playerBullets.length>0){
+      _playerBullets.forEach((_playerBullet) => {
+        for (let i = 0, il = _enemyBullets.length; i < il; i++) {
+          let _enemyBullet = _enemyBullets[i];
+          let isCollide = _playerBullet.isCollideWith(_enemyBullet);
+          if (isCollide) {
+            _playerBullet.isVisible = false;
+            _enemyBullet.isVisible = false;
+          }
+          //break;
         }
-        break;
-      }
-    })
+      })
+    }
+
   }
 
   //判断玩家是否和敌机子弹碰撞
   _judgePlayerCollideEnemyBullet() {
     let _enemyBullets = this.dataStore.get('enemyBullets');
     let _player = this.dataStore.get('player');
-    _enemyBullets.forEach((_enemyBullet) => {
+    if(_enemyBullets.length>0){
+      _enemyBullets.forEach((_enemyBullet) => {
 
-      let isCollide = _player.isCollideWith(_enemyBullet);
-      if (isCollide) {
-        _player.blood--;
-        _enemyBullet.isVisble = false;
-      }
-      //break;
-    })
+        let isCollide = _player.isCollideWith(_enemyBullet);
+        if (isCollide) {
+          _player.blood--;
+          _enemyBullet.isVisible = false;
+        }
+        //break;
+      })
+    }
+
   }
 
 
@@ -127,15 +136,18 @@ export class BaseSubDirector {
   _judgePlayerCollideEnemy() {
     let _enemies = this.dataStore.get('enemy');
     let _player = this.dataStore.get('player');
-    _enemies.forEach((_enemy) => {
+    if(_enemies.length>0){
+      _enemies.forEach((_enemy) => {
 
-      let isCollide = _player.isCollideWith(_enemy);
-      if (isCollide) {
-        _player.blood--;
-        _enemyBullet.isVisble = false;
-      }
+        let isCollide = _player.isCollideWith(_enemy);
+        if (isCollide) {
+          _player.blood--;
+          _enemy.isVisible = false;
+        }
 
-    })
+      })
+    }
+
   }
 
   _recover() {
@@ -143,22 +155,22 @@ export class BaseSubDirector {
     let _enemyBullets = this.dataStore.get('enemyBullets');
     let _playerBullets = this.dataStore.get('playerBullets');
 
-    _playerbullets.forEach((item,index,array) => {
-      let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.height*3);
+    _playerBullets.forEach((item,index,array) => {
+      let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.width,item.height*3);
       if(isOffScreen||item.isVisible===false){
         array.splice(index,1)
       }
     })
     
     _enemies.forEach((item, index, array) => {
-      let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.height * 3);
+      let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.width, item.height * 3);
       if (isOffScreen||item.blood===0||item.isVisible===false) {
         array.splice(index, 1)
       }
     })
 
     _enemyBullets.forEach((item, index, array) => {
-      let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.height * 3);
+      let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.width,item.height * 3);
       if (isOffScreen || item.isVisible === false) {
         array.splice(index, 1)
       }
@@ -229,8 +241,25 @@ export class BaseSubDirector {
   }
 
   drawSprites() {
+    const backgroundSprie = this.dataStore.get('background');
+    backgroundSprie.draw(3);
+    const player = this.dataStore.get('player');
+    player.draw();
+    let _enemies = this.dataStore.get('enemy');
+    let _enemyBullets = this.dataStore.get('enemyBullets');
+    let _playerBullets = this.dataStore.get('playerBullets');
 
+    _playerBullets.forEach((item, index, array) => {
+      item.draw()
+    })
 
+    _enemies.forEach((item, index, array) => {
+      item.draw()
+    })
+
+    _enemyBullets.forEach((item, index, array) => {
+      item.draw()
+    })
   }
 
   drawGameOver() {

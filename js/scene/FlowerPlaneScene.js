@@ -54,11 +54,6 @@ export class FlowerPlaneScene extends Scene {
             }
         }
 
-        flowers.forEach(function (item) {
-            // debugger;
-            item.draw();
-        })
-
 
     }
 

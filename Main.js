@@ -72,8 +72,8 @@ export class Main {
          * @param yOffset 有时候飞机在刚离开一个屏幕的边缘初始化，所以给一个位移
          * @returns {boolean} 是否离屏
          */
-        GameGlobal.isOffScreen = function (x, y, yOffset = 0) {
-            if (x < 0 || x  > GameGlobal.canvas.width || y - yOffset < 0 || y > GameGlobal.canvas.height) {
+        GameGlobal.isOffScreen = function (x, y, xOffset=0,yOffset = 0) {
+            if (x < -xOffset || x  > GameGlobal.canvas.width || y + yOffset < 0 || y > GameGlobal.canvas.height) {
                 return true;
             } else {
                 return false;

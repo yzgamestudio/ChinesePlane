@@ -11,9 +11,12 @@ export class SceneQueue {
 
     updateScene(){
       // debugger;
+      if(this.scenes.length>0){
         let topScene = this.scenes[0];
         topScene.update();
         this.removeScene();
+      }
+
     }
 
     removeScene(){

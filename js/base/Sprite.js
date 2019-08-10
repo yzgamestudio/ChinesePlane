@@ -38,7 +38,7 @@ export class Sprite {
     this.y = y;
     this.width = width;
     this.height = height;
-    this.isVisble = true;
+    this.isVisible = true;
   }
 
   
@@ -68,7 +68,7 @@ export class Sprite {
     y = this.y,
     width = this.width,
     height = this.height) {
-    if(!this.isVisble) {
+    if(!this.isVisible) {
       return ;
     }
 
@@ -96,7 +96,7 @@ export class Sprite {
   isCollide(otherSprite) {
 
     // 本身无这个能力 那么关闭不检测
-    if(!this.isVisble || !otherSprite.isVisble) {
+    if(!this.isVisible || !otherSprite.isVisible) {
       return false;
     }
 
@@ -124,7 +124,7 @@ export class Sprite {
 
   isCollideWith(sp) {
     // 本身无这个能力 那么关闭不检测
-	  if (!this.isVisble || !sp.isVisble) {
+	  if (!this.isVisible || !sp.isVisible) {
       return false;
     }
 
