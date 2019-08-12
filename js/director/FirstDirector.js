@@ -90,13 +90,6 @@ export class FirstDirector extends BaseSubDirector {
   }
 
 
-  judgeBulletCollideEnemy() {
-
-  }
-
-  judgeWordComplete() {
-
-  }
 
 
 
