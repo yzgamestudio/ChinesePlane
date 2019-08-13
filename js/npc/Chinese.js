@@ -21,7 +21,7 @@ export class Chinese extends Animation {
 
     this.yspeed = RandomUtil.random(MINSPEED, MAXSPEED);  // 随机生成一个速度speed
     this.xspeed = RandomUtil.random(-MINSPEED, MAXSPEED);  // 随机生成一个速度speed
-
+    this.type = 'chinese'
   }
 
   draw() {

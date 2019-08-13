@@ -22,6 +22,7 @@ export class Boss extends Animation {
     this.speed = RandomUtil.random(MINSPEED, MAXSPEED);  // 随机生成一个速度speed
     this.blood = blood
     this.xSpeed = 2;
+    this.type='boss'
   }
 
   draw() {

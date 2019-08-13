@@ -4,7 +4,6 @@ import {Player} from "../player/Player";
 import {LittleAttackScene} from "../scene/LittleAttackScene";
 import {SceneQueue} from "../base/SceneQueue";
 import {BossScene} from "../scene/BossScene";
-import {NormalEnemyScene} from "../scene/NormalEnemyScene";
 import {FollowPlaneScene} from "../scene/FollowPlaneScene";
 import {SnackPlaneScene} from "../scene/SnackPlaneScene";
 import {FlowerPlaneScene} from "../scene/FlowerPlaneScene";

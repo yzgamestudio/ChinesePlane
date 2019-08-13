@@ -5,6 +5,7 @@ export const HDImageResources = [
     ['enemy', 'res/airforce1@2x.png'],
     ['bullet', 'res/bullet@2x.png'],
     ['bullet2', 'res/bullet2@2x.png'],
+    ['enemyBullet2', 'res/enemybullet/enemybullet2@2x.png'],
     ['attackPlane', 'res/airforce2@2x.png'],
     ['followPlane', 'res/airforce3@2x.png'],
     ['boss1', 'res/boss1@2x.png'],
@@ -13,6 +14,8 @@ export const HDImageResources = [
     ['bubble', 'res/bubble@2x.png'],
     ['littleAttack1', 'res/littleAttack1@2x.png'],
     ['littleAttack2', 'res/littleAttack2@2x.png'],
+    ['UFO1','res/ufo/ufo1@2x.png'],
+    ['UFO2', 'res/ufo/ufo2@2x.png'],
     ['airforce1', 'res/airforce1@2x.png'],
     ['explosion1', 'res/explosion1@2x.png'],
     ['explosion2', 'res/explosion2@2x.png'],
@@ -40,6 +43,7 @@ export const UDImageResources = [
     ['enemy', 'res/airforce1@3x.png'],
     ['bullet', 'res/bullet@3x.png'],
     ['bullet2', 'res/bullet2@3x.png'],
+    ['enemyBullet2', 'res/enemybullet/enemybullet2@3x.png'],
     ['attackPlane', 'res/airforce2@3x.png'],
     ['followPlane', 'res/airforce3@3x.png'],
     ['boss1', 'res/boss1@3x.png'],
@@ -48,6 +52,8 @@ export const UDImageResources = [
     ['bubble', 'res/bubble@3x.png'],
     ['littleAttack1', 'res/littleAttack1@3x.png'],
     ['littleAttack2', 'res/littleAttack2@3x.png'],
+    ['UFO1', 'res/ufo/ufo1@3x.png'],
+    ['UFO2', 'res/ufo/ufo2@2x.png'],
     ['airforce1', 'res/airforce1@3x.png'],
 
 ];

@@ -1,7 +1,8 @@
 import { Sprite } from "../base/Sprite";
 import { DataStore } from "../base/DataStore";
 export class SmartEnemyBullet extends Sprite {
-  constructor(spritex, spritey, spriteHeight, spriteWidth, time = 0, imgname = 'triLightBullet') {
+
+  constructor(spritex, spritey, spriteHeight, spriteWidth, time = 0, imgname = 'enemyBullet2') {
     const img = Sprite.getImage(imgname);
     const canvas = DataStore.getInstance().canvas;
     var x = spritex + spriteWidth / 2 - img.width / 2;
@@ -21,8 +22,8 @@ export class SmartEnemyBullet extends Sprite {
     this.frame++;
     if (this.frame > this.frameLimite) {
 
-      this.y += 10 * GameGlobal.dpr;
-      this.x += 10 * GameGlobal.dpr / this.angle;
+      this.y += 5 * GameGlobal.dpr;
+      this.x += 5 * GameGlobal.dpr / this.angle;
 
     }
 

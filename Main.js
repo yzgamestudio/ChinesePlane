@@ -3,7 +3,6 @@ import {Director} from '/js/director/Director.js'
 import {DataStore} from '/js/base/DataStore.js'
 import {BackGround} from '/js/runtime/BackGround.js'
 import {Player} from "./js/player/Player.js"
-import {Enemy} from "./js/npc/Enemy.js"
 import {GameOver} from "./js/runtime/GameOver.js"
 import {FirstDirector} from "./js/director/FirstDirector";
 import {Music} from "./js/runtime/Music";

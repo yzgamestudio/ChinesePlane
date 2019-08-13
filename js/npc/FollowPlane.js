@@ -16,6 +16,7 @@ export class FollowPlane extends Animation {
             x, y, image.width, image.height);
         this.speed = GameGlobal.fit(10);
         this.x = RandomUtil.random(0,DataStore.getInstance().canvas.width);
+        this.type='followplane'
     }
 
     draw(otherSpriteX, otherSpriteY) {

@@ -16,6 +16,7 @@ export class FlowerPlane extends Animation {
        let [xSpeed, ySpeed] = MathUtil.computeXYWithAngleAndMod(angle, mod);
        this.xSpeed = xSpeed;
        this.ySpeed = ySpeed;
+       this.type = 'flowerplane'
     }
 
     draw() {
