@@ -2,12 +2,9 @@
 export const HDImageResources = [
     ['background', 'res/background@2x.png'],
     ['player', 'res/player@2x.png'],
-    ['enemy', 'res/airforce1@2x.png'],
     ['bullet', 'res/bullet@2x.png'],
     ['bullet2', 'res/bullet2@2x.png'],
     ['enemyBullet2', 'res/enemybullet/enemybullet2@2x.png'],
-    ['attackPlane', 'res/airforce2@2x.png'],
-    ['followPlane', 'res/airforce3@2x.png'],
     ['boss1', 'res/boss1@2x.png'],
     ['boss2', 'res/boss2@2x.png'],
     ['boss3', 'res/boss3@2x.png'],
@@ -16,7 +13,8 @@ export const HDImageResources = [
     ['littleAttack2', 'res/littleAttack2@2x.png'],
     ['UFO1','res/ufo/ufo1@2x.png'],
     ['UFO2', 'res/ufo/ufo2@2x.png'],
-    ['airforce1', 'res/airforce1@2x.png'],
+    ['stone1', 'res/stone/stone1@2x.png'],
+    ['stone2', 'res/stone/stone2@2x.png'],
     ['explosion1', 'res/explosion1@2x.png'],
     ['explosion2', 'res/explosion2@2x.png'],
     ['explosion3', 'res/explosion3@2x.png'],
@@ -40,12 +38,9 @@ export const HDImageResources = [
 export const UDImageResources = [
     ['background', 'res/background@3x.png'],
     ['player', 'res/player@3x.png'],
-    ['enemy', 'res/airforce1@3x.png'],
     ['bullet', 'res/bullet@3x.png'],
     ['bullet2', 'res/bullet2@3x.png'],
     ['enemyBullet2', 'res/enemybullet/enemybullet2@3x.png'],
-    ['attackPlane', 'res/airforce2@3x.png'],
-    ['followPlane', 'res/airforce3@3x.png'],
     ['boss1', 'res/boss1@3x.png'],
     ['boss2', 'res/boss2@3x.png'],
     ['boss3', 'res/boss3@3x.png'],
@@ -54,7 +49,9 @@ export const UDImageResources = [
     ['littleAttack2', 'res/littleAttack2@3x.png'],
     ['UFO1', 'res/ufo/ufo1@3x.png'],
     ['UFO2', 'res/ufo/ufo2@2x.png'],
-    ['airforce1', 'res/airforce1@3x.png'],
+    ['stone1', 'res/stone/stone1@3x.png'],
+    ['stone2', 'res/stone/stone2@3x.png'],
+
 
 ];
 

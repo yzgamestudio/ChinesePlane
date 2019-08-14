@@ -11,7 +11,7 @@ export class BackGround extends Sprite{
       this.y2=0
   }
   draw(){
-    this.y +=5;
+    this.y += 1 * GameGlobal.dpr;
     if (this.y > 0) {
       this.y = - DataStore.getInstance().canvas.height;
     }
@@ -19,7 +19,7 @@ export class BackGround extends Sprite{
       this.y2=0;
     }
     super.draw();
-    this.y2+=5;
+    this.y2 += 1 * GameGlobal.dpr;
     this.ctx.drawImage(
       this.img,
       this.srcX,

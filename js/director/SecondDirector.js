@@ -5,8 +5,7 @@ import { LittleAttackScene } from "../scene/LittleAttackScene/LittleAttackScene"
 import {SceneQueue} from "../base/SceneQueue";
 import {BossScene} from "../scene/BossScene";
 import {FollowPlaneScene} from "../scene/FollowPlaneScene";
-import {SnackPlaneScene} from "../scene/SnackPlaneScene";
-import {FlowerPlaneScene} from "../scene/FlowerPlaneScene";
+
 
 export class SecondDirector extends BaseSubDirector {
     constructor() {
