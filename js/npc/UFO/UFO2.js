@@ -6,11 +6,11 @@
 
 
 
-import { Sprite } from '../base/Sprite.js'
-import { DataStore } from '../base/DataStore.js'
-import { RandomUtil } from "../base/Util/RandomUtil";
-import { Animation } from "../base/Animation";
-import { SmartEnemyBullet } from "../../js/npc/smartEnemyBullet.js";
+import { Sprite } from '../../base/Sprite.js'
+import { DataStore } from '../../base/DataStore.js'
+import { RandomUtil } from "../../base/Util/RandomUtil";
+import { Animation } from "../../base/Animation";
+import { SmartEnemyBullet } from "../smartEnemyBullet.js";
 export class UFO2 extends Animation {
   constructor(imgName = 'UFO2', blood = 5) {
     const image = Sprite.getImage(imgName); // 获取图片

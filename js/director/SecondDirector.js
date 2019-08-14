@@ -1,7 +1,7 @@
 import {BaseSubDirector} from "../base/BaseSubDirector";
 import {BackGround} from "../runtime/BackGround";
 import {Player} from "../player/Player";
-import {LittleAttackScene} from "../scene/LittleAttackScene";
+import { LittleAttackScene } from "../scene/LittleAttackScene/LittleAttackScene";
 import {SceneQueue} from "../base/SceneQueue";
 import {BossScene} from "../scene/BossScene";
 import {FollowPlaneScene} from "../scene/FollowPlaneScene";
