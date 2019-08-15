@@ -41,6 +41,8 @@ import { BossScene } from "../scene/BossScene";
 import { FollowPlaneScene } from "../scene/FollowPlaneScene";
 import { UFOScene } from "../scene/UFOScene/UFOScene";
 import { UFO2Scene } from "../scene/UFOScene/UFO2Scene";
+import { SpaceshipScene } from "../scene/SpaceshipScene/SpaceshipScene";
+
 const EMEMYCOUNT = 2;
 const TOOLCOUNT = 5;
 export class FirstDirector extends BaseSubDirector {
@@ -68,7 +70,7 @@ export class FirstDirector extends BaseSubDirector {
 
     //this.sceneQueue.addScene(level1Scene3)
     //this.sceneQueue.addScene(new UFO2Scene)
-    this.sceneQueue.addScene(new StoneScene2)
+    this.sceneQueue.addScene(new SpaceshipScene)
     this.sceneQueue.addScene(new BossScene)
 
     

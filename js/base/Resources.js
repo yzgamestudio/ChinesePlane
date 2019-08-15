@@ -15,6 +15,7 @@ export const HDImageResources = [
     ['UFO2', 'res/ufo/ufo2@2x.png'],
     ['stone1', 'res/stone/stone1@2x.png'],
     ['stone2', 'res/stone/stone2@2x.png'],
+    ['spaceship1', 'res/spaceship/spaceship1@2x.png'],
     ['explosion1', 'res/explosion1@2x.png'],
     ['explosion2', 'res/explosion2@2x.png'],
     ['explosion3', 'res/explosion3@2x.png'],
@@ -51,6 +52,7 @@ export const UDImageResources = [
     ['UFO2', 'res/ufo/ufo2@2x.png'],
     ['stone1', 'res/stone/stone1@3x.png'],
     ['stone2', 'res/stone/stone2@3x.png'],
+    ['spaceship1', 'res/spaceship/spaceship1@3x.png'],
 
 
 ];
