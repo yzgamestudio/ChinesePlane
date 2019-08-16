@@ -5,4 +5,9 @@ export class RandomUtil {
     return random;
   }
 
+  // 随机生成区间在min max之间的随机整数
+  static randomInt(min, max) {
+    let random = min + Math.trunc((max - min) * Math.random());
+    return random;
+  }
 }

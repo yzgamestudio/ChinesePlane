@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////
 //
-//spaceship从屏幕边缘上侧进入 排成一字队列 然后自由发射子弹
+//spaceship从屏幕边缘左侧右侧分别进入三架飞机 排成两行三列队列 然后自由发射子弹
 //
 //////////////////////////////////////////////
 import {
@@ -14,11 +14,12 @@ import {
 } from "../../npc/Spaceship/Spaceship";
 import { Sprite } from '../../base/Sprite.js'
 
-export class SpaceshipScene extends Scene {
+export class SpaceshipScene3 extends Scene {
   constructor(imgName = 'spaceship1') {
     super();
     this.bulletNum=3
     this.imgName=imgName
+
   }
 
   canRemove() {
@@ -42,12 +43,18 @@ export class SpaceshipScene extends Scene {
     let enemys = DataStore.getInstance().get('enemy');
     const canvas = DataStore.getInstance().canvas;
     if (this.frame % 300 === 0 && seconds < 10) {
-      let enemy1 = new Spaceship(200, -image.height, canvas.width / 2 - image.width / 2, canvas.height * 0.3, 'spaceship1');
-      let enemy2 = new Spaceship(100, -image.height, canvas.width / 2 - image.width / 2-image.width-10, canvas.height * 0.3, 'spaceship1');
-      let enemy3 = new Spaceship(300, -image.height, canvas.width / 2 - image.width / 2 + image.width+10, canvas.height * 0.3, 'spaceship1');
+      let enemy1 = new Spaceship(-image.width, canvas.height * 0.2, canvas.width / 2 - image.width / 2 - image.width- 10, canvas.height * 0.3, 'spaceship1');
+      let enemy2 = new Spaceship(100, -image.height, canvas.width / 2 - image.width / 2, canvas.height * 0.3, 'spaceship2');
+      let enemy3 = new Spaceship(canvas.width, canvas.height * 0.2, canvas.width / 2 - image.width / 2 + image.width+10, canvas.height * 0.3, 'spaceship3');
+      let enemy4 = new Spaceship(-image.width, canvas.height * 0.3, canvas.width / 2 - image.width / 2 - image.width- 10, canvas.height * 0.4, 'spaceship1');
+      let enemy5 = new Spaceship(100, -image.height, canvas.width / 2 - image.width / 2 , canvas.height * 0.4, 'spaceship2');
+      let enemy6 = new Spaceship(canvas.width, canvas.height * 0.3,canvas.width / 2 - image.width / 2 + image.width + 10, canvas.height * 0.4, 'spaceship3');
       enemys.push(enemy1);
       enemys.push(enemy2);
       enemys.push(enemy3);
+      enemys.push(enemy4);
+      enemys.push(enemy5);
+      enemys.push(enemy6);
     }
     if (this.frame % 60 === 0) {
       let _enemies = DataStore.getInstance().get('enemy');

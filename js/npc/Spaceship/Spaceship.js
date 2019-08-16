@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////
 //
-//LittleAttack从屏幕左侧或者上侧进入屏幕 在某点定住几秒后自由活动
+//LittleAttack从屏幕左侧或者上侧进入屏幕(this.y < this.target_y,敌机位置比目标位置y小) 在某点定住几秒后自由活动
 //
 //////////////////////////////////////////////
 
@@ -15,9 +15,6 @@ export class Spaceship extends Animation {
     const canvas = DataStore.getInstance().canvas;
     let res = DataStore.getInstance().res;
     // console.log(image);
-     y = - image.height; // 所有敌机都是在刚离屏的位置Y
-
-
     // 如何实现随机多个敌机？
 
     super(image,
@@ -26,9 +23,9 @@ export class Spaceship extends Animation {
 
     this.target_x=target_x;
     this.target_y=target_y;
-    this.speed = GameGlobal.fit(5);
-    this.type = 'spaceship'
+    this.speed = GameGlobal.fit(2);
     this.angle = (this.target_x - x) / (this.target_y - y)
+    this.type = 'spaceship'
     //悬停计数器
     this.num=0
     //同向位移计数器
@@ -38,14 +35,14 @@ export class Spaceship extends Animation {
   }
 
   draw() {
-    if ((this.y < this.target_y || this.x < this.target_x) && this.num / 60 < 5){
+    if ((this.y < this.target_y ) && this.num / 60 < 2){
       this.y = this.y + this.speed;
       this.x = this.x + this.speed * this.angle
     }
-    if((this.y>this.target_y||this.x>this.target_x)&&this.num/60<5){
+    if((this.y>=this.target_y)&&this.num/60<2){
       this.num++;
     }
-    if(this.num/60>=5){
+    if(this.num/60>=2){
       const canvas = DataStore.getInstance().canvas;
       if(this.moveNum%10===0){
         this.randomXSpeed = RandomUtil.random(-5, 5);

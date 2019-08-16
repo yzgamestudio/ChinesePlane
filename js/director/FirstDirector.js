@@ -42,7 +42,9 @@ import { FollowPlaneScene } from "../scene/FollowPlaneScene";
 import { UFOScene } from "../scene/UFOScene/UFOScene";
 import { UFO2Scene } from "../scene/UFOScene/UFO2Scene";
 import { SpaceshipScene } from "../scene/SpaceshipScene/SpaceshipScene";
-
+import { SpaceshipScene2 } from "../scene/SpaceshipScene/SpaceshipScene2";
+import { SpaceshipScene3 } from "../scene/SpaceshipScene/SpaceshipScene3";
+import { SpaceshipScene4 } from "../scene/SpaceshipScene/SpaceshipScene4";
 const EMEMYCOUNT = 2;
 const TOOLCOUNT = 5;
 export class FirstDirector extends BaseSubDirector {
@@ -54,23 +56,22 @@ export class FirstDirector extends BaseSubDirector {
 
   setupSprits() {
     super.setupSprits();
-
-    // 初始化精灵，同时放入dataStore，方便销毁销毁
-    //this.dataStore.put('background', new BackGround);
-    //this.dataStore.put('player', new Player);
     this.sceneQueue = new SceneQueue();
-  
+    this.sceneQueue.addScene(new LittleAttackScene)
+    this.sceneQueue.addScene(new LittleAttack2Scene)
+    let level1Scene1=new ComposeScene()
+    level1Scene1.addScene(new LittleAttackScene)
+    level1Scene1.addScene(new LittleAttack3Scene)     
+    this.sceneQueue.addScene(level1Scene1)
 
     let level1Scene2=new ComposeScene()
-    level1Scene2.addScene(new LittleAttackScene)    
-    //this.sceneQueue.addScene(level1Scene2)
-
-    let level1Scene3=new ComposeScene()
-
-
-    //this.sceneQueue.addScene(level1Scene3)
-    //this.sceneQueue.addScene(new UFO2Scene)
-    this.sceneQueue.addScene(new SpaceshipScene)
+    level1Scene2.addScene(new UFO2Scene)
+    level1Scene2.addScene(new StoneScene2)
+    this.sceneQueue.addScene(level1Scene2)
+    let level1Scene3 = new ComposeScene()
+    level1Scene3.addScene(new UFO2Scene)
+    level1Scene3.addScene(new SpaceshipScene4)
+    this.sceneQueue.addScene(level1Scene3)
     this.sceneQueue.addScene(new BossScene)
 
     
