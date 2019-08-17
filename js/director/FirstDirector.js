@@ -41,10 +41,15 @@ import { BossScene } from "../scene/BossScene";
 import { FollowPlaneScene } from "../scene/FollowPlaneScene";
 import { UFOScene } from "../scene/UFOScene/UFOScene";
 import { UFO2Scene } from "../scene/UFOScene/UFO2Scene";
+import { UFO5Scene } from "../scene/UFOScene/UFO5Scene";
+import { UFO6Scene } from "../scene/UFOScene/UFO6Scene";
+import { UFO7Scene } from "../scene/UFOScene/UFO7Scene";
 import { SpaceshipScene } from "../scene/SpaceshipScene/SpaceshipScene";
 import { SpaceshipScene2 } from "../scene/SpaceshipScene/SpaceshipScene2";
 import { SpaceshipScene3 } from "../scene/SpaceshipScene/SpaceshipScene3";
 import { SpaceshipScene4 } from "../scene/SpaceshipScene/SpaceshipScene4";
+import { SpaceshipScene5 } from "../scene/SpaceshipScene/SpaceshipScene5";
+import { DataStore } from "../base/DataStore";
 const EMEMYCOUNT = 2;
 const TOOLCOUNT = 5;
 export class FirstDirector extends BaseSubDirector {
@@ -56,7 +61,15 @@ export class FirstDirector extends BaseSubDirector {
 
   setupSprits() {
     super.setupSprits();
+    const canvas = DataStore.getInstance().canvas;
     this.sceneQueue = new SceneQueue();
+    this.sceneQueue.addScene(new SpaceshipScene5)
+    let level1Scene0 = new ComposeScene()
+    level1Scene0.addScene(new  UFO7Scene())
+    level1Scene0.addScene(new  UFO5Scene(false, canvas.width+200))
+    this.sceneQueue.addScene(level1Scene0)
+
+
     this.sceneQueue.addScene(new LittleAttackScene)
     this.sceneQueue.addScene(new LittleAttack2Scene)
     let level1Scene1=new ComposeScene()

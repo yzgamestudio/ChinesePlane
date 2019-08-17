@@ -6,11 +6,14 @@
 import { Scene } from "../../base/Scene";
 import { DataStore } from "../../base/DataStore";
 import { Boss } from "../../npc/Boss";
-import { UFO2 } from "../../npc/UFO/UFO2";
+import { UFO3 } from "../../npc/UFO/UFO3";
 import { RandomUtil } from "../../base/Util/RandomUtil";
-export class UFO4Scene extends Scene {
-  constructor() {
+import { Sprite } from '../../base/Sprite.js'
+export class UFO6Scene extends Scene {
+  constructor(clock=true,r=500) {
     super();
+    this.clock=clock;
+    this.r=r
   }
 
   canRemove() {
@@ -25,12 +28,19 @@ export class UFO4Scene extends Scene {
 
   update() {
     super.update()
+    const canvas = DataStore.getInstance().canvas;
     if (this.seconds() > this.delay && this.seconds() < 10) {
       if (this.seconds() % 3 === 0) {
         let UFOs = DataStore.getInstance().get('enemy');
         var random = RandomUtil.randomInt(1, 5);
         var ufo = 'UFO' + random;
-        UFOs.push(new UFO2(ufo))
+        const image = Sprite.getImage(ufo); // 获取图片
+        if(this.clock===true){
+          UFOs.push(new UFO3(canvas.width, - image.height, 0, -image.height, this.r, this.clock, ufo))
+        }else{
+          UFOs.push(new UFO3(0, canvas.width,0, -image.height, this.r, this.clock, ufo))
+        }
+
       }
     }
     if (this.seconds() % 1 === 0) {
