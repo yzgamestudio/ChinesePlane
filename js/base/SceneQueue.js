@@ -28,4 +28,8 @@ export class SceneQueue {
         }
     }
 
+    length(){
+      return this.scenes.length;
+    }
+
 }

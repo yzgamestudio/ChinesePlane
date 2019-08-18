@@ -5,7 +5,7 @@
 //////////////////////////////////////////////
 import { Scene } from "../../base/Scene";
 import { DataStore } from "../../base/DataStore";
-import { Boss } from "../../npc/Boss";
+
 import { UFO3 } from "../../npc/UFO/UFO3";
 import { RandomUtil } from "../../base/Util/RandomUtil";
 import { Sprite } from '../../base/Sprite.js'
@@ -32,7 +32,7 @@ export class UFO6Scene extends Scene {
     if (this.seconds() > this.delay && this.seconds() < 10) {
       if (this.seconds() % 3 === 0) {
         let UFOs = DataStore.getInstance().get('enemy');
-        var random = RandomUtil.randomInt(1, 5);
+        var random = RandomUtil.randomInt(1, 6.9);
         var ufo = 'UFO' + random;
         const image = Sprite.getImage(ufo); // 获取图片
         if(this.clock===true){

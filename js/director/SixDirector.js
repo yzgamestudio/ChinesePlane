@@ -38,9 +38,9 @@ import { StoneScene3 } from "../scene/StoneScene/StoneScene3";
 import { StoneScene4 } from "../scene/StoneScene/StoneScene4";
 import { SceneQueue } from "../base/SceneQueue";
 import { ComposeScene } from "../base/ComposeScene";
-import { BossScene } from "../scene/BossScene";
+import { BossScene6 } from "../scene/BossScene/BossScene6";
 
-import { FollowPlaneScene } from "../scene/FollowPlaneScene";
+import { FollowPlaneScene } from "../scene/FollowPlaneScene/FollowPlaneScene";
 import { UFOScene } from "../scene/UFOScene/UFOScene";
 import { UFO2Scene } from "../scene/UFOScene/UFO2Scene";
 import { UFO3Scene } from "../scene/UFOScene/UFO3Scene";
@@ -92,7 +92,7 @@ export class SixDirector extends BaseSubDirector {
     level1Scene4.addScene( new UFO5Scene(true, canvas.width + 200))
     level1Scene4.addScene(new UFO6Scene(false, canvas.width + 200))
     this.sceneQueue.addScene(level1Scene4)
-    this.sceneQueue.addScene(new BossScene)
+    this.sceneQueue.addScene(new BossScene6)
     return this;
   }
 

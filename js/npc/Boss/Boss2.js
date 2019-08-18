@@ -1,13 +1,13 @@
-import { Sprite } from '../base/Sprite.js'
-import { DataStore } from '../base/DataStore.js'
-import { RandomUtil } from "../base/Util/RandomUtil";
-import { BossBullet } from "./BossBullet.js";
-import { Animation } from "../base/Animation";
+import { Sprite } from '../../base/Sprite.js'
+import { DataStore } from '../../base/DataStore.js'
+import { RandomUtil } from "../../base/Util/RandomUtil";
+import { AngleEnemyBullet } from "../angleEnemyBullet";
+import { Animation } from "../../base/Animation";
 
 const MINSPEED = -10;
 const MAXSPEED = 10;
 
-export class Boss extends Animation {
+export class Boss2 extends Animation {
   constructor(imgname = 'boss1',blood=10) {
     const image = Sprite.getImage(imgname); // 获取图片
     const canvas = GameGlobal.canvas;
@@ -45,38 +45,38 @@ export class Boss extends Animation {
     super.draw();
   }
 
-  shoot(number = 3) {
+  shoot(number = 7) {
     let enemyBullets =  DataStore.getInstance().get('enemyBullets');
 
     if (number >= 1) {
-      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10), this.y + this.height - GameGlobal.fit(40));
+      let bossBullet = new AngleEnemyBullet(this.x, this.y,this.height,this.width,90);
       enemyBullets.push(bossBullet);
     }
     if (number >= 2) {
-      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) - GameGlobal.fit(20), this.y + this.height - GameGlobal.fit(40));
+      let bossBullet = new AngleEnemyBullet(this.x, this.y, this.height, this.width, 85);
       enemyBullets.push(bossBullet);
     }
     if (number >= 3) {
-      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) + GameGlobal.fit(20), this.y + this.height - GameGlobal.fit(40));
+      let bossBullet = new AngleEnemyBullet(this.x, this.y, this.height, this.width, 95);
       enemyBullets.push(bossBullet);
     }
 
     if (number >= 4) {
-      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) - GameGlobal.fit(40), this.y + this.height - GameGlobal.fit(40));
+      let bossBullet = new AngleEnemyBullet(this.x, this.y, this.height, this.width, 80);
       enemyBullets.push(bossBullet);
     }
     if (number >= 5) {
-      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) + GameGlobal.fit(40), this.y + this.height - GameGlobal.fit(40));
+      let bossBullet = new AngleEnemyBullet(this.x, this.y, this.height, this.width, 100);
       enemyBullets.push(bossBullet);
     }
 
     if (number >= 6) {
-      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) + GameGlobal.fit(60), this.y + this.height - GameGlobal.fit(40));
+      let bossBullet = new AngleEnemyBullet(this.x, this.y, this.height, this.width, 75);
       enemyBullets.push(bossBullet);
     }
 
     if (number >= 7) {
-      let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) - GameGlobal.fit(60), this.y + this.height - GameGlobal.fit(40));
+      let bossBullet = new AngleEnemyBullet(this.x, this.y, this.height, this.width, 105);
       enemyBullets.push(bossBullet);
     }
 

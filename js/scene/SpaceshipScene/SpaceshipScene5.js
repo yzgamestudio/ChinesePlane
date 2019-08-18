@@ -46,16 +46,16 @@ export class SpaceshipScene5 extends Scene {
     const canvas = DataStore.getInstance().canvas;
 
     if (this.frame % 300 === 0 && seconds < 10) {
-      var random = RandomUtil.randomInt(1, 12);
+      var random = RandomUtil.randomInt(1, 12.9);
       var ship = 'spaceship' + random;
       let enemy1 = new Spaceship(-image.width, canvas.height * 0.2, 0, canvas.height * 0.3, ship);
-      random = RandomUtil.randomInt(1, 12);
+      random = RandomUtil.randomInt(1, 12.9);
       ship = 'spaceship' + random;
       let enemy2 = new Spaceship(-image.width, canvas.height * 0.3, 0, canvas.height * 0.4, ship);
-      random = RandomUtil.randomInt(1, 12);
+      random = RandomUtil.randomInt(1, 12.9);
       ship = 'spaceship' + random;
       let enemy3 = new Spaceship(canvas.width, canvas.width * 0.2, canvas.width * 0.8, canvas.height * 0.3, ship);
-      random = RandomUtil.randomInt(1, 12);
+      random = RandomUtil.randomInt(1, 12.9);
       ship = 'spaceship' + random;
       let enemy4 = new Spaceship(canvas.width, canvas.height * 0.3, canvas.width * 0.8, canvas.height * 0.4, ship);
 

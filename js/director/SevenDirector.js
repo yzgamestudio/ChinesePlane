@@ -39,9 +39,9 @@ import { StoneScene4 } from "../scene/StoneScene/StoneScene4";
 
 import { SceneQueue } from "../base/SceneQueue";
 import { ComposeScene } from "../base/ComposeScene";
-import { BossScene } from "../scene/BossScene";
+import { BossScene7 } from "../scene/BossScene/BossScene7";
 
-import { FollowPlaneScene } from "../scene/FollowPlaneScene";
+import { FollowPlaneScene } from "../scene/FollowPlaneScene/FollowPlaneScene";
 import { UFOScene } from "../scene/UFOScene/UFOScene";
 import { UFO2Scene } from "../scene/UFOScene/UFO2Scene";
 import { UFO3Scene } from "../scene/UFOScene/UFO3Scene";
@@ -88,7 +88,7 @@ export class SevenDirector extends BaseSubDirector {
     level1Scene4.addScene(new LittleAttack5Scene)
     level1Scene4.addScene(new SpaceshipScene5)
     this.sceneQueue.addScene(level1Scene4)
-    this.sceneQueue.addScene(new BossScene)
+    this.sceneQueue.addScene(new BossScene7)
     return this;
   }
 

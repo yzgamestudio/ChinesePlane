@@ -29,6 +29,7 @@ export class BaseSubDirector {
     this.currentWord = 0;
     this.currentPart = 0; //当前字的组成部分编号
     this.frame = 0;
+    this.timer=0;
   }
 
   setupSprits() { /// 子类继承时必须先调用super  setupSprits
@@ -46,6 +47,7 @@ export class BaseSubDirector {
   }
 
   run() {
+    this.timer = window.requestAnimationFrame(() => this.run());
     this.dataStore.ctx.fillRect(0, 0, this.dataStore.canvas.width, this.dataStore.canvas.height);
     this.drawSprites();
     this.dataStore.frame++;
@@ -66,7 +68,6 @@ export class BaseSubDirector {
     //this.isChangeWord()
     //this.drawZiku();
 
-    requestAnimationFrame(() => this.run());
 
     // SpriteDetector.test();
   }
@@ -142,7 +143,7 @@ export class BaseSubDirector {
         let isCollide = _player.isCollideWith(_enemy);
         if (isCollide) {
           _player.blood--;
-          _enemy.isVisible = false;
+          _enemy.blood=0;
         }
 
       })
@@ -158,16 +159,24 @@ export class BaseSubDirector {
     _playerBullets.forEach((item,index,array) => {
       let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.width,item.height*3);
       if(isOffScreen||item.isVisible===false){
+
         array.splice(index,1)
       }
     })
     
     _enemies.forEach((item, index, array) => {
-      let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.width, item.height * 3);
-      if (isOffScreen||item.blood===0||item.isVisible===false) {
-        array.splice(index, 1)
+      if (item.blood === 0 ){
+        item._isPlayAnimation =true;
       }
-    })
+      let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.width, item.height * 3);
+      if (isOffScreen || (item.blood === 0 && item._isPlayAnimation ===false)){
+        array.splice(index, 1) 
+      }
+
+
+        }
+    
+    )
 
     _enemyBullets.forEach((item, index, array) => {
       let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.width,item.height * 3);
@@ -254,7 +263,13 @@ export class BaseSubDirector {
     })
 
     _enemies.forEach((item, index, array) => {
-      item.draw()
+      if(item.type!='followplane'){
+        item.draw()
+      }else{
+        let player = DataStore.getInstance().get('player');
+        item.draw(player.x, player.y);
+      }
+
     })
 
     _enemyBullets.forEach((item, index, array) => {

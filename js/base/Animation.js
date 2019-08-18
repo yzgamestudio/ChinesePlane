@@ -39,7 +39,7 @@ export class Animation extends Sprite {
 
     playAnimation() {
         // 动画开始播放的时候不再渲染精灵主图片
-        this.isVisible = false;
+
 		// debugger;
         if(this._isPlayAnimation === false) {
             // 判断为true才能执行，确保执行一次
@@ -57,13 +57,15 @@ export class Animation extends Sprite {
 	    if(this._animationIndex >= this._imageList.length) {
 	        clearInterval(this._timer);
 			this._isPlayAnimation = false;
+      this.isVisible = false;
 			this._animationIndex = -1;
         }
+      this._drawAnimation()
     }
 
     _drawAnimation() {
-		// debugger;
-	    if(this._animationIndex >= 0 && this._animationIndex <= this._imageList.length - 5) {
+      this._animationIndex++;
+	    if(this._animationIndex >= 0 && (this._animationIndex <= this._imageList.length-2)) {
 	        let image = this._imageList[this._animationIndex];
 			// console.log('image' + this._imageList + ' ' + this._animationIndex);
 			// console.log('画第' + this._animationIndex + '张爆炸图');
@@ -79,6 +81,8 @@ export class Animation extends Sprite {
 				image.width,
 				image.height
             );
+        }else{
+        this._isPlayAnimation = false
         }
     }
 
@@ -92,11 +96,11 @@ export class Animation extends Sprite {
          width = this.width,
          height = this.height) {
 
-	    if(this.isVisible){
+	    if(this.blood>0){
             super.draw();
         }
-	    if(this._isPlayAnimation){
-	        this._drawAnimation();
-        }
+      if (this._isPlayAnimation === true){
+        this._drawAnimation()
+      }
     }
 }

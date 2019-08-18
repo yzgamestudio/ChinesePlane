@@ -1,29 +1,28 @@
-import {Sprite} from '../base/Sprite.js'
-import {DataStore} from '../base/DataStore.js'
-import {RandomUtil} from "../base/Util/RandomUtil";
-import { Animation } from "../base/Animation";
+import {Sprite} from '../../base/Sprite.js'
+import {DataStore} from '../../base/DataStore.js'
+import {RandomUtil} from "../../base/Util/RandomUtil";
+import { Animation } from "../../base/Animation";
 
 export class FollowPlane extends Animation {
-  constructor(imgname = 'littleAttack2') {
+  constructor(x,y,imgname = 'followplane2') {
         const image = Sprite.getImage(imgname); // 获取图片
-        const y = -image.height; // 所有敌机都是在刚离屏的位置Y
         const canvas = DataStore.getInstance().canvas;
-
-        let x = canvas.width * 0.5;
-
         super(image,
             0, 0, image.width, image.height,
             x, y, image.width, image.height);
-        this.speed = GameGlobal.fit(10);
-        this.x = RandomUtil.random(0,DataStore.getInstance().canvas.width);
+        this.speed = GameGlobal.fit(2);
         this.type='followplane'
     }
 
     draw(otherSpriteX, otherSpriteY) {
+        if(otherSpriteY>this.y){
+          let rad = this.caculateRad(otherSpriteX, otherSpriteY);
+          this.x = this.x + this.speed * Math.cos(rad);
+          this.y = this.y + this.speed * Math.sin(rad);
+        }else{
+          this.y += GameGlobal.fit(2);
+        }
 
-        let rad = this.caculateRad(otherSpriteX, otherSpriteY);
-        this.x =    this.x +  this.speed * Math.cos(rad);
-        this.y =  this.y +  this.speed * Math.sin(rad);
 
         super.draw();
     }

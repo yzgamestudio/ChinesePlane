@@ -5,7 +5,7 @@
 //////////////////////////////////////////////
 import { Scene } from "../../base/Scene";
 import { DataStore } from "../../base/DataStore";
-import { Boss } from "../../npc/Boss";
+
 import { UFO2 } from "../../npc/UFO/UFO2";
 import { RandomUtil } from "../../base/Util/RandomUtil";
 export class UFO3Scene extends Scene {
@@ -28,7 +28,7 @@ export class UFO3Scene extends Scene {
     if (this.seconds() > this.delay && this.seconds() < 10) {
       if (this.seconds() % 3 === 0) {
         let UFOs = DataStore.getInstance().get('enemy');
-        var random = RandomUtil.randomInt(1, 5);
+        var random = RandomUtil.randomInt(1, 6.9);
         var ufo = 'UFO' + random;
         UFOs.push(new UFO2(ufo))
       }

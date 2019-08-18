@@ -1,10 +1,10 @@
-import { Scene } from "../base/Scene";
-import { DataStore } from "../base/DataStore";
-import { Boss } from "../npc/Boss";
+import { Scene } from "../../base/Scene";
+import { DataStore } from "../../base/DataStore";
+import { Boss } from "../../npc/Boss/Boss";
 
 
-export class BossScene extends Scene {
-  constructor(imgName = 'boss1',bulletNum=3,bossNum=1) {
+export class BossScene7 extends Scene {
+  constructor(imgName = 'boss7',bulletNum=3,bossNum=1) {
     super();
     this.imgName=imgName;
     this.bulletNum=bulletNum;

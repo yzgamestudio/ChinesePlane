@@ -46,16 +46,16 @@ export class UFO7Scene extends Scene {
     const canvas = DataStore.getInstance().canvas;
 
     if (this.frame % 300 === 0 && seconds < 10) {
-      let random = RandomUtil.randomInt(1, 5);
+      let random = RandomUtil.randomInt(1, 6.9);
       var ufo = 'UFO' + random;
       let enemy1 = new UFO4(-image.width, canvas.height * 0.2, 0, canvas.height * 0.3, ufo);
-      random = RandomUtil.randomInt(1, 5);
+      random = RandomUtil.randomInt(1, 6.9);
       ufo = 'UFO' + random;
       let enemy2 = new UFO4(-image.width, canvas.height * 0.3, 0, canvas.height * 0.4, ufo);
-      random = RandomUtil.randomInt(1, 5);
+      random = RandomUtil.randomInt(1, 6.9);
       ufo = 'UFO' + random;
       let enemy3 = new UFO4(canvas.width, canvas.width * 0.2, canvas.width * 0.8, canvas.height * 0.3,  ufo);
-      random = RandomUtil.randomInt(1, 5);
+      random = RandomUtil.randomInt(1, 6.9);
       ufo = 'UFO' + random;
       let enemy4 = new UFO4(canvas.width, canvas.height * 0.3, canvas.width * 0.8, canvas.height * 0.4, ufo);
 

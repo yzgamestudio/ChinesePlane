@@ -5,7 +5,6 @@
 //////////////////////////////////////////////
 import { Scene } from "../../base/Scene";
 import { DataStore } from "../../base/DataStore";
-import { Boss } from "../../npc/Boss";
 import { UFO } from "../../npc/UFO/UFO.js";
 
 export class UFOScene extends Scene {
