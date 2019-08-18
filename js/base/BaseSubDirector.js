@@ -165,7 +165,7 @@ export class BaseSubDirector {
     })
     
     _enemies.forEach((item, index, array) => {
-      if (item.blood === 0 ){
+      if (item.blood === 0 && item._animationIndex===-1 ){
         item._isPlayAnimation =true;
       }
       let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.width, item.height * 3);
