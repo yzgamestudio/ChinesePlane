@@ -57,7 +57,7 @@ export class BaseSubDirector {
     this._judgePlayerCollideEnemy();
     this._recover();
     this._isGameOver();
-    //this.judgePlayerGetTool();
+    this._judgePlayerGetTool();
     // if (this.isGameOver()) {
 
     // this.dataStore.frame = 0;
@@ -188,7 +188,7 @@ export class BaseSubDirector {
   }
 
 
-  judgePlayerGetTool() {
+  _judgePlayerGetTool() {
     const player = this.dataStore.get('player');
     const tools = this.dataStore.get('tool')
     for (let i = 0; i < tools.length; i++) {
@@ -196,7 +196,7 @@ export class BaseSubDirector {
       let isCollide = player.isCollideWith(tool)
       if (isCollide && tool.isVisible === true) {
         tool.isVisible = false;
-        this.wordCheck.set(tool.wordPart, 1)
+        //this.wordCheck.set(tool.wordPart, 1)
       }
     }
   }
@@ -257,7 +257,7 @@ export class BaseSubDirector {
     let _enemies = this.dataStore.get('enemy');
     let _enemyBullets = this.dataStore.get('enemyBullets');
     let _playerBullets = this.dataStore.get('playerBullets');
-
+    let _tools=this.dataStore.get('tool')
     _playerBullets.forEach((item, index, array) => {
       item.draw()
     })
@@ -270,6 +270,9 @@ export class BaseSubDirector {
         item.draw(player.x, player.y);
       }
 
+    })
+    _tools.forEach((item, index, array) => {
+      item.draw()
     })
 
     _enemyBullets.forEach((item, index, array) => {

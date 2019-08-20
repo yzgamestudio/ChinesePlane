@@ -13,7 +13,6 @@ export const HDImageResources = [
   ['boss6', 'res/boss/boss6@2x.png'],
   ['boss7', 'res/boss/boss7@2x.png'],
   ['boss8', 'res/boss/boss8@2x.png'],
-  ['bubble', 'res/bubble@2x.png'],
   ['littleAttack1', 'res/littleAttack/littleAttack1@2x.png'],
   ['littleAttack2', 'res/littleAttack/littleAttack2@2x.png'],
   ['UFO1', 'res/ufo/ufo1@2x.png'],
@@ -69,6 +68,10 @@ export const HDImageResources = [
   ['explosion18', 'res/explosion18@2x.png'],
   ['warning', 'res/logo/warning@2x.png'],
   ['victory', 'res/logo/victory@2x.png'],
+  ['tool1', 'res/tool/tool1@2x.png'],
+  ['tool2', 'res/tool/tool2@2x.png'],
+  ['tool3', 'res/tool/tool3@2x.png'],
+  ['tool4', 'res/tool/tool4@2x.png'],
 ];
 
 export const UDImageResources = [
@@ -85,7 +88,6 @@ export const UDImageResources = [
   ['boss6', 'res/boss/boss6@3x.png'],
   ['boss7', 'res/boss/boss7@3x.png'],
   ['boss8', 'res/boss/boss8@3x.png'],
-  ['bubble', 'res/bubble@3x.png'],
   ['littleAttack1', 'res/littleAttack/littleAttack1@3x.png'],
   ['littleAttack2', 'res/littleAttack/littleAttack2@3x.png'],
   ['UFO1', 'res/ufo/ufo1@3x.png'],
@@ -123,6 +125,10 @@ export const UDImageResources = [
   ['followplane3', 'res/followplane/followplane3@3x.png'],
   ['warning', 'res/logo/warning@3x.png'],
   ['victory', 'res/logo/victory@3x.png'],
+  ['tool1', 'res/tool/tool1@3x.png'],
+  ['tool2', 'res/tool/tool2@3x.png'],
+  ['tool3', 'res/tool/tool3@3x.png'],
+  ['tool4', 'res/tool/tool4@3x.png'],
 
 ];
 

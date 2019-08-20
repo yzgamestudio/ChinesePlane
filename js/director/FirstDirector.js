@@ -61,6 +61,7 @@ import { DataStore } from "../base/DataStore";
 import { Director}   from "../../js/director/Director"
 import {BossComingLogoScene} from "../../js/scene/LogoScene/BossComingLogoScene.js"
 import { VictoryLogoScene } from "../../js/scene/LogoScene/VictoryLogoScene.js"
+import { ToolScene } from "../../js/scene/ToolScene/ToolScene"
 const EMEMYCOUNT = 2;
 const TOOLCOUNT = 5;
 export class FirstDirector extends BaseSubDirector {
@@ -86,8 +87,9 @@ export class FirstDirector extends BaseSubDirector {
     //this.sceneQueue.addScene(new LittleAttack2Scene)
     let level1Scene1=new ComposeScene()
     level1Scene1.addScene(new LittleAttackScene)
-    level1Scene1.addScene(new LittleAttack3Scene)     
-    //this.sceneQueue.addScene(level1Scene1)
+    level1Scene1.addScene(new LittleAttack3Scene) 
+    level1Scene1.addScene(new ToolScene)     
+    this.sceneQueue.addScene(level1Scene1)
 
     let level1Scene2=new ComposeScene()
     level1Scene2.addScene(new UFO2Scene)
