@@ -59,6 +59,8 @@ import { SpaceshipScene4 } from "../scene/SpaceshipScene/SpaceshipScene4";
 import { SpaceshipScene5 } from "../scene/SpaceshipScene/SpaceshipScene5";
 import { DataStore } from "../base/DataStore";
 import { Director}   from "../../js/director/Director"
+import {BossComingLogoScene} from "../../js/scene/LogoScene/BossComingLogoScene.js"
+import { VictoryLogoScene } from "../../js/scene/LogoScene/VictoryLogoScene.js"
 const EMEMYCOUNT = 2;
 const TOOLCOUNT = 5;
 export class FirstDirector extends BaseSubDirector {
@@ -95,9 +97,11 @@ export class FirstDirector extends BaseSubDirector {
     level1Scene3.addScene(new UFO2Scene)
     level1Scene3.addScene(new SpaceshipScene4)
     //this.sceneQueue.addScene(level1Scene3)
+   
+    this.sceneQueue.addScene(new BossComingLogoScene)
     this.sceneQueue.addScene(new BossScene)
-
     
+    this.sceneQueue.addScene(new VictoryLogoScene)
 
     return this;
   }

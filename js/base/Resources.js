@@ -67,6 +67,8 @@ export const HDImageResources = [
   ['explosion16', 'res/explosion16@2x.png'],
   ['explosion17', 'res/explosion17@2x.png'],
   ['explosion18', 'res/explosion18@2x.png'],
+  ['warning', 'res/logo/warning@2x.png'],
+  ['victory', 'res/logo/victory@2x.png'],
 ];
 
 export const UDImageResources = [
@@ -119,7 +121,8 @@ export const UDImageResources = [
   ['followplane1', 'res/followplane/followplane1@3x.png'],
   ['followplane2', 'res/followplane/followplane2@3x.png'],
   ['followplane3', 'res/followplane/followplane3@3x.png'],
-
+  ['warning', 'res/logo/warning@3x.png'],
+  ['victory', 'res/logo/victory@3x.png'],
 
 ];
 

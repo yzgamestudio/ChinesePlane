@@ -78,8 +78,8 @@ export class Animation extends Sprite {
 				image.height,
                 this.x,
                 this.y,
-				image.width,
-				image.height
+				this.width,
+				this.width*image.height/image.width
             );
         }else{
         this._isPlayAnimation = false

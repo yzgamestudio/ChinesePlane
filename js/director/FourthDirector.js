@@ -64,30 +64,30 @@ export class FourthDirector extends BaseSubDirector {
     let level1Scene0 = new ComposeScene()
     level1Scene0.addScene(new UFO3Scene)
     level1Scene0.addScene(new StoneScene3)
-    this.sceneQueue.addScene(level1Scene0) 
+    //this.sceneQueue.addScene(level1Scene0) 
 
     let level1Scene1 = new ComposeScene()
     level1Scene1.addScene(new LittleAttackScene)
     level1Scene1.addScene(new SpaceshipScene)
-    this.sceneQueue.addScene(level1Scene1)
+    //this.sceneQueue.addScene(level1Scene1)
 
     let level1Scene2 = new ComposeScene()
     level1Scene2.addScene(new LittleAttack2Scene)
     level1Scene2.addScene(new StoneScene)
-    this.sceneQueue.addScene(level1Scene2)
+    //this.sceneQueue.addScene(level1Scene2)
 
-    this.sceneQueue.addScene(new LittleAttackScene)
+    //this.sceneQueue.addScene(new LittleAttackScene)
 
     let level1Scene3 = new ComposeScene()
     level1Scene3.addScene(new UFOScene)
     level1Scene3.addScene(new SpaceshipScene2)
-    this.sceneQueue.addScene(level1Scene3)
+    //this.sceneQueue.addScene(level1Scene3)
 
     let level1Scene4 = new ComposeScene()
     level1Scene4.addScene(new UFO3Scene)
     level1Scene4.addScene(new UFO4Scene)
     level1Scene4.addScene(new SpaceshipScene)
-    this.sceneQueue.addScene(level1Scene3)
+    //this.sceneQueue.addScene(level1Scene3)
     this.sceneQueue.addScene(new BossScene4)
     return this;
   }
@@ -102,7 +102,15 @@ export class FourthDirector extends BaseSubDirector {
     }
 
     this.sceneQueue.updateScene();
-
+    if (this.sceneQueue.length() === 0) {
+      let _player = this.dataStore.get('player');
+      _player.y -= GameGlobal.fit(10);
+      if (_player.y < -_player.height) {
+        window.cancelAnimationFrame(this.timer);
+        this.dataStore.destory();
+        this.callback()
+      }
+    }
   }
 
   isGameOver() {

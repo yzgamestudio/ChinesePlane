@@ -6,28 +6,34 @@ export class BackGround extends Sprite{
     const image = Sprite.getImage('background');
     super(image,
       0, 0, image.width, image.height,
-      0, -DataStore.getInstance().canvas.height, DataStore.getInstance().canvas.width, DataStore.getInstance().canvas.height, false);
-      this.x2=0;
-      this.y2=0
+      0, -DataStore.getInstance().canvas.height, DataStore.getInstance().canvas.width, DataStore.getInstance().canvas.height);
+      this.top=0
   }
   draw(){
-    this.y += 1 * GameGlobal.dpr;
-    if (this.y > 0) {
-      this.y = - DataStore.getInstance().canvas.height;
+    const canvas = DataStore.getInstance().canvas;
+    this.top += 1 * GameGlobal.dpr;
+    if (this.top > canvas.height) {
+      this.top = 0;
     }
-    if (this.y2 > DataStore.getInstance().canvas.height){
-      this.y2=0;
-    }
-    super.draw();
-    this.y2 += 1 * GameGlobal.dpr;
     this.ctx.drawImage(
       this.img,
       this.srcX,
       this.srcY,
       this.srcW,
       this.srcH,
-      this.x2,
-      this.y2,
+      0,
+      -canvas.height+this.top,
+      this.width,
+      this.height
+    )
+    this.ctx.drawImage(
+      this.img,
+      this.srcX,
+      this.srcY,
+      this.srcW,
+      this.srcH,
+      0,
+      this.top,
       this.width,
       this.height
     )

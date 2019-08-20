@@ -85,7 +85,15 @@ export class SecondDirector extends BaseSubDirector {
       }
 
       this.sceneQueue.updateScene();
-
+      if (this.sceneQueue.length() === 0) {
+        let _player = this.dataStore.get('player');
+        _player.y -= GameGlobal.fit(10);
+        if (_player.y < -_player.height) {
+          window.cancelAnimationFrame(this.timer);
+          this.dataStore.destory();
+          this.callback()
+        }
+      }
     }
 
     isGameOver() {
