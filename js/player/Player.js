@@ -1,8 +1,10 @@
 import {Sprite} from "../base/Sprite";
 import {DataStore} from "../base/DataStore";
-
+import {
+  AngleBullet
+} from "../player/angleBullet";
 export  class  Player extends  Sprite{
-    constructor(imgname='player'){
+  constructor(imgname = 'player', bulletNum = 1, bulletImg = 'bullet2'){
         const img = Sprite.getImage(imgname);
         const canvas = DataStore.getInstance().canvas;
       let x = canvas.width * 0.5 - img.width* 0.5;
@@ -39,14 +41,41 @@ export  class  Player extends  Sprite{
         wx.onTouchEnd(function (e) {
             that.touch = false; // 离开时标记为touch = false
         })
-
+       this.bulletNum=bulletNum;
+       this.bulletImg=bulletImg;
+       //子弹增强倒计时
+       this.count=0;
+       //防护罩倒计时
+       this.countShield=0;
+       this.shield=false;
     }
 
     draw() {
         super.draw(this.img,
               this.srcX, this.srcY, this.srcW, this.srcH,
               this.x, this.y, this.width, this.height);
+        if(this.count>0){
+          this.count--;
+          if(this.count===0){
+            this.bulletNum=1;
+          }
+        }
+        if(this.countShield>0){
+          this.countShield--;
+          if (this.countShield === 0) {
+            const img = Sprite.getImage('player');
+            this.img = img;
+            this.srcX = 0;
+            this.srcY = 0;
+            this.srcW = img.width;
+            this.srcH = img.height;
+            this.width = img.width;
+            this.height = img.height;
+            this.shield = false;
+          }
+        }
     }
+
 
     // 判读手指是否接触了飞机区域，offset是偏移，当靠近飞机 也认为是接触了飞机，因为图片总是有留白的
 
@@ -88,5 +117,39 @@ export  class  Player extends  Sprite{
         this.x = x ;
         this.y = y;
     }
+
+  shoot() {
+    let playerBullets = DataStore.getInstance().get('playerBullets');
+
+    if (this.bulletNum >= 1) {
+      let playerBullet = new AngleBullet(this.bulletImg,90);
+      playerBullets.push(playerBullet);
+    }
+    if (this.bulletNum >= 2) {
+      let playerBullet = new AngleBullet(this.bulletImg, 85);
+      playerBullets.push(playerBullet);
+    }
+    if (this.bulletNum >= 3) {
+      let playerBullet = new AngleBullet(this.bulletImg, 95);
+      playerBullets.push(playerBullet);
+    }
+    if (this.bulletNum >= 4) {
+      let playerBullet = new AngleBullet(this.bulletImg, 80);
+      playerBullets.push(playerBullet);
+    }
+    if (this.bulletNum >= 5) {
+      let playerBullet = new AngleBullet(this.bulletImg, 100);
+      playerBullets.push(playerBullet);
+    }
+    if (this.bulletNum >= 6) {
+      let playerBullet = new AngleBullet(this.bulletImg, 75);
+      playerBullets.push(playerBullet);
+    }
+    if (this.bulletNum >= 7) {
+      let playerBullet = new AngleBullet(this.bulletImg, 105);
+      playerBullets.push(playerBullet);
+    }
+
+  }
 
 }

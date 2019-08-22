@@ -2,6 +2,7 @@
 export const HDImageResources = [
   ['background', 'res/background@2x.png'],
   ['player', 'res/player@2x.png'],
+  ['player2', 'res/player2@2x.png'],
   ['bullet', 'res/bullet@2x.png'],
   ['bullet2', 'res/bullet2@2x.png'],
   ['enemyBullet2', 'res/enemybullet/enemybullet2@2x.png'],
@@ -72,6 +73,7 @@ export const HDImageResources = [
   ['tool2', 'res/tool/tool2@2x.png'],
   ['tool3', 'res/tool/tool3@2x.png'],
   ['tool4', 'res/tool/tool4@2x.png'],
+  ['shield1', 'res/shield/shield1@2x.png'],
 ];
 
 export const UDImageResources = [
@@ -129,7 +131,7 @@ export const UDImageResources = [
   ['tool2', 'res/tool/tool2@3x.png'],
   ['tool3', 'res/tool/tool3@3x.png'],
   ['tool4', 'res/tool/tool4@3x.png'],
-
+  ['shield1', 'res/shield/shield1@3x.png'],
 ];
 
 export const AudioResources = {

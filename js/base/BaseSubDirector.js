@@ -19,7 +19,7 @@ import {
 import {
   SpriteDetector
 } from "./Util/SpriteDetector";
-
+import { Sprite } from "../base/Sprite";
 export class BaseSubDirector {
 
   constructor() {
@@ -123,7 +123,9 @@ export class BaseSubDirector {
 
         let isCollide = _player.isCollideWith(_enemyBullet);
         if (isCollide) {
-          _player.blood--;
+          if(_player.shield===false){
+            _player.blood--;
+          }
           _enemyBullet.isVisible = false;
         }
         //break;
@@ -142,7 +144,9 @@ export class BaseSubDirector {
 
         let isCollide = _player.isCollideWith(_enemy);
         if (isCollide) {
-          _player.blood--;
+          if(_player.shield===false){
+            _player.blood--;
+          }
           _enemy.blood=0;
         }
 
@@ -196,6 +200,34 @@ export class BaseSubDirector {
       let isCollide = player.isCollideWith(tool)
       if (isCollide && tool.isVisible === true) {
         tool.isVisible = false;
+        if(tool.imgName==='tool1'){
+          let _enemies = this.dataStore.get('enemy');
+          _enemies.forEach((item, index, array) => {
+           item.blood=0;
+          })
+        }
+        if (tool.imgName === 'tool2') {
+          player.blood+=1;
+        }
+        if (tool.imgName === 'tool3') {
+          const img = Sprite.getImage('player2');
+          player.img = img;
+          player.srcX = 0;
+          player.srcY = 0;
+          player.srcW = img.width;
+          player.srcH = img.height;
+          player.width = img.width;
+          player.height = img.height;
+          player.shield = true;
+          player.countShield=600;
+        }
+        if (tool.imgName === 'tool4') {
+          player.bulletNum+=2;
+          if(player.bulletNum>7){
+            player.bulletNum=7;
+          }
+          player.count=600;
+        }
         //this.wordCheck.set(tool.wordPart, 1)
       }
     }

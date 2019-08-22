@@ -111,15 +111,14 @@ export class FirstDirector extends BaseSubDirector {
 
   drawSprites() {
     super.drawSprites();
-    const bullets = this.dataStore.get('playerBullets');
+    let _player = this.dataStore.get('player');
     if (this.dataStore.frame%20===0){
-      let bullet = new AngleBullet;
-      bullets.push(bullet)
+      _player.shoot()
     }
 
     this.sceneQueue.updateScene();
     if(this.sceneQueue.length()===0){
-      let _player = this.dataStore.get('player');
+
       _player.y -= GameGlobal.fit(10);
       if(_player.y<-_player.height){
         window.cancelAnimationFrame(this.timer);
