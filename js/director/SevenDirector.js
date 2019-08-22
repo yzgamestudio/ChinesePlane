@@ -42,6 +42,12 @@ import { ComposeScene } from "../base/ComposeScene";
 import { BossScene7 } from "../scene/BossScene/BossScene7";
 
 import { FollowPlaneScene } from "../scene/FollowPlaneScene/FollowPlaneScene";
+import {
+  FollowPlaneScene2
+} from "../scene/FollowPlaneScene/FollowPlaneScene2";
+import {
+  FollowPlaneScene3
+} from "../scene/FollowPlaneScene/FollowPlaneScene3";
 import { UFOScene } from "../scene/UFOScene/UFOScene";
 import { UFO2Scene } from "../scene/UFOScene/UFO2Scene";
 import { UFO3Scene } from "../scene/UFOScene/UFO3Scene";
@@ -54,8 +60,9 @@ import { SpaceshipScene2 } from "../scene/SpaceshipScene/SpaceshipScene2";
 import { SpaceshipScene3 } from "../scene/SpaceshipScene/SpaceshipScene3";
 import { SpaceshipScene4 } from "../scene/SpaceshipScene/SpaceshipScene4";
 import { SpaceshipScene5 } from "../scene/SpaceshipScene/SpaceshipScene5";
-
-
+import { ToolScene } from "../../js/scene/ToolScene/ToolScene"
+import { BossComingLogoScene } from "../../js/scene/LogoScene/BossComingLogoScene.js"
+import { VictoryLogoScene } from "../../js/scene/LogoScene/VictoryLogoScene.js"
 export class SevenDirector extends BaseSubDirector {
   constructor() {
     super();
@@ -70,10 +77,13 @@ export class SevenDirector extends BaseSubDirector {
     let level1Scene1 = new ComposeScene()
     level1Scene1.addScene(new LittleAttackScene)
     level1Scene1.addScene(new SpaceshipScene)
+    level1Scene1.addScene(new ToolScene)
     this.sceneQueue.addScene(level1Scene1)
     let level1Scene2 = new ComposeScene()
     level1Scene2.addScene(new LittleAttack2Scene)
     level1Scene2.addScene(new StoneScene3)
+    level1Scene2.addScene(new FollowPlaneScene3)
+    level1Scene2.addScene(new FollowPlaneScene2)
     this.sceneQueue.addScene(level1Scene2)
     this.sceneQueue.addScene(new LittleAttackScene)
     let level1Scene3 = new ComposeScene()
@@ -86,9 +96,12 @@ export class SevenDirector extends BaseSubDirector {
     level1Scene4.addScene(new UFO5Scene(false, canvas.width))
     level1Scene4.addScene(new UFO6Scene(true, canvas.width))
     level1Scene4.addScene(new LittleAttack5Scene)
+    level1Scene4.addScene(new ToolScene)
     level1Scene4.addScene(new SpaceshipScene5)
     this.sceneQueue.addScene(level1Scene4)
+    this.sceneQueue.addScene(new BossComingLogoScene)
     this.sceneQueue.addScene(new BossScene7)
+    this.sceneQueue.addScene(new VictoryLogoScene)
     return this;
   }
 

@@ -97,6 +97,7 @@ export class FirstDirector extends BaseSubDirector {
     //this.sceneQueue.addScene(level1Scene2)
     let level1Scene3 = new ComposeScene()
     level1Scene3.addScene(new UFO2Scene)
+    level1Scene3.addScene(new ToolScene)    
     level1Scene3.addScene(new SpaceshipScene4)
     //this.sceneQueue.addScene(level1Scene3)
    

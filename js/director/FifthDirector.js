@@ -41,6 +41,12 @@ import { ComposeScene } from "../base/ComposeScene";
 import { BossScene5 } from "../scene/BossScene/BossScene5";
 
 import { FollowPlaneScene } from "../scene/FollowPlaneScene/FollowPlaneScene";
+import {
+  FollowPlaneScene2
+} from "../scene/FollowPlaneScene/FollowPlaneScene2";
+import {
+  FollowPlaneScene3
+} from "../scene/FollowPlaneScene/FollowPlaneScene3";
 import { UFOScene } from "../scene/UFOScene/UFOScene";
 import { UFO2Scene } from "../scene/UFOScene/UFO2Scene";
 import { UFO3Scene } from "../scene/UFOScene/UFO3Scene";
@@ -49,8 +55,9 @@ import { SpaceshipScene } from "../scene/SpaceshipScene/SpaceshipScene";
 import { SpaceshipScene2 } from "../scene/SpaceshipScene/SpaceshipScene2";
 import { SpaceshipScene3 } from "../scene/SpaceshipScene/SpaceshipScene3";
 import { SpaceshipScene4 } from "../scene/SpaceshipScene/SpaceshipScene4";
-
-
+import { ToolScene } from "../../js/scene/ToolScene/ToolScene"
+import { BossComingLogoScene } from "../../js/scene/LogoScene/BossComingLogoScene.js"
+import { VictoryLogoScene } from "../../js/scene/LogoScene/VictoryLogoScene.js"
 export class FifthDirector extends BaseSubDirector {
   constructor() {
     super();
@@ -65,6 +72,7 @@ export class FifthDirector extends BaseSubDirector {
     let level1Scene1 = new ComposeScene()
     level1Scene1.addScene(new LittleAttack3Scene)
     level1Scene1.addScene(new SpaceshipScene)
+    level1Scene1.addScene(new FollowPlaneScene3)
     level1Scene1.addScene(new SpaceshipScene2)
     this.sceneQueue.addScene(level1Scene1)
     let level1Scene2 = new ComposeScene()
@@ -84,9 +92,12 @@ export class FifthDirector extends BaseSubDirector {
     level1Scene4.addScene(new LittleAttack4Scene)
     level1Scene4.addScene(new LittleAttack5Scene)
     level1Scene4.addScene(new SpaceshipScene)
+    level1Scene4.addScene(new ToolScene)
     level1Scene4.addScene(new SpaceshipScene3)
     this.sceneQueue.addScene(level1Scene4)
+    this.sceneQueue.addScene(new BossComingLogoScene)
     this.sceneQueue.addScene(new BossScene5)
+    this.sceneQueue.addScene(new VictoryLogoScene)
     return this;
   }
 

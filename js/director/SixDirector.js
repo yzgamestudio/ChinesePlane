@@ -41,6 +41,12 @@ import { ComposeScene } from "../base/ComposeScene";
 import { BossScene6 } from "../scene/BossScene/BossScene6";
 
 import { FollowPlaneScene } from "../scene/FollowPlaneScene/FollowPlaneScene";
+import {
+  FollowPlaneScene2
+} from "../scene/FollowPlaneScene/FollowPlaneScene2";
+import {
+  FollowPlaneScene3
+} from "../scene/FollowPlaneScene/FollowPlaneScene3";
 import { UFOScene } from "../scene/UFOScene/UFOScene";
 import { UFO2Scene } from "../scene/UFOScene/UFO2Scene";
 import { UFO3Scene } from "../scene/UFOScene/UFO3Scene";
@@ -54,7 +60,9 @@ import { SpaceshipScene3 } from "../scene/SpaceshipScene/SpaceshipScene3";
 import { SpaceshipScene4 } from "../scene/SpaceshipScene/SpaceshipScene4";
 import { SpaceshipScene5 } from "../scene/SpaceshipScene/SpaceshipScene5";
 import { DataStore } from "../base/DataStore";
-
+import { ToolScene } from "../../js/scene/ToolScene/ToolScene"
+import { BossComingLogoScene } from "../../js/scene/LogoScene/BossComingLogoScene.js"
+import { VictoryLogoScene } from "../../js/scene/LogoScene/VictoryLogoScene.js"
 export class SixDirector extends BaseSubDirector {
   constructor() {
     super();
@@ -77,6 +85,7 @@ export class SixDirector extends BaseSubDirector {
     let level1Scene2 = new ComposeScene()
     level1Scene2.addScene(new LittleAttack2Scene)
     level1Scene2.addScene(new StoneScene)
+    level1Scene2.addScene(new SpaceshipScene)
     level1Scene2.addScene(new StoneScene4)
     this.sceneQueue.addScene(level1Scene2)
     this.sceneQueue.addScene(new LittleAttackScene)
@@ -84,6 +93,10 @@ export class SixDirector extends BaseSubDirector {
     level1Scene3.addScene(new UFOScene)
     level1Scene3.addScene(new UFO4Scene)
     level1Scene3.addScene(new SpaceshipScene2)
+    level1Scene3.addScene(new FollowPlaneScene2)
+    level1Scene3.addScene(new FollowPlaneScene)
+    level1Scene3.addScene(new FollowPlaneScene3)
+    level1Scene3.addScene(new ToolScene)
     level1Scene3.addScene(new UFO7Scene)
     this.sceneQueue.addScene(level1Scene3)
     let level1Scene4 = new ComposeScene()
@@ -91,8 +104,11 @@ export class SixDirector extends BaseSubDirector {
     level1Scene4.addScene(new UFO4Scene)
     level1Scene4.addScene( new UFO5Scene(true, canvas.width + 200))
     level1Scene4.addScene(new UFO6Scene(false, canvas.width + 200))
+    level1Scene4.addScene(new ToolScene)
     this.sceneQueue.addScene(level1Scene4)
+    this.sceneQueue.addScene(new BossComingLogoScene)
     this.sceneQueue.addScene(new BossScene6)
+    this.sceneQueue.addScene(new VictoryLogoScene)
     return this;
   }
 

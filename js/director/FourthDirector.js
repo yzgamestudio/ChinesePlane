@@ -41,6 +41,12 @@ import { ComposeScene } from "../base/ComposeScene";
 import { BossScene4 } from "../scene/BossScene/BossScene4";
 
 import { FollowPlaneScene } from "../scene/FollowPlaneScene/FollowPlaneScene";
+import {
+  FollowPlaneScene2
+} from "../scene/FollowPlaneScene/FollowPlaneScene2";
+import {
+  FollowPlaneScene3
+} from "../scene/FollowPlaneScene/FollowPlaneScene3";
 import { UFOScene } from "../scene/UFOScene/UFOScene";
 import { UFO2Scene } from "../scene/UFOScene/UFO2Scene";
 import { UFO3Scene } from "../scene/UFOScene/UFO3Scene";
@@ -49,8 +55,9 @@ import { SpaceshipScene } from "../scene/SpaceshipScene/SpaceshipScene";
 import { SpaceshipScene2 } from "../scene/SpaceshipScene/SpaceshipScene2";
 import { SpaceshipScene3 } from "../scene/SpaceshipScene/SpaceshipScene3";
 import { SpaceshipScene4 } from "../scene/SpaceshipScene/SpaceshipScene4";
-
-
+import { ToolScene } from "../../js/scene/ToolScene/ToolScene"
+import { BossComingLogoScene } from "../../js/scene/LogoScene/BossComingLogoScene.js"
+import { VictoryLogoScene } from "../../js/scene/LogoScene/VictoryLogoScene.js"
 export class FourthDirector extends BaseSubDirector {
   constructor() {
     super();
@@ -80,15 +87,20 @@ export class FourthDirector extends BaseSubDirector {
 
     let level1Scene3 = new ComposeScene()
     level1Scene3.addScene(new UFOScene)
-    level1Scene3.addScene(new SpaceshipScene2)
+    level1Scene3.addScene(new SpaceshipScene4)
+    level1Scene3.addScene(new FollowPlaneScene2)
+    level1Scene3.addScene(new ToolScene)
     //this.sceneQueue.addScene(level1Scene3)
 
     let level1Scene4 = new ComposeScene()
     level1Scene4.addScene(new UFO3Scene)
     level1Scene4.addScene(new UFO4Scene)
+    level1Scene4.addScene(new FollowPlaneScene3)
     level1Scene4.addScene(new SpaceshipScene)
     //this.sceneQueue.addScene(level1Scene3)
+    this.sceneQueue.addScene(new BossComingLogoScene)
     this.sceneQueue.addScene(new BossScene4)
+    this.sceneQueue.addScene(new VictoryLogoScene)
     return this;
   }
 

@@ -39,14 +39,21 @@ import { ComposeScene } from "../base/ComposeScene";
 import { BossScene2 } from "../scene/BossScene/BossScene2";
 
 import { FollowPlaneScene } from "../scene/FollowPlaneScene/FollowPlaneScene";
+import {
+  FollowPlaneScene2
+} from "../scene/FollowPlaneScene/FollowPlaneScene2";
+import {
+  FollowPlaneScene3
+} from "../scene/FollowPlaneScene/FollowPlaneScene3";
 import { UFOScene } from "../scene/UFOScene/UFOScene";
 import { UFO2Scene } from "../scene/UFOScene/UFO2Scene";
 import { SpaceshipScene } from "../scene/SpaceshipScene/SpaceshipScene";
 import { SpaceshipScene2 } from "../scene/SpaceshipScene/SpaceshipScene2";
 import { SpaceshipScene3 } from "../scene/SpaceshipScene/SpaceshipScene3";
 import { SpaceshipScene4 } from "../scene/SpaceshipScene/SpaceshipScene4";
-
-
+import { ToolScene } from "../../js/scene/ToolScene/ToolScene"
+import { BossComingLogoScene } from "../../js/scene/LogoScene/BossComingLogoScene.js"
+import { VictoryLogoScene } from "../../js/scene/LogoScene/VictoryLogoScene.js"
 export class SecondDirector extends BaseSubDirector {
     constructor() {
         super();
@@ -65,13 +72,18 @@ export class SecondDirector extends BaseSubDirector {
       let level1Scene2 = new ComposeScene()
       level1Scene2.addScene(new LittleAttack2Scene)
       level1Scene2.addScene(new StoneScene)
+      level1Scene2.addScene(new ToolScene)
+      level1Scene2.addScene(new FollowPlaneScene3)
       //this.sceneQueue.addScene(level1Scene2)
       //this.sceneQueue.addScene(new LittleAttackScene)
       let level1Scene3 = new ComposeScene()
       level1Scene3.addScene(new UFOScene)
       level1Scene3.addScene(new SpaceshipScene2)
+      level1Scene3.addScene(new FollowPlaneScene2)
       //this.sceneQueue.addScene(level1Scene3)
+      this.sceneQueue.addScene(new BossComingLogoScene)
       this.sceneQueue.addScene(new BossScene2)
+      this.sceneQueue.addScene(new VictoryLogoScene)
         return this;
     }
 

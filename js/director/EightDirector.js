@@ -40,6 +40,12 @@ import { ComposeScene } from "../base/ComposeScene";
 import { BossScene8 } from "../scene/BossScene/BossScene8";
 
 import { FollowPlaneScene } from "../scene/FollowPlaneScene/FollowPlaneScene";
+import {
+  FollowPlaneScene2
+} from "../scene/FollowPlaneScene/FollowPlaneScene2";
+import {
+  FollowPlaneScene3
+} from "../scene/FollowPlaneScene/FollowPlaneScene3";
 import { UFOScene } from "../scene/UFOScene/UFOScene";
 import { UFO2Scene } from "../scene/UFOScene/UFO2Scene";
 import { UFO3Scene } from "../scene/UFOScene/UFO3Scene";
@@ -52,7 +58,9 @@ import { SpaceshipScene2 } from "../scene/SpaceshipScene/SpaceshipScene2";
 import { SpaceshipScene3 } from "../scene/SpaceshipScene/SpaceshipScene3";
 import { SpaceshipScene4 } from "../scene/SpaceshipScene/SpaceshipScene4";
 import { SpaceshipScene5 } from "../scene/SpaceshipScene/SpaceshipScene5";
-
+import { ToolScene } from "../../js/scene/ToolScene/ToolScene"
+import { BossComingLogoScene } from "../../js/scene/LogoScene/BossComingLogoScene.js"
+import { VictoryLogoScene } from "../../js/scene/LogoScene/VictoryLogoScene.js"
 export class EightDirector extends BaseSubDirector {
   constructor() {
     super();
@@ -76,6 +84,10 @@ export class EightDirector extends BaseSubDirector {
     this.sceneQueue.addScene(new LittleAttackScene)
     this.sceneQueue.addScene(new SpaceshipScene3)
     let level1Scene3 = new ComposeScene()
+    level1Scene3.addScene(new FollowPlaneScene)
+    level1Scene3.addScene(new FollowPlaneScene2)
+    level1Scene3.addScene(new FollowPlaneScene3)
+    level1Scene3.addScene(new ToolScene)
     level1Scene3.addScene(new UFOScene)
     level1Scene3.addScene(new SpaceshipScene5)
     this.sceneQueue.addScene(level1Scene3)
@@ -83,9 +95,12 @@ export class EightDirector extends BaseSubDirector {
     let level1Scene4 = new ComposeScene()
     level1Scene4.addScene(new LittleAttack3Scene)
     level1Scene4.addScene(new StoneScene3)
+    level1Scene4.addScene(new ToolScene)
     level1Scene4.addScene(new SpaceshipScene2)
     this.sceneQueue.addScene(level1Scene4)
+    this.sceneQueue.addScene(new BossComingLogoScene)
     this.sceneQueue.addScene(new BossScene8)
+    this.sceneQueue.addScene(new VictoryLogoScene)
     return this;
   }
 
