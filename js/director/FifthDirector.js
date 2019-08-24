@@ -104,11 +104,7 @@ export class FifthDirector extends BaseSubDirector {
 
   drawSprites() {
     super.drawSprites();
-    const bullets = this.dataStore.get('playerBullets');
-    if (this.dataStore.frame % 20 === 0) {
-      let bullet = new AngleBullet;
-      bullets.push(bullet)
-    }
+
 
     this.sceneQueue.updateScene();
     if (this.sceneQueue.length() === 0) {

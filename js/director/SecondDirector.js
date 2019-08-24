@@ -67,8 +67,9 @@ export class SecondDirector extends BaseSubDirector {
       //this.sceneQueue.addScene(new LittleAttack2Scene)
       let level1Scene1 = new ComposeScene()
       level1Scene1.addScene(new LittleAttackScene)
+      level1Scene1.addScene(new ToolScene)
       level1Scene1.addScene(new SpaceshipScene)
-      //this.sceneQueue.addScene(level1Scene1)
+      this.sceneQueue.addScene(level1Scene1)
       let level1Scene2 = new ComposeScene()
       level1Scene2.addScene(new LittleAttack2Scene)
       level1Scene2.addScene(new StoneScene)
@@ -90,11 +91,7 @@ export class SecondDirector extends BaseSubDirector {
 
     drawSprites() {
       super.drawSprites();
-      const bullets = this.dataStore.get('playerBullets');
-      if (this.dataStore.frame % 20 === 0) {
-        let bullet = new AngleBullet;
-        bullets.push(bullet)
-      }
+
 
       this.sceneQueue.updateScene();
       if (this.sceneQueue.length() === 0) {

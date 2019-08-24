@@ -137,4 +137,34 @@ export class Sprite {
       && spY <= this.y + this.height)
   }
 
+  isPlayerBulletCollideWithEnemy(sp) {
+    // 本身无这个能力 那么关闭不检测
+    if (!this.isVisible || !sp.isVisible) {
+      return false;
+    }
+
+    let bulletX = this.x + this.width / 2
+    let bulletY = this.y
+
+    return !!(bulletX >= sp.x
+      && bulletX <= sp.x +sp.width
+      && bulletY >= sp.y
+      && bulletY <= sp.y + sp.height)
+  }
+
+  isEnemyBulletCollideWithPlayer(sp) {
+    // 本身无这个能力 那么关闭不检测
+    if (!this.isVisible || !sp.isVisible) {
+      return false;
+    }
+
+    let bulletX = this.x + this.width / 2
+    let bulletY = this.y+this.height/2
+
+    return !!(bulletX >= sp.x
+      && bulletX <= sp.x + sp.width
+      && bulletY >= sp.y
+      && bulletY <= sp.y + sp.height)
+  }
+  
 }

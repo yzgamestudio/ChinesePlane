@@ -58,6 +58,10 @@ export class BaseSubDirector {
     this._recover();
     this._isGameOver();
     this._judgePlayerGetTool();
+    let _player = this.dataStore.get('player');
+    if (this.dataStore.frame % 20 === 0) {
+      _player.shoot()
+    }
     // if (this.isGameOver()) {
 
     // this.dataStore.frame = 0;
@@ -81,10 +85,13 @@ export class BaseSubDirector {
       _playerBullets.forEach((bullet) => {
         for (let i = 0, il = _enemies.length; i < il; i++) {
           let enemy = _enemies[i];
-          let isCollide = bullet.isCollideWith(enemy);
+          let isCollide = bullet.isPlayerBulletCollideWithEnemy(enemy);
           if (isCollide) {
             bullet.isVisible = false;
             enemy.blood--;
+            if(enemy.blood<0){
+              enemy.blood=0;
+            }
           }
           //break;
         }
@@ -121,10 +128,13 @@ export class BaseSubDirector {
     if(_enemyBullets.length>0){
       _enemyBullets.forEach((_enemyBullet) => {
 
-        let isCollide = _player.isCollideWith(_enemyBullet);
+        let isCollide = _enemyBullet.isEnemyBulletCollideWithPlayer(_player);
         if (isCollide) {
           if(_player.shield===false){
             _player.blood--;
+            if (_player.blood < 0) {
+              _player.blood = 0;
+            }
           }
           _enemyBullet.isVisible = false;
         }
@@ -146,6 +156,9 @@ export class BaseSubDirector {
         if (isCollide) {
           if(_player.shield===false){
             _player.blood--;
+            if(_player.blood<0){
+               _player.blood=0;
+            }
           }
           _enemy.blood=0;
         }

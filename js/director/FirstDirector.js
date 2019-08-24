@@ -112,10 +112,7 @@ export class FirstDirector extends BaseSubDirector {
 
   drawSprites() {
     super.drawSprites();
-    let _player = this.dataStore.get('player');
-    if (this.dataStore.frame%20===0){
-      _player.shoot()
-    }
+
 
     this.sceneQueue.updateScene();
     if(this.sceneQueue.length()===0){

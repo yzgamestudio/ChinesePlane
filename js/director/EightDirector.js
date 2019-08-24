@@ -70,6 +70,7 @@ export class EightDirector extends BaseSubDirector {
     super.setupSprits();
 
     this.sceneQueue = new SceneQueue();
+    this.sceneQueue.addScene(new ToolScene)
     this.sceneQueue.addScene(new LittleAttack4Scene)
     this.sceneQueue.addScene(new LittleAttack5Scene)
     this.sceneQueue.addScene(new SpaceshipScene5)
@@ -107,11 +108,6 @@ export class EightDirector extends BaseSubDirector {
 
   drawSprites() {
     super.drawSprites();
-    const bullets = this.dataStore.get('playerBullets');
-    if (this.dataStore.frame % 20 === 0) {
-      let bullet = new AngleBullet;
-      bullets.push(bullet)
-    }
 
     this.sceneQueue.updateScene();
     if (this.sceneQueue.length() === 0) {
