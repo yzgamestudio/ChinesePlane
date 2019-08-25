@@ -1,6 +1,9 @@
 /// 仿造 高清 超清的概念 ， 2倍图叫HD，3倍图叫UD
 export const HDImageResources = [
   ['background', 'res/background@2x.png'],
+  ['background1', 'res/background/background1@2x.jpg'],
+  ['background2', 'res/background/background2@2x.jpg'],
+  ['background3', 'res/background/background3@2x.jpg'],
   ['player', 'res/player@2x.png'],
   ['player2', 'res/player2@2x.png'],
   ['bullet', 'res/bullet@2x.png'],

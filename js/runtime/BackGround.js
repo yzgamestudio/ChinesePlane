@@ -3,20 +3,32 @@ import { DataStore } from '../base/DataStore.js'
 // 开始类
 export class BackGround extends Sprite{
   constructor() {
-    const image = Sprite.getImage('background');
-    super(image,
-      0, 0, image.width, image.height,
+    const image1 = Sprite.getImage('background1');
+    super(image1,
+      0, 0, image1.width, image1.height,
       0, -DataStore.getInstance().canvas.height, DataStore.getInstance().canvas.width, DataStore.getInstance().canvas.height);
       this.top=0
+      this.index=0;
+
+    const image2 = Sprite.getImage('background2');
+    const image3 = Sprite.getImage('background3');
+    this.images = []
+    this.images.push(image1)
+    this.images.push(image2)
+    this.images.push(image3)
   }
   draw(){
     const canvas = DataStore.getInstance().canvas;
     this.top += 1 * GameGlobal.dpr;
     if (this.top > canvas.height) {
       this.top = 0;
+      this.index++;
+      if(this.index===3){
+        this.index=0;
+      }
     }
     this.ctx.drawImage(
-      this.img,
+      this.images[(this.index+1)%3],
       this.srcX,
       this.srcY,
       this.srcW,
@@ -27,7 +39,7 @@ export class BackGround extends Sprite{
       this.height
     )
     this.ctx.drawImage(
-      this.img,
+      this.images[this.index],
       this.srcX,
       this.srcY,
       this.srcW,
