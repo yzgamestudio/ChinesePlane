@@ -112,18 +112,7 @@ export class FirstDirector extends BaseSubDirector {
 
   drawSprites() {
     super.drawSprites();
-
-
     this.sceneQueue.updateScene();
-    if(this.sceneQueue.length()===0){
-
-      _player.y -= GameGlobal.fit(10);
-      if(_player.y<-_player.height){
-        window.cancelAnimationFrame(this.timer);
-        this.dataStore.destory();
-        this.callback()
-      }
-    }
   }
   
 

@@ -58,6 +58,7 @@ export class BaseSubDirector {
     this._recover();
     this._isGameOver();
     this._judgePlayerGetTool();
+    this._isWinGame();
     let _player = this.dataStore.get('player');
     if (this.dataStore.frame % 20 === 0) {
       _player.shoot()
@@ -76,6 +77,22 @@ export class BaseSubDirector {
     // SpriteDetector.test();
   }
 
+  _isWinGame(){
+    if (this.sceneQueue.length() === 0) {
+      let _player = this.dataStore.get('player');
+      _player.y -= GameGlobal.fit(10);
+      if (_player.y < -_player.height) {
+        //关掉玩家飞机监听move事件
+        _player.stopPlayerMoveListening()
+        //关掉run函数
+        window.cancelAnimationFrame(this.timer);
+        //销毁数据
+        this.dataStore.destory();
+        //调用首页
+        this.callback()
+      }
+    }
+  }
 
   //判断玩家子弹和敌机是否发生碰撞
   _judgePlayerBulletCollideEnemy() {
@@ -325,27 +342,57 @@ export class BaseSubDirector {
     })
   }
 
+  //暂停run函数，绘制游戏结束画面
   drawGameOver() {
     // debugger;
     const gameOver = this.dataStore.get('gameOver');
+    window.cancelAnimationFrame(this.timer);
+    //关掉玩家飞机监听move事件
+    let player = DataStore.getInstance().get('player');
+    player.stopPlayerMoveListening()
     gameOver.draw();
-    gameOver.onClicked(() => this.restart());
-    gameOver.userInterface = true;
+    gameOver.onClicked((select) => {
+      if(select===1){//返回首页
+        let _player = DataStore.getInstance().get('player');
+        //关掉玩家飞机监听move事件
+        _player.stopPlayerMoveListening()
+        //销毁数据
+        this.dataStore.destory();
+        //调用首页
+        this.callback()
+      }else if(select===2){//继续游戏
+        let player = DataStore.getInstance().get('player');
+        player.blood=1;
+        const img = Sprite.getImage('player2');
+        player.img = img;
+        player.srcX = 0;
+        player.srcY = 0;
+        player.srcW = img.width;
+        player.srcH = img.height;
+        player.width = img.width;
+        player.height = img.height;
+        player.shield = true;
+        player.countShield = 300;
+        this.run();
+      } else if(select===3){//重新开始
+        this.restart()
+      }
+
+      });
   }
 
   restart() {
-    cancelAnimationFrame(this.timer);
-    const gameOver = this.dataStore.get('gameOver');
-    gameOver.userInterface = false;
+    window.cancelAnimationFrame(this.timer);
+
     this.dataStore.destory();
     this.setupSprits();
     this.run();
   }
 
-
+ 
   onPressLevelSelectMenu(callback) {
-    cancelAnimationFrame(this.timer);
-    this.dataStore.destory();
+    //cancelAnimationFrame(this.timer);
+    //this.dataStore.destory();
     this.callback = callback;
   }
 

@@ -4,7 +4,7 @@ const LEVELWIDTH = 50;
 const LEVELHEIGHT = 50;
 const XMARGIN = 20;
 const YMARGIN = 20;
-const LEVELCOUNT = 20;
+const LEVELCOUNT = 8;
 const INITX = XMARGIN + 30;
 const INITY = YMARGIN + 30;
 
@@ -14,7 +14,7 @@ export class LevelSelect {
 
         this.dpr = DataStore.getInstance().systeminfo.pixelRatio;
         this.levelItems = this.setupLevelItemsArea();
-        this.userInterface = true;
+        //this.userInterface = true;
     }
 
     onPressLevel(callback){
@@ -91,28 +91,29 @@ export class LevelSelect {
 
     bindPressEvent(levelItems) {
         let that = this;
-
-        wx.onTouchStart(function (e) {
-            let touch = e.changedTouches[0];
-          var touchX = touch.clientX * that.dpr;
-          var touchY = touch.clientY * that.dpr;
-            let level = 0;
-            levelItems.forEach(function (value, index, array) {
-                if (touchX >= value.left && touchX <= value.left + value.width &&
-                    touchY >= value.top && touchY <= value.top + value.height) {
-                    level = index + 1;
-                }
-            });
-            if (that.userInterface == false) {
-                return;
-            }
-            if (that.callback){
-                that.callback(level);
-            }
-
+      this.callbackSelectLevel = function (e) {
+        let touch = e.changedTouches[0];
+        var touchX = touch.clientX * that.dpr;
+        var touchY = touch.clientY * that.dpr;
+        let level = 0;
+        levelItems.forEach(function (value, index, array) {
+          if (touchX >= value.left && touchX <= value.left + value.width &&
+            touchY >= value.top && touchY <= value.top + value.height) {
+            level = index + 1;
+          }
         });
+        
+        if (that.callback&&level>0) {
+          that.callback(level);
+          that.stopTouchStartListening();
+        }
+
+      }
+      wx.onTouchStart(this.callbackSelectLevel);
     }
 
-
+    stopTouchStartListening(){
+      wx.offTouchStart(this.callbackSelectLevel);
+    }
 
 }

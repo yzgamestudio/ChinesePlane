@@ -23,11 +23,12 @@ export class Director {
   }
 
   drawLevelSelect(){
-    this.levelSelect = new LevelSelect();
+    if (this.levelSelect===undefined){
+      this.levelSelect = new LevelSelect();
+    }
     this.levelSelect.draw();
     let that = this;
     this.levelSelect.onPressLevel((level)=>{
-      that.levelSelect.userInterface = false;
       that.setupLevelSubDirector(level);
     });
   }
@@ -35,7 +36,6 @@ export class Director {
   setupLevelSubDirector(level){
     // 此处可以用工厂模式进行优化，暂时不考虑这个问题
     // debugger;8
-
     let levelDirector;
     if (level === 1) {
        levelDirector = new FirstDirector();
