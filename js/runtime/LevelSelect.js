@@ -45,10 +45,11 @@ export class LevelSelect {
     this.frame++;
     this.drawLogo()
     this.isStartGame()
+    this.drawLevel()
   }
 
   drawLogo(){
-        const canvas = DataStore.getInstance().canvas;
+    const canvas = DataStore.getInstance().canvas;
     var imgname = 'logo'
     const img = Sprite.getImage(imgname);
     this.ctx.drawImage(
@@ -65,12 +66,15 @@ export class LevelSelect {
   }
  
 
-  drawRect(value) {
-    const ctx = DataStore.getInstance().ctx;
-    ctx.fillStyle = "#ffffff"; // 设置或返回用于填充绘画的颜色、渐变或模式
-    const width = value.width;
-    const height = value.height;
-    ctx.fillRect(value.left, value.top, width, height); // x轴 y轴 宽 和 高 ,绘制“被填充”的矩形
+  drawLevel() {
+    // 如何绘制文本
+    const canvas = DataStore.getInstance().canvas;
+    this.ctx.font = "60px Georgia";
+    this.ctx.fillStyle = "#ffffff";
+    var level = DataStore.getInstance().get('currentLevel')
+    this.ctx.fillText("第"+level+"关", canvas.width * 0.5 - 75, canvas.height * 0.6);
+    this.ctx.font = "45px Georgia";
+    this.ctx.fillText("滑屏开始冒险", canvas.width * 0.5 - 135, canvas.height * 0.9);
   }
 
   //开启玩家开始游戏动作监听
