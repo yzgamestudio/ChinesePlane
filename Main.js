@@ -63,6 +63,7 @@ export class Main {
         GameGlobal.fit = function (x) {
             return GameGlobal.dpr * x;
         }
+        
         GameGlobal.canvas = wx.createCanvas();
         /**
          *

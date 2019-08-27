@@ -8,12 +8,9 @@ import {
   AngleBullet
 } from "../player/angleBullet";
 export class Player extends Sprite {
-  constructor(imgname = 'player', bulletNum = 1, bulletImg = 'bullet2') {
+  constructor(x,y,imgname = 'player', bulletNum = 1, bulletImg = 'bullet2') {
     const img = Sprite.getImage(imgname);
     const canvas = DataStore.getInstance().canvas;
-    let x = canvas.width * 0.5 - img.width * 0.5;
-    let y = canvas.height - img.height;
-
     super(img,
       0, 0, img.width, img.height,
       x, y, img.width, img.height);

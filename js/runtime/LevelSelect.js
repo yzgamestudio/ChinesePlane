@@ -1,5 +1,13 @@
-import {DataStore} from "../base/DataStore";
-
+import {
+  DataStore
+} from "../base/DataStore";
+import {
+  BackGround
+} from "../runtime/BackGround"
+import {
+  Player
+} from "../player/Player"
+import {Sprite} from "../base/Sprite"
 const LEVELWIDTH = 50;
 const LEVELHEIGHT = 50;
 const XMARGIN = 20;
@@ -10,110 +18,77 @@ const INITY = YMARGIN + 30;
 
 
 export class LevelSelect {
-    constructor(){
+  constructor() {
+    this.dpr = DataStore.getInstance().systeminfo.pixelRatio;
+    //this.levelItems = this.setupLevelItemsArea();
+    this.background = new BackGround();
+    const canvas = DataStore.getInstance().canvas;
+    var imgname = 'player'
+    const img = Sprite.getImage(imgname);
+    this.img=img;
+    this.player = new Player(canvas.width * 0.5 - img.width * 0.5, canvas.height*0.7);
 
-        this.dpr = DataStore.getInstance().systeminfo.pixelRatio;
-        this.levelItems = this.setupLevelItemsArea();
-        //this.userInterface = true;
-    }
+    this.frame = 0;
+    this.ctx = DataStore.getInstance().ctx;
+    this.touch=false;
+  }
 
-    onPressLevel(callback){
-        this.callback = callback;
-    }
+  onPressLevel(callback) {
+    this.callback = callback;
+  }
 
-    draw() {
+  //绘制精灵
+  drawSprites() {
+    this.timer = window.requestAnimationFrame(() => this.drawSprites());
+    this.background.draw()
+    this.player.draw()
+    this.frame++;
+    this.drawLogo()
+    this.isStartGame()
+  }
 
-        let that = this;
-        this.levelItems.forEach(function (value, index, array) {
-            that.drawRect(value);
-        })
-        this.bindPressEvent(this.levelItems);
-
-    }
-
-    /**
-     * 构造网格结构，是一个数组 数组的每个元素是关的位置和宽度高度信息
-     * @returns {Array}
-     */
-    setupLevelItemsArea() {
-
+  drawLogo(){
         const canvas = DataStore.getInstance().canvas;
+    var imgname = 'logo'
+    const img = Sprite.getImage(imgname);
+    this.ctx.drawImage(
+      img,
+      0,
+      0,
+      img.width,
+      img.height,
+      canvas.width * 0.1,
+      canvas.height*0.1,
+      canvas.width*0.8,
+      canvas.width*0.8*img.height/img.width
+    )
+  }
+ 
 
-        let  levelItems = [];
-        let lastItem = {
-            left:0,
-            top:0,
-            width:0,
-            height:0
-        };
+  drawRect(value) {
+    const ctx = DataStore.getInstance().ctx;
+    ctx.fillStyle = "#ffffff"; // 设置或返回用于填充绘画的颜色、渐变或模式
+    const width = value.width;
+    const height = value.height;
+    ctx.fillRect(value.left, value.top, width, height); // x轴 y轴 宽 和 高 ,绘制“被填充”的矩形
+  }
 
-      let xStep = (LEVELWIDTH + XMARGIN)*this.dpr ;
-      let yStep = (LEVELHEIGHT + XMARGIN) * this.dpr;
-
-        for (let i = 0; i < LEVELCOUNT; i++){
-            let item = {
-                left:0,
-                top:0,
-                width:0,
-                height:0
-            };
-
-            if (i == 0) {
-              item.left = INITX * this.dpr;
-              item.top = INITY * this.dpr;
-              item.width = LEVELWIDTH * this.dpr;
-              item.height = LEVELHEIGHT * this.dpr;
-            } else {
-                item.left = lastItem.left + xStep;
-              item.width = LEVELWIDTH * this.dpr;
-              item.height = LEVELHEIGHT * this.dpr;
-                item.top = lastItem.top;
-                if (item.left + xStep > canvas.width) {
-                  item.left = INITY * this.dpr;
-                    item.top = lastItem.top +  yStep;
-                }
-            }
-            levelItems.push(item);
-            lastItem = item;
-        }
-
-
-        return levelItems;
-    }
-
-    drawRect(value) {
-        const ctx = DataStore.getInstance().ctx;
-        ctx.fillStyle = "#ffffff";  // 设置或返回用于填充绘画的颜色、渐变或模式
-        const width = value.width;
-        const height = value.height;
-        ctx.fillRect(value.left, value.top, width, height);  // x轴 y轴 宽 和 高 ,绘制“被填充”的矩形
-    }
-
-    bindPressEvent(levelItems) {
-        let that = this;
-      this.callbackSelectLevel = function (e) {
-        let touch = e.changedTouches[0];
-        var touchX = touch.clientX * that.dpr;
-        var touchY = touch.clientY * that.dpr;
-        let level = 0;
-        levelItems.forEach(function (value, index, array) {
-          if (touchX >= value.left && touchX <= value.left + value.width &&
-            touchY >= value.top && touchY <= value.top + value.height) {
-            level = index + 1;
-          }
-        });
-        
-        if (that.callback&&level>0) {
-          that.callback(level);
-          that.stopTouchStartListening();
-        }
-
+  //开启玩家开始游戏动作监听
+  isStartGame() {
+    const canvas = DataStore.getInstance().canvas;
+    if (this.player.y < canvas.height * 0.65){
+      this.player.stopPlayerMoveListening();
+      this.player.y -= 10 * GameGlobal.dpr;
+      if(this.callback&&this.player.y<-this.img.height){
+        window.cancelAnimationFrame(this.timer);
+        this.callback();
       }
-      wx.onTouchStart(this.callbackSelectLevel);
-    }
 
-    stopTouchStartListening(){
-      wx.offTouchStart(this.callbackSelectLevel);
     }
+  }
+
+
+
+
 
 }

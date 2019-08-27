@@ -77,6 +77,7 @@ export const HDImageResources = [
   ['tool3', 'res/tool/tool3@2x.png'],
   ['tool4', 'res/tool/tool4@2x.png'],
   ['shield1', 'res/shield/shield1@2x.png'],
+  ['logo', 'res/logo/logo@2x.png'],  
 ];
 
 export const UDImageResources = [

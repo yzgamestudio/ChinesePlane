@@ -35,7 +35,10 @@ export class BaseSubDirector {
   setupSprits() { /// 子类继承时必须先调用super  setupSprits
     this.dataStore.put('gameOver', new GameOver);
     this.dataStore.put('background', new BackGround);
-    this.dataStore.put('player', new Player);
+    const canvas = DataStore.getInstance().canvas;
+    var imgname = 'player'
+    const img = Sprite.getImage(imgname);
+    this.dataStore.put('player', new Player(canvas.width * 0.5 - img.width * 0.5,canvas.height - img.height - 100));
     let playerBullets = [];
     this.dataStore.put('playerBullets', playerBullets);
     let enemyBullets = [];
@@ -86,8 +89,9 @@ export class BaseSubDirector {
         _player.stopPlayerMoveListening()
         //关掉run函数
         window.cancelAnimationFrame(this.timer);
-        //销毁数据
-        this.dataStore.destory();
+        let currentLevel = this.dataStore.get('currentLevel'); 
+        currentLevel+=1;
+        this.dataStore.put('currentLevel',currentLevel);
         //调用首页
         this.callback()
       }
@@ -384,7 +388,7 @@ export class BaseSubDirector {
   restart() {
     window.cancelAnimationFrame(this.timer);
 
-    this.dataStore.destory();
+    //this.dataStore.destory();
     this.setupSprits();
     this.run();
   }

@@ -20,23 +20,28 @@ export class Director {
     this.drawLevelSelect();
     this.currentLevelDirector = null;
     this.ctx = DataStore.getInstance().ctx;
+    this.dataStore = DataStore.getInstance();
+    var currentLevel=1;
+    this.dataStore.put('currentLevel', currentLevel);
   }
 
+  drawLevel(){
+    var currentLevel = this.dataStore.get('currentLevel')
+  }
   drawLevelSelect(){
-    if (this.levelSelect===undefined){
       this.levelSelect = new LevelSelect();
-    }
-    this.levelSelect.draw();
+    this.levelSelect.drawSprites();
     let that = this;
-    this.levelSelect.onPressLevel((level)=>{
-      that.setupLevelSubDirector(level);
+    this.levelSelect.onPressLevel(()=>{
+      that.setupLevelSubDirector();
     });
   }
 
-  setupLevelSubDirector(level){
+  setupLevelSubDirector(){
     // 此处可以用工厂模式进行优化，暂时不考虑这个问题
     // debugger;8
     let levelDirector;
+    var level = this.dataStore.get('currentLevel')
     if (level === 1) {
        levelDirector = new FirstDirector();
     }
