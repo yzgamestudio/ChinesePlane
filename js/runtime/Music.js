@@ -15,24 +15,27 @@ export class Music {
   }
 
   setupAudio() {
-    // let bulletAudio = wx.createInnerAudioContext();
-    // bulletAudio.seek = 0.25;
-    // bulletAudio.src = AudioResources.biu;
-    // this.bulletAudio = bulletAudio;
-
+    //初始化背景bgm声效
     let bgmAudio = wx.createInnerAudioContext();
     bgmAudio.src = AudioResources.bgm;
-    console.log('bgm' + AudioResources.bgm);
     bgmAudio.loop = true;
     this.bgmAudio = bgmAudio;
-
-    // let explosionAudio = wx.createInnerAudioContext();
-    // this.explosionAudio = explosionAudio;
+    //初始化爆炸声效
+    let explosionAudio = wx.createInnerAudioContext();
+    explosionAudio.src = AudioResources.boom;
+    this.explosionAudio = explosionAudio;
+    //初始化子弹声效
+    let bulletAudio = wx.createInnerAudioContext();
+    bulletAudio.src = AudioResources.bullet;
+    this.bulletAudio = bulletAudio;
   }
 
-  shoot() {
-    // console.log(this.bulletAudio.src);
-    // this.bulletAudio.play();
+  playBulletShoot() {
+    this.bulletAudio.play();
+  }
+
+  playExplosion() {
+    this.explosionAudio.play();
   }
 
   playBGM() {

@@ -20,6 +20,7 @@ import {
   SpriteDetector
 } from "./Util/SpriteDetector";
 import { Sprite } from "../base/Sprite";
+import {Music} from "../runtime/Music.js"
 export class BaseSubDirector {
 
   constructor() {
@@ -64,7 +65,8 @@ export class BaseSubDirector {
     this._isWinGame();
     let _player = this.dataStore.get('player');
     if (this.dataStore.frame % 20 === 0) {
-      _player.shoot()
+      _player.shoot();
+      Music.getInstance().playBulletShoot();
     }
     // if (this.isGameOver()) {
 
@@ -205,6 +207,7 @@ export class BaseSubDirector {
     _enemies.forEach((item, index, array) => {
       if (item.blood === 0 && item._animationIndex===-1 ){
         item._isPlayAnimation =true;
+        Music.getInstance().playExplosion()
       }
       let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.width, item.height * 3);
       if (isOffScreen || (item.blood === 0 && item._isPlayAnimation ===false)){

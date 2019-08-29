@@ -23,10 +23,8 @@ export class Main {
         this.canvas.width = GameGlobal.fit(this.canvas.width);
         const loader = ResourceLoader.create();
         loader.onLoaded((map, ziku) => this.onResourceFirstLoaded(map, ziku));
+        Music.getInstance().playBGM();
 
-        // wx.onShow((object) => {
-            Music.getInstance().playBGM();
-        // })
     }
 
     // 所有资源加载完毕后才能渲染
