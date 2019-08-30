@@ -18,7 +18,9 @@ export class Player extends Sprite {
     this.dpr = GameGlobal.dpr;
     //  如何让精灵随手指移动
     this.touch = false;
-    this.blood = 1;
+    this.blood = 2;
+    this.score=0;
+    this.fullBlood=2;
     let that = this; //  is not function bug fix
     this.callbackTouchStart = function(e) {
       let touch = e.changedTouches[0];
@@ -87,8 +89,32 @@ export class Player extends Sprite {
         this.shield = false;
       }
     }
+
   }
 
+  drawScore(){
+    const ctx = DataStore.getInstance().ctx;
+    const canvas = DataStore.getInstance().canvas;
+    ctx.font = "30px Georgia";
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText("score", 20 * GameGlobal.dpr, 60 * GameGlobal.dpr);
+    ctx.fillText(this.score, 20 * GameGlobal.dpr+75, 60 * GameGlobal.dpr);
+  }
+
+  drawBlood() {
+    const ctx = DataStore.getInstance().ctx;
+    const canvas = DataStore.getInstance().canvas;
+    ctx.font = "30px Georgia";
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText("hp", 20 * GameGlobal.dpr, 30 * GameGlobal.dpr);
+    ctx.fillStyle = "#ff0000";
+    const width = canvas.width*0.2 * this.blood / this.fullBlood;
+    const height = 10 * GameGlobal.dpr;
+    ctx.fillRect( 20* GameGlobal.dpr+60,  20 * GameGlobal.dpr, width, height);
+    ctx.font = "30px Georgia";
+    ctx.fillStyle = "#ffffff";
+    ctx.fillText(this.blood, 20 * GameGlobal.dpr + 70 + canvas.width * 0.2 * this.blood / this.fullBlood, 30 * GameGlobal.dpr);
+  }
 
   // 判读手指是否接触了飞机区域，offset是偏移，当靠近飞机 也认为是接触了飞机，因为图片总是有留白的
 
@@ -162,7 +188,7 @@ export class Player extends Sprite {
       let playerBullet = new AngleBullet(this.bulletImg, 105);
       playerBullets.push(playerBullet);
     }
-
+    
   }
 
 }

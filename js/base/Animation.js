@@ -1,5 +1,5 @@
 import {Sprite} from "./Sprite";
-
+import { DataStore } from '../base/DataStore.js'
 const INTERVAL = 1000 / 60;
 
 export class Animation extends Sprite {
@@ -11,7 +11,7 @@ export class Animation extends Sprite {
 		x = 0,
 		y = 0,
 		width = 0,
-		height = 0,blood=1) {
+		height = 0,blood=2) {
 		super(img,srcX,srcY, srcW, srcH, x, y , width , height);
 
         // 动画帧集合
@@ -34,6 +34,7 @@ export class Animation extends Sprite {
         this._timer = null;
         //血量
         this.blood=blood;
+        this.fullBlood=blood;
 
     }
 
@@ -98,9 +99,18 @@ export class Animation extends Sprite {
 
 	    if(this.blood>0){
             super.draw();
+            this.drawBlood()
         }
       if (this._isPlayAnimation === true){
         this._drawAnimation()
       }
+    }
+
+    drawBlood(){
+      const ctx = DataStore.getInstance().ctx;
+      ctx.fillStyle = "#ff0000";  
+      const width = this.width*this.blood/this.fullBlood;
+      const height = 5 * GameGlobal.dpr;
+      ctx.fillRect(this.x, this.y - 10 * GameGlobal.dpr, width, height);  
     }
 }

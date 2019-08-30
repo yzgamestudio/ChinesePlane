@@ -33,7 +33,7 @@ export class GameOver {
     // 如何绘制文本
     this.ctx.font = "30px Georgia";
     this.ctx.fillStyle = "#ffffff";
-    this.ctx.fillText("点击重试", this.canvas.width * 0.5 - 60, this.canvas.height * 0.8);
+    this.ctx.fillText("重新开始", this.canvas.width * 0.5 - 60, this.canvas.height * 0.8);
   }
 
   //绘制继续游戏按钮

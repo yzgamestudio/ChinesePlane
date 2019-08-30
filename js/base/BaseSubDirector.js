@@ -39,7 +39,15 @@ export class BaseSubDirector {
     const canvas = DataStore.getInstance().canvas;
     var imgname = 'player'
     const img = Sprite.getImage(imgname);
-    this.dataStore.put('player', new Player(canvas.width * 0.5 - img.width * 0.5,canvas.height - img.height - 100));
+    if (this.dataStore.get('player')===undefined){
+      this.dataStore.put('player', new Player(canvas.width * 0.5 - img.width * 0.5, canvas.height - img.height - 100));
+    } else{
+      var _player=this.dataStore.get('player')
+      _player.x = canvas.width * 0.5 - img.width * 0.5;
+      _player.y = canvas.height - img.height - 100;
+      _player.blood=_player.fullBlood;
+    }
+
     let playerBullets = [];
     this.dataStore.put('playerBullets', playerBullets);
     let enemyBullets = [];
@@ -112,6 +120,8 @@ export class BaseSubDirector {
           if (isCollide) {
             bullet.isVisible = false;
             enemy.blood--;
+            let player = DataStore.getInstance().get('player');
+            player.score += 100;
             if(enemy.blood<0){
               enemy.blood=0;
             }
@@ -183,7 +193,7 @@ export class BaseSubDirector {
                _player.blood=0;
             }
           }
-          _enemy.blood=0;
+          _enemy.blood--;
         }
 
       })
@@ -274,7 +284,8 @@ export class BaseSubDirector {
   _isGameOver() {
     const player = this.dataStore.get('player');
     if(player.blood<=0){
-      this.drawGameOver()
+      this.drawSprites(); 
+      this.drawGameOver();
     }else{
       //do nothing
     }
@@ -323,6 +334,8 @@ export class BaseSubDirector {
     backgroundSprie.draw(3);
     const player = this.dataStore.get('player');
     player.draw();
+    player.drawBlood();
+    player.drawScore();
     let _enemies = this.dataStore.get('enemy');
     let _enemyBullets = this.dataStore.get('enemyBullets');
     let _playerBullets = this.dataStore.get('playerBullets');

@@ -8,7 +8,7 @@ const MINSPEED = -10;
 const MAXSPEED = 10;
 
 export class Boss extends Animation {
-  constructor(imgname = 'boss1',blood=10) {
+  constructor(imgname = 'boss1',blood=20) {
     const image = Sprite.getImage(imgname); // 获取图片
     const canvas = GameGlobal.canvas;
     const y = -image.height; // 所有敌机都是在刚离屏的位置Y
@@ -20,7 +20,8 @@ export class Boss extends Animation {
       randomX, y, image.width, image.height);
 
     this.speed = RandomUtil.random(MINSPEED, MAXSPEED);  // 随机生成一个速度speed
-    this.blood = blood
+    this.blood = blood;
+    this.fullBlood=blood;
     this.xSpeed = 2;
     this.type='boss'
   }
@@ -44,6 +45,7 @@ export class Boss extends Animation {
     // console.log(this.x, this.y);
     super.draw();
   }
+
 
   shoot(number = 3) {
     let enemyBullets =  DataStore.getInstance().get('enemyBullets');

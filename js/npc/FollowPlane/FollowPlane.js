@@ -22,8 +22,6 @@ export class FollowPlane extends Animation {
         }else{
           this.y += GameGlobal.fit(2);
         }
-
-
         super.draw();
     }
 
