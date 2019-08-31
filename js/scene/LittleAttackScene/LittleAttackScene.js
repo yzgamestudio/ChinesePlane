@@ -9,13 +9,15 @@ import { LittleAttack } from "../../npc/LittleAttack/LittleAttack";
 
 
 export class LittleAttackScene extends Scene {
-  constructor() {
+  constructor(delay=0,lastTime=10) {
     super();
+    this.delay=delay;
+    this.lastTime=lastTime
   }
 
   canRemove() {
     let seconds = this.frame / 60;
-    if (seconds < 10) {
+    if (seconds < this.lastTime) {
       return false;
     }
     let littleAttacks = DataStore.getInstance().get('enemy');
@@ -30,13 +32,15 @@ export class LittleAttackScene extends Scene {
 
   update() {
     super.update();
-    this.construct();
+    if(this.delay<=this.seconds()){
+      this.construct();
+    }
   }
 
   construct() {
     let littleAttacks = DataStore.getInstance().get('enemy');
     let seconds = this.frame / 60;
-    if (seconds > 10) {
+    if (seconds > this.lastTime) {
       // do nothing
     } else {
       if (this.frame % 30 === 0) {

@@ -15,14 +15,15 @@ import {
 
 
 export class LittleAttack4Scene extends Scene {
-  constructor() {
+  constructor(delay=0) {
     super();
+    this.delay=delay
   }
 
   canRemove() {
     let seconds = this.frame / 60;
 
-    if (seconds < 10) {
+    if (seconds < 20) {
       return false;
     }
     let enemys = DataStore.getInstance().get('enemy');
@@ -35,15 +36,18 @@ export class LittleAttack4Scene extends Scene {
 
   update() {
     super.update();
-
+   
     let seconds = this.frame / 60;
-    let enemys = DataStore.getInstance().get('enemy'); 
-    const canvas = DataStore.getInstance().canvas;
-    if (this.frame % 20 === 0 && seconds < 10) {
-      let enemy1 = new LittleAttack4('littleAttack2','left');
-      let enemy2 = new LittleAttack4('littleAttack2', 'right');
-      enemys.push(enemy1);
-      enemys.push(enemy2);
+    if(this.delay<=seconds){
+      let enemys = DataStore.getInstance().get('enemy');
+      const canvas = DataStore.getInstance().canvas;
+      if (this.frame % 20 === 0 && seconds < 20) {
+        let enemy1 = new LittleAttack4('littleAttack2', 'left');
+        let enemy2 = new LittleAttack4('littleAttack2', 'right');
+        enemys.push(enemy1);
+        enemys.push(enemy2);
+    }
+
     }
 
   }

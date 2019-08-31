@@ -42,6 +42,10 @@ export class Director {
     // debugger;8
     let levelDirector;
     var level = this.dataStore.get('currentLevel')
+    if(level>8){
+      level=8;
+      this.dataStore.put('currentLevel', level);
+    }
     if (level === 1) {
        levelDirector = new FirstDirector();
     }

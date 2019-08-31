@@ -1,7 +1,7 @@
 import { Sprite } from '../../base/Sprite.js'
 import { DataStore } from '../../base/DataStore.js'
 import { RandomUtil } from "../../base/Util/RandomUtil";
-import { AngleEnemyBullet } from "../angleEnemyBullet";
+import { AngleEnemyBullet } from "../EnemyBullet/angleEnemyBullet";
 import { Animation } from "../../base/Animation";
 
 const MINSPEED = -10;

@@ -31,7 +31,7 @@ export class BossScene3 extends Scene {
       enemies.push(boss)
     }
 
-    if (this.frame % 20 === 0) {
+    if (this.frame % 30 === 0) {
       let _enemies = DataStore.getInstance().get('enemy');
       _enemies.forEach((item, index, array) => {
         if(item.type==='boss')

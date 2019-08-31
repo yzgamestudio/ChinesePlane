@@ -101,6 +101,9 @@ export class BaseSubDirector {
         window.cancelAnimationFrame(this.timer);
         let currentLevel = this.dataStore.get('currentLevel'); 
         currentLevel+=1;
+        if(currentLevel>8){
+          currentLevel=8;
+        }
         this.dataStore.put('currentLevel',currentLevel);
         //调用首页
         this.callback()

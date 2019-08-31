@@ -1,7 +1,5 @@
-// import  Sprite  from "../base/Sprite";
-// import  DataStore  from "../base/DataStore";
-import {Sprite} from "../base/Sprite";
-import {DataStore} from "../base/DataStore";
+import {Sprite} from "../../base/Sprite";
+import {DataStore} from "../../base/DataStore";
 
 
 export class BossBullet extends Sprite {

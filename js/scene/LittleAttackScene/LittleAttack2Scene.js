@@ -15,14 +15,16 @@ import {
 
 
 export class LittleAttack2Scene extends Scene {
-  constructor() {
+  constructor(delay=0,lastTime=0) {
     super();
+    this.delay=delay;
+    this.lastTime=lastTime
   }
 
   canRemove() {
     let seconds = this.frame / 60;
 
-    if (seconds < 10) {
+    if (seconds < this.lastTime) {
       return false;
     }
     let enemys = DataStore.getInstance().get('enemy');
@@ -35,14 +37,14 @@ export class LittleAttack2Scene extends Scene {
 
   update() {
     super.update();
-
-    let seconds = this.frame / 60;
-    let enemys = DataStore.getInstance().get('enemy');
-    if (this.frame % 30 === 0 && seconds < 10) {
-      let enemy = new LittleAttack2();
-      enemys.push(enemy);
+    if(this.delay<=this.seconds()){
+      let seconds = this.frame / 60;
+      let enemys = DataStore.getInstance().get('enemy');
+      if (this.frame % 30 === 0 && seconds < this.lastTime) {
+        let enemy = new LittleAttack2();
+        enemys.push(enemy);
+      }
     }
-
   }
 
 

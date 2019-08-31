@@ -15,10 +15,10 @@ import {
 } from "../player/smartBullet";
 import {
   AngleEnemyBullet
-} from "../npc/angleEnemyBullet";
+} from "../npc/EnemyBullet/angleEnemyBullet";
 import {
   SmartEnemyBullet
-} from "../npc/smartEnemyBullet";
+} from "../npc/EnemyBullet/smartEnemyBullet";
 import {
   AngleBullet
 } from "../player/angleBullet";

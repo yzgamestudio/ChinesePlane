@@ -15,10 +15,10 @@ import {
 } from "../player/smartBullet";
 import {
   AngleEnemyBullet
-} from "../npc/angleEnemyBullet";
+} from "../npc/EnemyBullet/angleEnemyBullet";
 import {
   SmartEnemyBullet
-} from "../npc/smartEnemyBullet";
+} from "../npc/EnemyBullet/smartEnemyBullet";
 import {
   AngleBullet
 } from "../player/angleBullet";
@@ -100,7 +100,11 @@ export class SevenDirector extends BaseSubDirector {
     level1Scene4.addScene(new SpaceshipScene5)
     this.sceneQueue.addScene(level1Scene4)
     this.sceneQueue.addScene(new BossComingLogoScene)
-    this.sceneQueue.addScene(new BossScene7)
+    let level1Scene5 = new ComposeScene()
+    level1Scene5.addScene(new BossScene7)
+    level1Scene5.addScene(new LittleAttack5Scene(4))
+    level1Scene5.addScene(new LittleAttack4Scene(10))
+    this.sceneQueue.addScene(level1Scene5)
     this.sceneQueue.addScene(new VictoryLogoScene)
     return this;
   }

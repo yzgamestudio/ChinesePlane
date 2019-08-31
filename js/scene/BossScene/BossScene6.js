@@ -1,7 +1,8 @@
 import { Scene } from "../../base/Scene";
 import { DataStore } from "../../base/DataStore";
-import { Boss } from "../../npc/Boss/Boss";
-
+import { Boss5 } from "../../npc/Boss/Boss5";
+import { RandomUtil } from "../../base/Util/RandomUtil";
+import { FollowPlane } from "../../npc/FollowPlane/FollowPlane";
 
 export class BossScene6 extends Scene {
   constructor(imgName = 'boss6',bulletNum=3,bossNum=1) {
@@ -26,18 +27,28 @@ export class BossScene6 extends Scene {
     super.update();
     if(this.bossNum>0){
       this.bossNum--;
-      let boss = new Boss(this.imgName);
+      let boss = new Boss5(this.imgName);
       let enemies = DataStore.getInstance().get('enemy');
       enemies.push(boss)
     }
 
-    if (this.frame % 20 === 0) {
+    if (this.frame % 30 === 0) {
       let _enemies = DataStore.getInstance().get('enemy');
       _enemies.forEach((item, index, array) => {
-        item.shoot(this.bulletNum);
+        if (item.type === 'boss') {
+          item.shoot(this.bulletNum);
+        }
       })
     }
     
+    if (this.seconds() % 5 === 0) {
+      let _enemies = DataStore.getInstance().get('enemy');
+      _enemies.forEach((item, index, array) => {
+        var random = RandomUtil.randomInt(1, 3.9);
+        var followplane = 'followplane' + random;
+        _enemies.push(new FollowPlane(item.x + item.width / 2, item.y + item.height / 2, followplane))
+      })
+    }
   }
 
 

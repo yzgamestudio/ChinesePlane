@@ -1,13 +1,14 @@
 import { Sprite } from '../../base/Sprite.js'
 import { DataStore } from '../../base/DataStore.js'
 import { RandomUtil } from "../../base/Util/RandomUtil";
-import { BossBullet } from "../EnemyBullet/BossBullet.js";
+import { AngleEnemyBullet } from "../EnemyBullet/angleEnemyBullet";
 import { Animation } from "../../base/Animation";
-
+import { BossBullet } from "../EnemyBullet/BossBullet.js";
+import { FlowerBossBullet} from "../EnemyBullet/FlowerBossBullet"
 const MINSPEED = -10;
 const MAXSPEED = 10;
 
-export class Boss extends Animation {
+export class Boss4 extends Animation {
   constructor(imgname = 'boss1',blood=20) {
     const image = Sprite.getImage(imgname); // 获取图片
     const canvas = GameGlobal.canvas;
@@ -24,10 +25,11 @@ export class Boss extends Animation {
     this.fullBlood=blood;
     this.xSpeed = 2;
     this.type='boss'
+    this.num=0;
   }
 
   draw() {
-
+    
     this.y = this.y + GameGlobal.fit(10);
     if (this.y > GameGlobal.fit(50)) {
       this.y = GameGlobal.fit(50);
@@ -46,8 +48,7 @@ export class Boss extends Animation {
     super.draw();
   }
 
-
-  shoot(number = 3) {
+  shoot(number = 7) {
     let enemyBullets =  DataStore.getInstance().get('enemyBullets');
 
     if (number >= 1) {
@@ -81,6 +82,21 @@ export class Boss extends Animation {
       let bossBullet = new BossBullet(this.x + this.width * 0.5 - GameGlobal.fit(10) - GameGlobal.fit(60), this.y + this.height - GameGlobal.fit(40));
       enemyBullets.push(bossBullet);
     }
+
+    enemyBullets.push(new FlowerBossBullet(30, 5, this.x + this.width * 0.5, this.y + this.height - GameGlobal.fit(40)));
+    enemyBullets.push(new FlowerBossBullet(60, 5, this.x + this.width * 0.5, this.y + this.height - GameGlobal.fit(40)));
+    enemyBullets.push(new FlowerBossBullet(90, 5, this.x + this.width * 0.5, this.y + this.height - GameGlobal.fit(40)));
+    enemyBullets.push(new FlowerBossBullet(120, 5, this.x + this.width * 0.5, this.y + this.height - GameGlobal.fit(40)));
+    enemyBullets.push(new FlowerBossBullet(150, 5, this.x + this.width * 0.5, this.y + this.height - GameGlobal.fit(40)));
+    enemyBullets.push(new FlowerBossBullet(180, 5, this.x + this.width * 0.5, this.y + this.height - GameGlobal.fit(40)));
+    enemyBullets.push(new FlowerBossBullet(210, 5, this.x + this.width * 0.5, this.y + this.height - GameGlobal.fit(40)));
+    enemyBullets.push(new FlowerBossBullet(240, 5, this.x + this.width * 0.5, this.y + this.height - GameGlobal.fit(40)));
+    enemyBullets.push(new FlowerBossBullet(270, 5, this.x + this.width * 0.5, this.y + this.height - GameGlobal.fit(40)));
+    enemyBullets.push(new FlowerBossBullet(300, 5, this.x + this.width * 0.5, this.y + this.height - GameGlobal.fit(40)));
+    enemyBullets.push(new FlowerBossBullet(330, 5, this.x + this.width * 0.5, this.y + this.height - GameGlobal.fit(40)));
+    enemyBullets.push(new FlowerBossBullet(360, 5, this.x + this.width * 0.5, this.y + this.height - GameGlobal.fit(40)));
+
+
 
   }
 

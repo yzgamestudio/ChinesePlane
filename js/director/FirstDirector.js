@@ -15,10 +15,10 @@ import {
 } from "../player/smartBullet";
 import {
 	AngleEnemyBullet
-} from "../npc/angleEnemyBullet";
+} from "../npc/EnemyBullet/angleEnemyBullet";
 import {
 	SmartEnemyBullet
-} from "../npc/smartEnemyBullet";
+} from "../npc/EnemyBullet/smartEnemyBullet";
 import {
 	AngleBullet
 } from "../player/angleBullet";
@@ -75,16 +75,16 @@ export class FirstDirector extends BaseSubDirector {
     super.setupSprits();
     const canvas = DataStore.getInstance().canvas;
     this.sceneQueue = new SceneQueue();
-    //this.sceneQueue.addScene(new FollowPlaneScene3)
-    //this.sceneQueue.addScene(new SpaceshipScene5)
+    this.sceneQueue.addScene(new FollowPlaneScene3)
+    this.sceneQueue.addScene(new SpaceshipScene5)
     let level1Scene0 = new ComposeScene()
     level1Scene0.addScene(new  UFO7Scene())
     level1Scene0.addScene(new  UFO5Scene(false, canvas.width+200))
-    //this.sceneQueue.addScene(level1Scene0)
+    this.sceneQueue.addScene(level1Scene0)
 
 
-    //this.sceneQueue.addScene(new LittleAttackScene)
-    //this.sceneQueue.addScene(new LittleAttack2Scene)
+    this.sceneQueue.addScene(new LittleAttackScene)
+    this.sceneQueue.addScene(new LittleAttack2Scene)
     let level1Scene1=new ComposeScene()
     level1Scene1.addScene(new LittleAttackScene)
     level1Scene1.addScene(new LittleAttack3Scene) 
@@ -94,12 +94,12 @@ export class FirstDirector extends BaseSubDirector {
     let level1Scene2=new ComposeScene()
     level1Scene2.addScene(new UFO2Scene)
     level1Scene2.addScene(new StoneScene2)
-    //this.sceneQueue.addScene(level1Scene2)
+    this.sceneQueue.addScene(level1Scene2)
     let level1Scene3 = new ComposeScene()
     level1Scene3.addScene(new UFO2Scene)
     level1Scene3.addScene(new ToolScene)    
     level1Scene3.addScene(new SpaceshipScene4)
-    //this.sceneQueue.addScene(level1Scene3)
+    this.sceneQueue.addScene(level1Scene3)
    
     this.sceneQueue.addScene(new BossComingLogoScene)
     this.sceneQueue.addScene(new BossScene)

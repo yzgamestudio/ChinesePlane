@@ -1,5 +1,5 @@
-import { Sprite } from "../base/Sprite";
-import { DataStore } from "../base/DataStore";
+import { Sprite } from "../../base/Sprite";
+import { DataStore } from "../../base/DataStore";
 export class AngleEnemyBullet extends Sprite {
   constructor(spritex, spritey, spriteHeight, spriteWidth, angle = 90, time = 0, imgname = 'enemyBullet2') {
     const img = Sprite.getImage(imgname);
