@@ -8,7 +8,7 @@ import { Sprite } from "../../base/Sprite";
 import { DataStore } from '../../base/DataStore.js'
 import { Animation } from "../../base/Animation";
 import { RandomUtil } from "../../base/Util/RandomUtil";
-import { SmartEnemyBullet } from "../smartEnemyBullet.js";
+import { SmartEnemyBullet } from "../EnemyBullet/smartEnemyBullet.js";
 export class UFO4 extends Animation {
   constructor(x = 0, y = 0, target_x = 0, target_y = 0, imgname = 'UFO1') {
     const image = Sprite.getImage(imgname); // 获取图片

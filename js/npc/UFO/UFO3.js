@@ -10,7 +10,7 @@ import { Sprite } from '../../base/Sprite.js'
 import { DataStore } from '../../base/DataStore.js'
 import { RandomUtil } from "../../base/Util/RandomUtil";
 import { Animation } from "../../base/Animation";
-import { SmartEnemyBullet } from "../smartEnemyBullet.js";
+import { SmartEnemyBullet } from "../EnemyBullet/smartEnemyBullet";
 export class UFO3 extends Animation {
   constructor(x,y,circleDotX,circleDotY=0
   ,long=500,clock=true,imgName = 'UFO2', blood = 5) {
