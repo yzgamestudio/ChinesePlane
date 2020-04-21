@@ -1,15 +1,13 @@
 // 资源文件加载器 确认canvas图片资源加载后才进行渲染
 
 import {
-  Resources, ChineseResources,HDImageResources,UDImageResources
+  HDImageResources
 } from './Resources.js'
-
 
 export class ResourceLoader {
 
   constructor() {
     this.readImage();
-    this.readZiKu();
   }
 
   static create() {
@@ -20,26 +18,10 @@ export class ResourceLoader {
     this.callback = callback;
   }
 
-  readZiKu() {
-    let fileManager = wx.getFileSystemManager();
-    let that = this;
-    let params = {
-      filePath: ChineseResources.ziku,
-      encoding: 'utf8',
-      complete: function(res) {
-        that.ziku = res.data;
-        // console.log(res);
-        that.judgeCallBack();
-      }
-    }
-    fileManager.readFile(
-      params
-    );
-  }
 
   readImage() {
 
-    let imageResources = GameGlobal.dpr >= 2.5 ? UDImageResources : HDImageResources;
+    let imageResources = HDImageResources ;
 
     this.map = new Map(imageResources);
     for (let [key, value] of this.map) {
@@ -59,8 +41,8 @@ export class ResourceLoader {
 
   judgeCallBack() {
 
-    if(this.loadedImageCount >= this.map.size && this.ziku) {
-      this.callback(this.map, this.ziku);
+    if(this.loadedImageCount >= this.map.size) {
+      this.callback(this.map);
     }
   }
 

@@ -376,11 +376,9 @@ export class BaseSubDirector {
     gameOver.draw();
     gameOver.onClicked((select) => {
       if(select===1){//返回首页
-        let _player = DataStore.getInstance().get('player');
-        //关掉玩家飞机监听move事件
-        _player.stopPlayerMoveListening()
         //销毁数据
         this.dataStore.destory();
+
         //调用首页
         this.callback()
       }else if(select===2){//继续游戏
@@ -396,6 +394,7 @@ export class BaseSubDirector {
         player.height = img.height;
         player.shield = true;
         player.countShield = 300;
+        player.startPlayerMoveListening()
         this.run();
       } else if(select===3){//重新开始
         this.restart()
@@ -405,9 +404,7 @@ export class BaseSubDirector {
   }
 
   restart() {
-    window.cancelAnimationFrame(this.timer);
-
-    //this.dataStore.destory();
+    this.dataStore.destory();
     this.setupSprits();
     this.run();
   }

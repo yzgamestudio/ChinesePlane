@@ -12,7 +12,7 @@ import { RandomUtil } from "../../base/Util/RandomUtil";
 import { Animation } from "../../base/Animation";
 import { SmartEnemyBullet } from "../EnemyBullet/smartEnemyBullet.js";
 export class UFO2 extends Animation {
-  constructor(imgName = 'UFO2', blood = 5) {
+  constructor(imgName = 'UFO2', blood = 2) {
     const image = Sprite.getImage(imgName); // 获取图片
     const canvas = GameGlobal.canvas;
     const y = -image.height; // 所有敌机都是在刚离屏的位置Y

@@ -69,12 +69,12 @@ export class LevelSelect {
   drawLevel() {
     // 如何绘制文本
     const canvas = DataStore.getInstance().canvas;
-    this.ctx.font = "60px Georgia";
+    this.ctx.font = "30px Georgia";
     this.ctx.fillStyle = "#ffffff";
     var level = DataStore.getInstance().get('currentLevel')
-    this.ctx.fillText("第"+level+"关", canvas.width * 0.5 - 75, canvas.height * 0.6);
-    this.ctx.font = "45px Georgia";
-    this.ctx.fillText("滑屏开始冒险", canvas.width * 0.5 - 135, canvas.height * 0.9);
+    this.ctx.fillText("第"+level+"关", canvas.width * 0.5 - 37.5, canvas.height * 0.6);
+    this.ctx.font = "20px Georgia";
+    this.ctx.fillText("滑屏开始冒险", canvas.width * 0.5 - 60, canvas.height * 0.95);
   }
 
   //开启玩家开始游戏动作监听

@@ -25,9 +25,12 @@ export class DataStore {
   }
 
   destory(){
-    for(let value of this.map.values()) {
-      value = null;
-    }
+    //for(let value of this.map.values()) {
+    //  value = null;
+    //}
+    var level = this.map.get('currentLevel');
+    this.map.clear();
+    this.map.set('currentLevel', level);
     wx.triggerGC();
   }
 

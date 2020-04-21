@@ -24,8 +24,8 @@ export class Player extends Sprite {
     let that = this; //  is not function bug fix
     this.callbackTouchStart = function(e) {
       let touch = e.changedTouches[0];
-      var x = touch.clientX * that.dpr;
-      var y = touch.clientY * that.dpr;
+      var x = touch.clientX;
+      var y = touch.clientY;
       if (that.checkIsFingerOnAir(x, y)) {
         that.touch = true; // 标记手指按下的飞机
       } else {
@@ -34,8 +34,8 @@ export class Player extends Sprite {
     }
     this.callbackTouchMove = function(e) {
       let touch = e.changedTouches[0];
-      var x = touch.clientX * that.dpr;
-      var y = touch.clientY * that.dpr;
+      var x = touch.clientX ;
+      var y = touch.clientY ;
       if (that.touch) {
         that.moveAirOnPostion(x, y); // 移动到指定位置
       }
@@ -44,9 +44,7 @@ export class Player extends Sprite {
       that.touch = false; // 离开时标记为touch = false
     }
     //开启player移动监听
-    wx.onTouchStart(this.callbackTouchStart);
-    wx.onTouchMove(this.callbackTouchMove)
-    wx.onTouchEnd(this.callbackTouchEnd)
+    this.startPlayerMoveListening()
     this.bulletNum = bulletNum;
     this.bulletImg = bulletImg;
     //子弹增强倒计时
@@ -63,6 +61,12 @@ export class Player extends Sprite {
     wx.offTouchEnd(this.callbackTouchEnd)
   }
 
+  startPlayerMoveListening() {
+    //开启player移动监听
+    wx.onTouchStart(this.callbackTouchStart);
+    wx.onTouchMove(this.callbackTouchMove)
+    wx.onTouchEnd(this.callbackTouchEnd)
+  }
 
 
   draw() {

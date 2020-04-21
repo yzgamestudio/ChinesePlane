@@ -22,34 +22,20 @@ export class Main {
         this.canvas.height = GameGlobal.fit(this.canvas.height);
         this.canvas.width = GameGlobal.fit(this.canvas.width);
         const loader = ResourceLoader.create();
-        loader.onLoaded((map, ziku) => this.onResourceFirstLoaded(map, ziku));
+        loader.onLoaded((map) => this.onResourceFirstLoaded(map));
         Music.getInstance().playBGM();
 
     }
 
     // 所有资源加载完毕后才能渲染
-    onResourceFirstLoaded(map, ziku) {
+    onResourceFirstLoaded(map) {
         // 将画笔和画布放在dataStore方便精灵使用
         // debugger;
         DataStore.getInstance().systeminfo = this.res;
+        DataStore.getInstance().systeminfo.pixelRatio = 1;
         DataStore.getInstance().res = map;
         DataStore.getInstance().canvas = this.canvas;
         DataStore.getInstance().ctx = this.canvas.getContext('2d');
-        let object = JSON.parse(ziku);
-        DataStore.getInstance().ziku = object;
-
-        for(let key  in object) {
-            let item = object.key;
-            if(Array.isArray(item)){
-
-            }
-            else if(typeof item === "object") {
-
-            }
-            else {
-
-            }
-        }
         this.director = new Director;
     }
 
@@ -57,12 +43,12 @@ export class Main {
         /**
          * 挂载全局的分辨率和适配分辨率的方法，其他类不用引用dataStore直接进行适配,而且不用暴露实现细节，方便后期修改
          */
-        GameGlobal.dpr = wx.getSystemInfoSync().pixelRatio;
+        GameGlobal.dpr = 1;
         GameGlobal.fit = function (x) {
-            return GameGlobal.dpr * x;
+            return x;
         }
         
-        GameGlobal.canvas = wx.createCanvas();
+        //GameGlobal.canvas = wx.createCanvas();
         /**
          *
          * @param x 水平位置

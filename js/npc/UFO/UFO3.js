@@ -13,7 +13,7 @@ import { Animation } from "../../base/Animation";
 import { SmartEnemyBullet } from "../EnemyBullet/smartEnemyBullet";
 export class UFO3 extends Animation {
   constructor(x,y,circleDotX,circleDotY=0
-  ,long=500,clock=true,imgName = 'UFO2', blood = 5) {
+  ,long=500,clock=true,imgName = 'UFO2', blood = 2) {
     const image = Sprite.getImage(imgName); // 获取图片
     const canvas = GameGlobal.canvas;
     super(image,

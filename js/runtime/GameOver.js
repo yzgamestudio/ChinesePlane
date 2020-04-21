@@ -62,11 +62,11 @@ export class GameOver {
       var y = touch.clientY * that.dpr;
       var select = 0;
       if (x > (that.canvas.width * 0.5 - 60) && x < (that.canvas.width * 0.5 + 60)) {
-        if ((y > (that.canvas.height * 0.8 - 135)) && (y < (that.canvas.height * 0.8 - 75))) {
+        if ((y > (that.canvas.height * 0.8 - 135)) && (y < (that.canvas.height * 0.8 - 105))) {
           select = 1;
-        } else if ((y > (that.canvas.height * 0.8 - 75)) && (y < (that.canvas.height * 0.8 - 15))) {
+        } else if ((y > (that.canvas.height * 0.8 - 90)) && (y < (that.canvas.height * 0.8 - 60))) {
           select = 2;
-        } else if ((y > (that.canvas.height * 0.8 - 15)) && (y < (that.canvas.height * 0.8 + 45))) {
+        } else if ((y > (that.canvas.height * 0.8-30)) && (y < (that.canvas.height * 0.8))) {
           select = 3;
         }
       }

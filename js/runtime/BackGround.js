@@ -1,12 +1,13 @@
 import {Sprite} from '../base/Sprite.js'
 import { DataStore } from '../base/DataStore.js'
+const res = wx.getSystemInfoSync();
 // 开始类
 export class BackGround extends Sprite{
   constructor() {
     const image1 = Sprite.getImage('background1');
     super(image1,
       0, 0, image1.width, image1.height,
-      0, -DataStore.getInstance().canvas.height, DataStore.getInstance().canvas.width, DataStore.getInstance().canvas.height);
+      0, -DataStore.getInstance().canvas.height, res.windowWidth, res.windowHeight);
       this.top=0
       this.index=0;
 
@@ -19,7 +20,7 @@ export class BackGround extends Sprite{
   }
   draw(){
     const canvas = DataStore.getInstance().canvas;
-    this.top += 1 * GameGlobal.dpr;
+    this.top += 1 ;
     if (this.top > canvas.height) {
       this.top = 0;
       this.index++;
