@@ -46,6 +46,8 @@ export class BaseSubDirector {
       _player.x = canvas.width * 0.5 - img.width * 0.5;
       _player.y = canvas.height - img.height - 100;
       _player.blood=_player.fullBlood;
+      //开启player移动监听
+      _player.startPlayerMoveListening();
     }
 
     let playerBullets = [];

@@ -91,8 +91,6 @@ export class SecondDirector extends BaseSubDirector {
 
     drawSprites() {
       super.drawSprites();
-
-
       this.sceneQueue.updateScene();
 
     }
