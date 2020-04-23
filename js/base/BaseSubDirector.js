@@ -220,12 +220,12 @@ export class BaseSubDirector {
     })
     
     _enemies.forEach((item, index, array) => {
-      if (item.blood === 0 && item._animationIndex===-1 ){
+      if (item.blood <= 0 && item._animationIndex===-1 ){
         item._isPlayAnimation =true;
         Music.getInstance().playExplosion()
       }
       let isOffScreen = GameGlobal.isOffScreen(item.x, item.y, item.width, item.height * 3);
-      if (isOffScreen || (item.blood === 0 && item._isPlayAnimation ===false)){
+      if (isOffScreen || (item.blood <= 0 && item._isPlayAnimation ===false)){
         array.splice(index, 1) 
       }
 

@@ -79,7 +79,7 @@ export class FirstDirector extends BaseSubDirector {
     this.sceneQueue.addScene(new SpaceshipScene5)
     let level1Scene0 = new ComposeScene()
     level1Scene0.addScene(new  UFO7Scene())
-    level1Scene0.addScene(new  UFO5Scene(false, canvas.width+200))
+    level1Scene0.addScene(new  UFO5Scene(false, canvas.width))
     this.sceneQueue.addScene(level1Scene0)
 
 

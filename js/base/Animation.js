@@ -58,7 +58,7 @@ export class Animation extends Sprite {
 	    if(this._animationIndex >= this._imageList.length) {
 	        clearInterval(this._timer);
 			this._isPlayAnimation = false;
-      this.isVisible = false;
+            this.isVisible = false;
 			this._animationIndex = -1;
         }
       this._drawAnimation()

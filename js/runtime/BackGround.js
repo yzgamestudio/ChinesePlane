@@ -21,7 +21,7 @@ export class BackGround extends Sprite{
   draw(){
     const canvas = DataStore.getInstance().canvas;
     this.top += 1 ;
-    if (this.top > canvas.height) {
+    if (this.top >= canvas.height) {
       this.top = 0;
       this.index++;
       if(this.index===3){
